@@ -2,7 +2,7 @@
   "meta": {
     "id": "bp_048",
     "name": "bp_048",
-    "style": "castle",
+    "style": "medieval",
     "world_origin": [
       174,
       4,
@@ -20,7 +20,7 @@
       "minecraft:dirt": 83,
       "minecraft:grass_block": 65,
       "minecraft:cobblestone_wall": 12,
-      "minecraft:button": 39,
+      "minecraft:stone_button": 30,
       "minecraft:oak_fence": 10,
       "minecraft:cobblestone_stairs": 20,
       "minecraft:mossy_cobblestone": 10,
@@ -29,6 +29,7 @@
       "minecraft:stone_brick_stairs": 36,
       "minecraft:smooth_stone_slab": 27,
       "minecraft:stone_bricks": 4,
+      "minecraft:oak_button": 9,
       "minecraft:wall_torch": 9,
       "minecraft:cobblestone": 10,
       "minecraft:mossy_stone_bricks": 5,

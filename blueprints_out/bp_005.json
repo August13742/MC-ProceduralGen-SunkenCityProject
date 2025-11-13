@@ -11060,7 +11060,6 @@
       "dz": 11,
       "id": "minecraft:anvil",
       "props": {
-        "damage": "normal",
         "facing": "west"
       }
     },
@@ -15338,7 +15337,6 @@
       "dz": 11,
       "id": "minecraft:anvil",
       "props": {
-        "damage": "normal",
         "facing": "west"
       }
     },

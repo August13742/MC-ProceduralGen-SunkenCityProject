@@ -2,7 +2,7 @@
   "meta": {
     "id": "bp_067",
     "name": "bp_067",
-    "style": "castle",
+    "style": "medieval",
     "world_origin": [
       273,
       4,
@@ -26,7 +26,7 @@
       "minecraft:cobblestone_slab": 3,
       "minecraft:oak_log": 3,
       "minecraft:stone_brick_stairs": 2,
-      "minecraft:button": 4,
+      "minecraft:stone_button": 4,
       "minecraft:stone_bricks": 2,
       "minecraft:mossy_cobblestone_wall": 1
     },

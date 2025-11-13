@@ -2,7 +2,7 @@
   "meta": {
     "id": "bp_047",
     "name": "bp_047",
-    "style": "castle",
+    "style": "medieval",
     "world_origin": [
       172,
       4,
@@ -19,7 +19,8 @@
     "block_counts": {
       "minecraft:dirt": 495,
       "minecraft:grass_block": 322,
-      "minecraft:button": 86,
+      "minecraft:stone_button": 41,
+      "minecraft:oak_button": 45,
       "minecraft:cobblestone_stairs": 417,
       "minecraft:cobblestone": 221,
       "minecraft:cobblestone_slab": 82,
@@ -37,7 +38,7 @@
       "minecraft:stone_brick_slab": 32,
       "minecraft:spruce_planks": 521,
       "minecraft:oak_planks": 174,
-      "minecraft:brick_block": 141,
+      "minecraft:bricks": 141,
       "minecraft:spruce_stairs": 61,
       "minecraft:pink_wool": 592,
       "minecraft:gravel": 128,
@@ -47,7 +48,7 @@
       "minecraft:chiseled_stone_bricks": 20,
       "minecraft:redstone_wire": 8,
       "minecraft:dispenser": 2,
-      "minecraft:head": 4,
+      "minecraft:skeleton_skull": 4,
       "minecraft:piston": 10,
       "minecraft:magenta_wool": 5,
       "minecraft:brick_stairs": 120,
@@ -304,9 +305,8 @@
       "dx": 0,
       "dy": 17,
       "dz": 3,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "west",
         "powered": "false"
@@ -316,9 +316,8 @@
       "dx": 0,
       "dy": 17,
       "dz": 7,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "west",
         "powered": "false"
@@ -328,9 +327,8 @@
       "dx": 0,
       "dy": 17,
       "dz": 11,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "west",
         "powered": "false"
@@ -580,9 +578,8 @@
       "dx": 1,
       "dy": 14,
       "dz": 3,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "west",
         "powered": "false"
@@ -592,9 +589,8 @@
       "dx": 1,
       "dy": 14,
       "dz": 7,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "west",
         "powered": "false"
@@ -604,9 +600,8 @@
       "dx": 1,
       "dy": 14,
       "dz": 11,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "west",
         "powered": "false"
@@ -1438,9 +1433,8 @@
       "dx": 2,
       "dy": 7,
       "dz": 5,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "west",
         "powered": "false"
@@ -1462,9 +1456,8 @@
       "dx": 2,
       "dy": 7,
       "dz": 9,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "west",
         "powered": "false"
@@ -2736,21 +2729,21 @@
       "dx": 3,
       "dy": 5,
       "dz": 4,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 3,
       "dy": 5,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 3,
       "dy": 5,
       "dz": 6,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -2766,21 +2759,21 @@
       "dx": 3,
       "dy": 5,
       "dz": 8,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 3,
       "dy": 5,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 3,
       "dy": 5,
       "dz": 10,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -3571,9 +3564,8 @@
       "dx": 3,
       "dy": 14,
       "dz": 1,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -3626,9 +3618,8 @@
       "dx": 3,
       "dy": 14,
       "dz": 13,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -3858,9 +3849,8 @@
       "dx": 3,
       "dy": 17,
       "dz": 0,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -3965,9 +3955,8 @@
       "dx": 3,
       "dy": 17,
       "dz": 14,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -4362,7 +4351,7 @@
       "dx": 4,
       "dy": 5,
       "dz": 3,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -4418,7 +4407,7 @@
       "dx": 4,
       "dy": 5,
       "dz": 11,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -5416,7 +5405,7 @@
       "dx": 5,
       "dy": 5,
       "dz": 3,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -5472,7 +5461,7 @@
       "dx": 5,
       "dy": 5,
       "dz": 11,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -5528,9 +5517,8 @@
       "dx": 5,
       "dy": 7,
       "dz": 2,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -5554,9 +5542,8 @@
       "dx": 5,
       "dy": 7,
       "dz": 12,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -6440,7 +6427,7 @@
       "dx": 6,
       "dy": 5,
       "dz": 3,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -6496,7 +6483,7 @@
       "dx": 6,
       "dy": 5,
       "dz": 11,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -8178,9 +8165,8 @@
       "dx": 7,
       "dy": 14,
       "dz": 1,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -8235,9 +8221,8 @@
       "dx": 7,
       "dy": 14,
       "dz": 13,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -8453,9 +8438,8 @@
       "dx": 7,
       "dy": 17,
       "dz": 0,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -8560,9 +8544,8 @@
       "dx": 7,
       "dy": 17,
       "dz": 14,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -8948,7 +8931,7 @@
       "dx": 8,
       "dy": 5,
       "dz": 3,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -9004,7 +8987,7 @@
       "dx": 8,
       "dy": 5,
       "dz": 11,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -9926,7 +9909,7 @@
       "dx": 9,
       "dy": 5,
       "dz": 3,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -9982,7 +9965,7 @@
       "dx": 9,
       "dy": 5,
       "dz": 11,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -10038,9 +10021,8 @@
       "dx": 9,
       "dy": 7,
       "dz": 2,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -10064,9 +10046,8 @@
       "dx": 9,
       "dy": 7,
       "dz": 12,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -10948,7 +10929,7 @@
       "dx": 10,
       "dy": 5,
       "dz": 3,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -11004,7 +10985,7 @@
       "dx": 10,
       "dy": 5,
       "dz": 11,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -12105,7 +12086,7 @@
       "dx": 11,
       "dy": 5,
       "dz": 4,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -12151,7 +12132,7 @@
       "dx": 11,
       "dy": 5,
       "dz": 10,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -12730,9 +12711,8 @@
       "dx": 11,
       "dy": 14,
       "dz": 1,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -12774,9 +12754,8 @@
       "dx": 11,
       "dy": 14,
       "dz": 13,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -12992,9 +12971,8 @@
       "dx": 11,
       "dy": 17,
       "dz": 0,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -13099,9 +13077,8 @@
       "dx": 11,
       "dy": 17,
       "dz": 14,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -13720,14 +13697,14 @@
       "dx": 12,
       "dy": 9,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 12,
       "dy": 9,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -14748,9 +14725,8 @@
       "dx": 13,
       "dy": 8,
       "dz": 4,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -14792,9 +14768,8 @@
       "dx": 13,
       "dy": 8,
       "dz": 10,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -14813,14 +14788,14 @@
       "dx": 13,
       "dy": 9,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 13,
       "dy": 9,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -14986,9 +14961,8 @@
       "dx": 13,
       "dy": 14,
       "dz": 3,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -15120,9 +15094,8 @@
       "dx": 13,
       "dy": 17,
       "dz": 2,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -15239,9 +15212,8 @@
       "dx": 13,
       "dy": 18,
       "dz": 12,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -15690,14 +15662,14 @@
       "dx": 14,
       "dy": 9,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 14,
       "dy": 9,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -16384,9 +16356,8 @@
       "dx": 15,
       "dy": 4,
       "dz": 4,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -16431,9 +16402,8 @@
       "dx": 15,
       "dy": 4,
       "dz": 10,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -16592,7 +16562,7 @@
       "dx": 15,
       "dy": 9,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -16626,7 +16596,7 @@
       "dx": 15,
       "dy": 9,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -16746,9 +16716,8 @@
       "dx": 15,
       "dy": 12,
       "dz": 3,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -16802,9 +16771,8 @@
       "dx": 15,
       "dy": 12,
       "dz": 11,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -17034,9 +17002,8 @@
       "dx": 15,
       "dy": 17,
       "dz": 2,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -17113,9 +17080,8 @@
       "dx": 15,
       "dy": 17,
       "dz": 12,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -17735,35 +17701,35 @@
       "dx": 16,
       "dy": 9,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 16,
       "dy": 9,
       "dz": 6,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 16,
       "dy": 9,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 16,
       "dy": 9,
       "dz": 8,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 16,
       "dy": 9,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -18187,12 +18153,9 @@
       "dx": 16,
       "dy": 21,
       "dz": 3,
-      "id": "minecraft:head",
+      "id": "minecraft:skeleton_skull",
       "props": {
-        "mob": "player",
-        "rotation": "15",
-        "no_drop": "false",
-        "powered": "false"
+        "rotation": "15"
       }
     },
     {
@@ -18560,7 +18523,7 @@
       "dx": 17,
       "dy": 9,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -18579,7 +18542,7 @@
       "dx": 17,
       "dy": 9,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -18596,7 +18559,7 @@
       "dx": 17,
       "dy": 9,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -18751,9 +18714,8 @@
       "dx": 17,
       "dy": 14,
       "dz": 3,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -18777,9 +18739,8 @@
       "dx": 17,
       "dy": 14,
       "dz": 11,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -19343,7 +19304,7 @@
       "dx": 18,
       "dy": 9,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -19362,7 +19323,7 @@
       "dx": 18,
       "dy": 9,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -19379,7 +19340,7 @@
       "dx": 18,
       "dy": 9,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -19804,12 +19765,9 @@
       "dx": 18,
       "dy": 22,
       "dz": 3,
-      "id": "minecraft:head",
+      "id": "minecraft:skeleton_skull",
       "props": {
-        "mob": "player",
-        "rotation": "1",
-        "no_drop": "false",
-        "powered": "false"
+        "rotation": "1"
       }
     },
     {
@@ -20176,7 +20134,7 @@
       "dx": 19,
       "dy": 9,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -20195,7 +20153,7 @@
       "dx": 19,
       "dy": 9,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -20212,7 +20170,7 @@
       "dx": 19,
       "dy": 9,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -20325,9 +20283,8 @@
       "dx": 19,
       "dy": 12,
       "dz": 3,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -20381,9 +20338,8 @@
       "dx": 19,
       "dy": 12,
       "dz": 11,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -20613,9 +20569,8 @@
       "dx": 19,
       "dy": 17,
       "dz": 2,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -20692,9 +20647,8 @@
       "dx": 19,
       "dy": 17,
       "dz": 12,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -21137,7 +21091,7 @@
       "dx": 20,
       "dy": 9,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -21156,7 +21110,7 @@
       "dx": 20,
       "dy": 9,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -21173,7 +21127,7 @@
       "dx": 20,
       "dy": 9,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -21574,12 +21528,9 @@
       "dx": 20,
       "dy": 20,
       "dz": 3,
-      "id": "minecraft:head",
+      "id": "minecraft:skeleton_skull",
       "props": {
-        "mob": "player",
-        "rotation": "1",
-        "no_drop": "false",
-        "powered": "false"
+        "rotation": "1"
       }
     },
     {
@@ -21947,7 +21898,7 @@
       "dx": 21,
       "dy": 9,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -21966,7 +21917,7 @@
       "dx": 21,
       "dy": 9,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -21983,7 +21934,7 @@
       "dx": 21,
       "dy": 9,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -22138,9 +22089,8 @@
       "dx": 21,
       "dy": 14,
       "dz": 3,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -22164,9 +22114,8 @@
       "dx": 21,
       "dy": 14,
       "dz": 11,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -22894,35 +22843,35 @@
       "dx": 22,
       "dy": 9,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 22,
       "dy": 9,
       "dz": 6,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 22,
       "dy": 9,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 22,
       "dy": 9,
       "dz": 8,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 22,
       "dy": 9,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -23346,12 +23295,9 @@
       "dx": 22,
       "dy": 21,
       "dz": 3,
-      "id": "minecraft:head",
+      "id": "minecraft:skeleton_skull",
       "props": {
-        "mob": "player",
-        "rotation": "15",
-        "no_drop": "false",
-        "powered": "false"
+        "rotation": "15"
       }
     },
     {
@@ -23627,9 +23573,8 @@
       "dx": 23,
       "dy": 4,
       "dz": 4,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -23674,9 +23619,8 @@
       "dx": 23,
       "dy": 4,
       "dz": 10,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -23835,7 +23779,7 @@
       "dx": 23,
       "dy": 9,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -23869,7 +23813,7 @@
       "dx": 23,
       "dy": 9,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -23989,9 +23933,8 @@
       "dx": 23,
       "dy": 12,
       "dz": 3,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -24045,9 +23988,8 @@
       "dx": 23,
       "dy": 12,
       "dz": 11,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -24277,9 +24219,8 @@
       "dx": 23,
       "dy": 17,
       "dz": 2,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -24356,9 +24297,8 @@
       "dx": 23,
       "dy": 17,
       "dz": 12,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -24860,14 +24800,14 @@
       "dx": 24,
       "dy": 9,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 24,
       "dy": 9,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -25245,9 +25185,8 @@
       "dx": 24,
       "dy": 18,
       "dz": 7,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "west",
         "powered": "false"
@@ -25805,9 +25744,8 @@
       "dx": 25,
       "dy": 8,
       "dz": 4,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -25849,9 +25787,8 @@
       "dx": 25,
       "dy": 8,
       "dz": 10,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -25870,14 +25807,14 @@
       "dx": 25,
       "dy": 9,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 25,
       "dy": 9,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -26043,9 +25980,8 @@
       "dx": 25,
       "dy": 14,
       "dz": 3,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -26069,9 +26005,8 @@
       "dx": 25,
       "dy": 14,
       "dz": 11,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -27246,14 +27181,14 @@
       "dx": 26,
       "dy": 9,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 26,
       "dy": 9,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -28037,21 +27972,21 @@
       "dx": 26,
       "dy": 22,
       "dz": 3,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 26,
       "dy": 22,
       "dz": 4,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 26,
       "dy": 22,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -28067,21 +28002,21 @@
       "dx": 26,
       "dy": 22,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 26,
       "dy": 22,
       "dz": 10,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 26,
       "dy": 22,
       "dz": 11,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -28097,9 +28032,8 @@
       "dx": 26,
       "dy": 23,
       "dz": 3,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "west",
         "powered": "false"
@@ -28142,9 +28076,8 @@
       "dx": 26,
       "dy": 23,
       "dz": 11,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "west",
         "powered": "false"
@@ -28623,7 +28556,7 @@
       "dx": 27,
       "dy": 5,
       "dz": 4,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -28669,7 +28602,7 @@
       "dx": 27,
       "dy": 5,
       "dz": 10,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -29248,9 +29181,8 @@
       "dx": 27,
       "dy": 14,
       "dz": 1,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -29292,9 +29224,8 @@
       "dx": 27,
       "dy": 14,
       "dz": 13,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -29605,9 +29536,8 @@
       "dx": 27,
       "dy": 18,
       "dz": 0,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -29679,9 +29609,8 @@
       "dx": 27,
       "dy": 18,
       "dz": 14,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -29971,7 +29900,7 @@
       "dx": 27,
       "dy": 22,
       "dz": 2,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -30071,7 +30000,7 @@
       "dx": 27,
       "dy": 22,
       "dz": 12,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -30087,9 +30016,8 @@
       "dx": 27,
       "dy": 23,
       "dz": 2,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -30141,7 +30069,7 @@
       "dx": 27,
       "dy": 23,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -30190,9 +30118,8 @@
       "dx": 27,
       "dy": 23,
       "dz": 12,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -30543,7 +30470,7 @@
       "dx": 28,
       "dy": 5,
       "dz": 3,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -30599,7 +30526,7 @@
       "dx": 28,
       "dy": 5,
       "dz": 11,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -31350,7 +31277,7 @@
       "dx": 28,
       "dy": 22,
       "dz": 2,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -31388,7 +31315,7 @@
       "dx": 28,
       "dy": 22,
       "dz": 12,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -31501,7 +31428,7 @@
       "dx": 28,
       "dy": 24,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -31842,7 +31769,7 @@
       "dx": 29,
       "dy": 5,
       "dz": 3,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -31898,7 +31825,7 @@
       "dx": 29,
       "dy": 5,
       "dz": 11,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -31954,9 +31881,8 @@
       "dx": 29,
       "dy": 7,
       "dz": 2,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -31980,9 +31906,8 @@
       "dx": 29,
       "dy": 7,
       "dz": 12,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -32675,7 +32600,7 @@
       "dx": 29,
       "dy": 22,
       "dz": 2,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -32713,7 +32638,7 @@
       "dx": 29,
       "dy": 22,
       "dz": 12,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -32817,35 +32742,35 @@
       "dx": 29,
       "dy": 25,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 29,
       "dy": 25,
       "dz": 6,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 29,
       "dy": 25,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 29,
       "dy": 25,
       "dz": 8,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 29,
       "dy": 25,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -33221,7 +33146,7 @@
       "dx": 30,
       "dy": 5,
       "dz": 3,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -33277,7 +33202,7 @@
       "dx": 30,
       "dy": 5,
       "dz": 11,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -34162,14 +34087,14 @@
       "dx": 30,
       "dy": 25,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 30,
       "dy": 25,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -34198,21 +34123,21 @@
       "dx": 30,
       "dy": 27,
       "dz": 6,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 30,
       "dy": 27,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 30,
       "dy": 27,
       "dz": 8,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -35302,9 +35227,8 @@
       "dx": 31,
       "dy": 14,
       "dz": 1,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -35359,9 +35283,8 @@
       "dx": 31,
       "dy": 14,
       "dz": 13,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -35672,9 +35595,8 @@
       "dx": 31,
       "dy": 18,
       "dz": 0,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -35702,9 +35624,8 @@
       "dx": 31,
       "dy": 18,
       "dz": 14,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -35970,14 +35891,14 @@
       "dx": 31,
       "dy": 23,
       "dz": 3,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 31,
       "dy": 23,
       "dz": 11,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -36006,14 +35927,14 @@
       "dx": 31,
       "dy": 24,
       "dz": 4,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 31,
       "dy": 24,
       "dz": 10,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -36042,14 +35963,14 @@
       "dx": 31,
       "dy": 25,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 31,
       "dy": 25,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -36089,21 +36010,21 @@
       "dx": 31,
       "dy": 27,
       "dz": 6,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 31,
       "dy": 27,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 31,
       "dy": 27,
       "dz": 8,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -36121,7 +36042,7 @@
       "dx": 31,
       "dy": 28,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -36139,14 +36060,14 @@
       "dx": 31,
       "dy": 29,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 31,
       "dy": 30,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -36491,7 +36412,7 @@
       "dx": 32,
       "dy": 5,
       "dz": 3,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -36547,7 +36468,7 @@
       "dx": 32,
       "dy": 5,
       "dz": 11,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -37432,14 +37353,14 @@
       "dx": 32,
       "dy": 25,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 32,
       "dy": 25,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -37468,21 +37389,21 @@
       "dx": 32,
       "dy": 27,
       "dz": 6,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 32,
       "dy": 27,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 32,
       "dy": 27,
       "dz": 8,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -37812,7 +37733,7 @@
       "dx": 33,
       "dy": 5,
       "dz": 3,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -37868,7 +37789,7 @@
       "dx": 33,
       "dy": 5,
       "dz": 11,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -37924,9 +37845,8 @@
       "dx": 33,
       "dy": 7,
       "dz": 2,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -37950,9 +37870,8 @@
       "dx": 33,
       "dy": 7,
       "dz": 12,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -38645,7 +38564,7 @@
       "dx": 33,
       "dy": 22,
       "dz": 2,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -38683,7 +38602,7 @@
       "dx": 33,
       "dy": 22,
       "dz": 12,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -38787,35 +38706,35 @@
       "dx": 33,
       "dy": 25,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 33,
       "dy": 25,
       "dz": 6,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 33,
       "dy": 25,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 33,
       "dy": 25,
       "dz": 8,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 33,
       "dy": 25,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -39200,7 +39119,7 @@
       "dx": 34,
       "dy": 5,
       "dz": 3,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -39256,7 +39175,7 @@
       "dx": 34,
       "dy": 5,
       "dz": 11,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -40092,7 +40011,7 @@
       "dx": 34,
       "dy": 22,
       "dz": 2,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -40130,7 +40049,7 @@
       "dx": 34,
       "dy": 22,
       "dz": 12,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -40243,7 +40162,7 @@
       "dx": 34,
       "dy": 24,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -40813,21 +40732,21 @@
       "dx": 35,
       "dy": 5,
       "dz": 4,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 35,
       "dy": 5,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 35,
       "dy": 5,
       "dz": 6,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -40843,21 +40762,21 @@
       "dx": 35,
       "dy": 5,
       "dz": 8,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 35,
       "dy": 5,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 35,
       "dy": 5,
       "dz": 10,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -41648,9 +41567,8 @@
       "dx": 35,
       "dy": 14,
       "dz": 1,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -41703,9 +41621,8 @@
       "dx": 35,
       "dy": 14,
       "dz": 13,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -42030,9 +41947,8 @@
       "dx": 35,
       "dy": 18,
       "dz": 0,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -42104,9 +42020,8 @@
       "dx": 35,
       "dy": 18,
       "dz": 14,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -42396,7 +42311,7 @@
       "dx": 35,
       "dy": 22,
       "dz": 2,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -42496,7 +42411,7 @@
       "dx": 35,
       "dy": 22,
       "dz": 12,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -42512,9 +42427,8 @@
       "dx": 35,
       "dy": 23,
       "dz": 2,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -42566,7 +42480,7 @@
       "dx": 35,
       "dy": 23,
       "dz": 7,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -42615,9 +42529,8 @@
       "dx": 35,
       "dy": 23,
       "dz": 12,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -43165,9 +43078,8 @@
       "dx": 36,
       "dy": 7,
       "dz": 5,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "east",
         "powered": "false"
@@ -43189,9 +43101,8 @@
       "dx": 36,
       "dy": 7,
       "dz": 9,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "east",
         "powered": "false"
@@ -44146,21 +44057,21 @@
       "dx": 36,
       "dy": 22,
       "dz": 3,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 36,
       "dy": 22,
       "dz": 4,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 36,
       "dy": 22,
       "dz": 5,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -44176,21 +44087,21 @@
       "dx": 36,
       "dy": 22,
       "dz": 9,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 36,
       "dy": 22,
       "dz": 10,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
       "dx": 36,
       "dy": 22,
       "dz": 11,
-      "id": "minecraft:brick_block",
+      "id": "minecraft:bricks",
       "props": {}
     },
     {
@@ -44206,9 +44117,8 @@
       "dx": 36,
       "dy": 23,
       "dz": 3,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "east",
         "powered": "false"
@@ -44251,9 +44161,8 @@
       "dx": 36,
       "dy": 23,
       "dz": 11,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "east",
         "powered": "false"
@@ -44503,9 +44412,8 @@
       "dx": 37,
       "dy": 14,
       "dz": 3,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "east",
         "powered": "false"
@@ -44515,9 +44423,8 @@
       "dx": 37,
       "dy": 14,
       "dz": 7,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "east",
         "powered": "false"
@@ -44527,9 +44434,8 @@
       "dx": 37,
       "dy": 14,
       "dz": 11,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "east",
         "powered": "false"
@@ -45425,9 +45331,8 @@
       "dx": 38,
       "dy": 18,
       "dz": 3,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "east",
         "powered": "false"
@@ -45437,9 +45342,8 @@
       "dx": 38,
       "dy": 18,
       "dz": 7,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "east",
         "powered": "false"
@@ -45449,9 +45353,8 @@
       "dx": 38,
       "dy": 18,
       "dz": 11,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "east",
         "powered": "false"

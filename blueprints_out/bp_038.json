@@ -2,7 +2,7 @@
   "meta": {
     "id": "bp_038",
     "name": "bp_038",
-    "style": "castle",
+    "style": "medieval",
     "world_origin": [
       129,
       4,
@@ -20,7 +20,7 @@
       "minecraft:dirt": 18,
       "minecraft:grass_block": 14,
       "minecraft:mossy_cobblestone_wall": 2,
-      "minecraft:button": 6,
+      "minecraft:stone_button": 4,
       "minecraft:oak_fence": 2,
       "minecraft:cobblestone_stairs": 4,
       "minecraft:cobblestone": 3,
@@ -29,6 +29,7 @@
       "minecraft:stone_brick_stairs": 7,
       "minecraft:smooth_stone_slab": 5,
       "minecraft:stone_bricks": 2,
+      "minecraft:oak_button": 2,
       "minecraft:cobblestone_wall": 2,
       "minecraft:mossy_cobblestone": 1
     },
@@ -132,9 +133,8 @@
       "dx": 0,
       "dy": 7,
       "dz": 3,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -174,9 +174,8 @@
       "dx": 0,
       "dy": 11,
       "dz": 2,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -386,9 +385,8 @@
       "dx": 2,
       "dy": 8,
       "dz": 3,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "north",
         "powered": "false"
@@ -407,9 +405,8 @@
       "dx": 2,
       "dy": 11,
       "dz": 0,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "west",
         "powered": "false"
@@ -545,9 +542,8 @@
       "dx": 3,
       "dy": 7,
       "dz": 0,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "west",
         "powered": "false"
@@ -569,9 +565,8 @@
       "dx": 3,
       "dy": 8,
       "dz": 2,
-      "id": "minecraft:button",
+      "id": "minecraft:oak_button",
       "props": {
-        "material": "oak",
         "face": "wall",
         "facing": "west",
         "powered": "false"

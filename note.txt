@@ -1,1 +1,12 @@
 0~23 med vil
+
+
+med:
+
+python mc_world2db.py --world "C:\\Users\\augus\\AppData\\Roaming\\.minecraft\\saves\\SordrinBuildingSet" --dim overworld --min 0 1 -500 --max 900 100 256 --platform-y 2 --out-dir blueprints_out --min-size 10 --style-tag medieval
+
+
+
+castle:
+
+python mc_world2db.py --world "C:\\Users\\augus\\AppData\\Roaming\\.minecraft\\saves\\CastlePartsWorld" --dim overworld --min 0 1 -500 --max 550 100 0 --platform-y 5 --out-dir blueprints_out --min-size 10 --style-tag castle --mode append

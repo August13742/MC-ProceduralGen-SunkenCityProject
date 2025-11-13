@@ -2,7 +2,7 @@
   "meta": {
     "id": "bp_110",
     "name": "bp_110",
-    "style": "castle",
+    "style": "medieval",
     "world_origin": [
       381,
       4,
@@ -28,11 +28,12 @@
       "minecraft:cobblestone_stairs": 37,
       "minecraft:pink_wool": 49,
       "minecraft:smooth_stone_slab": 13,
-      "minecraft:brick_block": 16,
+      "minecraft:bricks": 16,
       "minecraft:spruce_planks": 43,
       "minecraft:spruce_slab": 2,
-      "minecraft:button": 12,
+      "minecraft:stone_button": 8,
       "minecraft:oak_fence": 17,
+      "minecraft:oak_button": 4,
       "minecraft:cobblestone_slab": 10,
       "minecraft:mossy_stone_bricks": 11,
       "minecraft:oak_log": 42,

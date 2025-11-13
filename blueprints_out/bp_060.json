@@ -2,7 +2,7 @@
   "meta": {
     "id": "bp_060",
     "name": "bp_060",
-    "style": "castle",
+    "style": "medieval",
     "world_origin": [
       249,
       4,
@@ -26,7 +26,7 @@
       "minecraft:cobblestone_slab": 3,
       "minecraft:oak_log": 3,
       "minecraft:stone_brick_stairs": 2,
-      "minecraft:button": 4,
+      "minecraft:stone_button": 4,
       "minecraft:stone_bricks": 2,
       "minecraft:mossy_cobblestone_wall": 1
     },
@@ -179,9 +179,8 @@
       "dx": 0,
       "dy": 5,
       "dz": 1,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "south",
         "powered": "false"
@@ -191,9 +190,8 @@
       "dx": 0,
       "dy": 5,
       "dz": 3,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "east",
         "powered": "false"
@@ -308,9 +306,8 @@
       "dx": 1,
       "dy": 5,
       "dz": 0,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "east",
         "powered": "false"
@@ -470,9 +467,8 @@
       "dx": 3,
       "dy": 5,
       "dz": 0,
-      "id": "minecraft:button",
+      "id": "minecraft:stone_button",
       "props": {
-        "material": "stone",
         "face": "wall",
         "facing": "south",
         "powered": "false"
