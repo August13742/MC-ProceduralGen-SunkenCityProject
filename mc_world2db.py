@@ -6,7 +6,15 @@ Requires:
 
 Usage example:
 
-    python mc_world2db.py --world "C:\\Users\\augus\\AppData\\Roaming\\.minecraft\\saves\\SordrinBuildingSet" --dim overworld --min 0 1 -500 --max 900 100 256 --platform-y 2 --out-dir blueprints_out --min-size 10 --style-tag medieval --mode overwrite
+    python mc_world2db.py --world "C:\\Users\\augus\\AppData\\Roaming\\.minecraft\\saves\\SordrinBuildingSet" \
+        --dim overworld \
+        --min 0 1 -500 --max 900 100 256 \
+        --platform-y 2 \
+        --out-dir blueprints_out \
+        --min-size 10 \
+        --style-tag medieval \
+        --mode overwrite \
+        --forward-axis +z
 
 mode option: overwrite, append
 Note:
@@ -31,6 +39,13 @@ import amulet
 from amulet.api.errors import ChunkDoesNotExist
 from normalise_block import normalise_block
 
+
+AXIS_TO_VEC: Dict[str, Tuple[int, int, int]] = {
+    "+x": (1, 0, 0),
+    "-x": (-1, 0, 0),
+    "+z": (0, 0, 1),
+    "-z": (0, 0, -1),
+}
 # ---- Dimension mapping -----------------------------------------------------
 
 DIM_MAP = {
@@ -51,6 +66,14 @@ AIR_IDS = {
     "minecraft:air",
     "minecraft:cave_air",
     "minecraft:void_air",
+}
+
+# Direction → world-space vector (dx, dy, dz)
+DIR_TO_VEC: Dict[str, Tuple[int, int, int]] = {
+    "north": (0, 0, -1),
+    "south": (0, 0,  1),
+    "west":  (-1, 0, 0),
+    "east":  (1,  0, 0),
 }
 
 
@@ -107,8 +130,6 @@ def get_block_props(b) -> Dict[str, Any]:
         return {}
     raw = dict(props)
     return {k: _normalise_nbt_value(v) for k, v in raw.items()}
-
-
 
 
 # ---- Optional (slow) platform detection -----------------------------------
@@ -291,6 +312,14 @@ def main():
                     help="Freeform style tag stored into META['style'] (e.g. 'medieval')")
     ap.add_argument("--mode", choices=["overwrite", "append"], default="overwrite",
                     help="overwrite: clear output dir first; append: add to existing blueprints")
+
+    ap.add_argument(
+        "--forward-axis",
+        choices=["+x", "-x", "+z", "-z"],
+        default="+z",
+        help="World-space forward direction of building façades (e.g. +z means façades face increasing Z).",
+    )
+
     args = ap.parse_args()
 
     dim = DIM_MAP.get(str(args.dim).lower(), args.dim)
@@ -303,6 +332,9 @@ def main():
         y0, y1 = y1, y0
     if z0 > z1:
         z0, z1 = z1, z0
+
+    forward_axis: str = args.forward_axis
+    forward_vec = AXIS_TO_VEC[forward_axis]
 
     os.makedirs(args.out_dir, exist_ok=True)
 
@@ -329,6 +361,7 @@ def main():
     world = amulet.load_level(args.world)
     print(f"[info] loaded world {args.world}")
     print(f"[info] scanning box X[{x0},{x1}] Y[{y0},{y1}] Z[{z0},{z1}] in dim={dim}")
+    print(f"[info] forward_axis={forward_axis}, forward_vec={forward_vec}")
 
     if args.platform_y is not None:
         platform_y = args.platform_y
@@ -393,6 +426,11 @@ def main():
             "top_y_local": top_y_local,
             "top_y_world": top_y_world,
             "block_counts": dict(block_counts),
+
+            # Orientation info in pure coordinate terms
+            "forward_axis": forward_axis,   # "+z", "-z", "+x", "-x"
+            "forward_vec": forward_vec,     # [dx, dy, dz]
+
             "category": None,
             "landmass": None,
             "tags": [],

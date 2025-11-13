@@ -42,6 +42,12 @@
           "minecraft:oak_door": 4,
           "minecraft:chest": 2
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -82,6 +88,12 @@
           "minecraft:torch": 2,
           "minecraft:oak_door": 2
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -123,6 +135,12 @@
           "minecraft:white_wool": 48,
           "minecraft:stone_brick_stairs": 95
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -171,6 +189,12 @@
           "minecraft:crafting_table": 1,
           "minecraft:white_carpet": 3
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -210,6 +234,12 @@
           "minecraft:cobblestone_wall": 10,
           "minecraft:oak_door": 4
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -236,8 +266,8 @@
         "top_y_local": 21,
         "top_y_world": 22,
         "block_counts": {
-          "minecraft:dirt": 644,
-          "minecraft:grass_block": 118,
+          "minecraft:dirt": 642,
+          "minecraft:grass_block": 120,
           "minecraft:dark_oak_stairs": 710,
           "minecraft:dark_oak_slab": 410,
           "minecraft:stone_bricks": 684,
@@ -256,6 +286,12 @@
           "minecraft:netherrack": 4,
           "minecraft:fire": 4
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -288,6 +324,12 @@
           "minecraft:dark_oak_stairs": 2,
           "minecraft:cobblestone_wall": 1
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -320,6 +362,12 @@
           "minecraft:cobblestone_wall": 1,
           "minecraft:dark_oak_stairs": 2
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -352,6 +400,12 @@
           "minecraft:dark_oak_log": 1,
           "minecraft:dark_oak_stairs": 2
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -384,6 +438,12 @@
           "minecraft:dark_oak_log": 2,
           "minecraft:dark_oak_stairs": 3
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -415,6 +475,12 @@
           "minecraft:dark_oak_log": 2,
           "minecraft:dark_oak_stairs": 2
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -445,6 +511,12 @@
           "minecraft:stone_bricks": 12,
           "minecraft:grass_block": 24
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -476,6 +548,12 @@
           "minecraft:dark_oak_log": 2,
           "minecraft:dark_oak_stairs": 2
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -508,6 +586,12 @@
           "minecraft:dark_oak_log": 1,
           "minecraft:dark_oak_stairs": 2
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -540,6 +624,12 @@
           "minecraft:dark_oak_log": 2,
           "minecraft:dark_oak_stairs": 3
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -572,6 +662,12 @@
           "minecraft:dark_oak_stairs": 2,
           "minecraft:cobblestone_wall": 1
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -604,6 +700,12 @@
           "minecraft:cobblestone_wall": 1,
           "minecraft:dark_oak_stairs": 2
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -645,6 +747,12 @@
           "minecraft:oak_door": 2,
           "minecraft:wall_torch": 8
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -688,6 +796,12 @@
           "minecraft:oak_leaves": 303,
           "minecraft:oak_log": 27
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -714,8 +828,8 @@
         "top_y_local": 9,
         "top_y_world": 10,
         "block_counts": {
-          "minecraft:dirt": 257,
-          "minecraft:grass_block": 81,
+          "minecraft:dirt": 258,
+          "minecraft:grass_block": 80,
           "minecraft:chiseled_stone_bricks": 8,
           "minecraft:stone_brick_stairs": 37,
           "minecraft:spruce_log": 12,
@@ -728,6 +842,12 @@
           "minecraft:wall_torch": 4,
           "minecraft:ladder": 3
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -754,8 +874,8 @@
         "top_y_local": 12,
         "top_y_world": 13,
         "block_counts": {
-          "minecraft:dirt": 317,
-          "minecraft:grass_block": 89,
+          "minecraft:dirt": 318,
+          "minecraft:grass_block": 88,
           "minecraft:dark_oak_stairs": 215,
           "minecraft:stone_bricks": 229,
           "minecraft:chiseled_stone_bricks": 8,
@@ -769,6 +889,12 @@
           "minecraft:tripwire_hook": 1,
           "minecraft:oak_fence_gate": 1
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -795,8 +921,8 @@
         "top_y_local": 7,
         "top_y_world": 8,
         "block_counts": {
-          "minecraft:dirt": 158,
-          "minecraft:grass_block": 84,
+          "minecraft:dirt": 159,
+          "minecraft:grass_block": 83,
           "minecraft:stone_brick_stairs": 38,
           "minecraft:stone_bricks": 45,
           "minecraft:cobblestone_wall": 4,
@@ -805,6 +931,12 @@
           "minecraft:netherrack": 1,
           "minecraft:fire": 1
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -841,6 +973,12 @@
           "minecraft:cobblestone_wall": 4,
           "minecraft:chest": 1
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -879,6 +1017,12 @@
           "minecraft:water": 57,
           "minecraft:cobblestone_wall": 2
         },
+        "forward_axis": "+z",
+        "forward_vec": [
+          0,
+          0,
+          1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -890,7 +1034,7 @@
       "meta": {
         "id": "bp_024",
         "name": "bp_024",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           49,
           4,
@@ -943,6 +1087,12 @@
           "minecraft:brick_slab": 28,
           "minecraft:red_bed": 8
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -954,7 +1104,7 @@
       "meta": {
         "id": "bp_025",
         "name": "bp_025",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           49,
           4,
@@ -1004,6 +1154,12 @@
           "minecraft:brick_slab": 28,
           "minecraft:red_bed": 8
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -1015,7 +1171,7 @@
       "meta": {
         "id": "bp_026",
         "name": "bp_026",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           49,
           4,
@@ -1075,6 +1231,12 @@
           "minecraft:red_bed": 16,
           "minecraft:ladder": 6
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -1086,7 +1248,7 @@
       "meta": {
         "id": "bp_027",
         "name": "bp_027",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           78,
           4,
@@ -1136,6 +1298,12 @@
           "minecraft:brick_slab": 26,
           "minecraft:chiseled_stone_bricks": 9
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -1147,7 +1315,7 @@
       "meta": {
         "id": "bp_028",
         "name": "bp_028",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           78,
           4,
@@ -1195,6 +1363,12 @@
           "minecraft:brick_stairs": 44,
           "minecraft:chiseled_stone_bricks": 9
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -1206,7 +1380,7 @@
       "meta": {
         "id": "bp_029",
         "name": "bp_029",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           80,
           4,
@@ -1259,6 +1433,12 @@
           "minecraft:brick_slab": 52,
           "minecraft:oak_door": 2
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -1270,7 +1450,7 @@
       "meta": {
         "id": "bp_030",
         "name": "bp_030",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           96,
           4,
@@ -1322,6 +1502,12 @@
           "minecraft:skeleton_skull": 4,
           "minecraft:brick_stairs": 2
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -1333,7 +1519,7 @@
       "meta": {
         "id": "bp_031",
         "name": "bp_031",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           96,
           4,
@@ -1382,6 +1568,12 @@
           "minecraft:brick_stairs": 2,
           "minecraft:spruce_stairs": 3
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -1393,7 +1585,7 @@
       "meta": {
         "id": "bp_032",
         "name": "bp_032",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           96,
           4,
@@ -1449,6 +1641,12 @@
           "minecraft:oak_door": 2,
           "minecraft:brick_stairs": 6
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -1460,7 +1658,7 @@
       "meta": {
         "id": "bp_033",
         "name": "bp_033",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           109,
           4,
@@ -1504,6 +1702,12 @@
           "minecraft:stone_brick_slab": 6,
           "minecraft:spruce_slab": 15
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -1515,7 +1719,7 @@
       "meta": {
         "id": "bp_034",
         "name": "bp_034",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           109,
           4,
@@ -1538,6 +1742,12 @@
           "minecraft:oak_button": 2,
           "minecraft:mossy_cobblestone_wall": 1
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -1549,7 +1759,7 @@
       "meta": {
         "id": "bp_035",
         "name": "bp_035",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           124,
           4,
@@ -1598,6 +1808,12 @@
           "minecraft:chiseled_stone_bricks": 6,
           "minecraft:brick_stairs": 5
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -1609,7 +1825,7 @@
       "meta": {
         "id": "bp_036",
         "name": "bp_036",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           124,
           4,
@@ -1656,6 +1872,12 @@
           "minecraft:chiseled_stone_bricks": 6,
           "minecraft:brick_stairs": 4
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -1667,7 +1889,7 @@
       "meta": {
         "id": "bp_037",
         "name": "bp_037",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           126,
           4,
@@ -1719,6 +1941,12 @@
           "minecraft:oak_door": 2,
           "minecraft:brick_stairs": 12
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -1730,7 +1958,7 @@
       "meta": {
         "id": "bp_038",
         "name": "bp_038",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           129,
           4,
@@ -1761,6 +1989,12 @@
           "minecraft:cobblestone_wall": 2,
           "minecraft:mossy_cobblestone": 1
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -1772,7 +2006,7 @@
       "meta": {
         "id": "bp_039",
         "name": "bp_039",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           129,
           4,
@@ -1816,6 +2050,12 @@
           "minecraft:stone_brick_slab": 2,
           "minecraft:spruce_slab": 8
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -1827,7 +2067,7 @@
       "meta": {
         "id": "bp_040",
         "name": "bp_040",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           141,
           4,
@@ -1880,6 +2120,12 @@
           "minecraft:brick_slab": 28,
           "minecraft:red_bed": 6
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -1891,7 +2137,7 @@
       "meta": {
         "id": "bp_041",
         "name": "bp_041",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           141,
           4,
@@ -1941,6 +2187,12 @@
           "minecraft:brick_slab": 28,
           "minecraft:red_bed": 6
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -1952,7 +2204,7 @@
       "meta": {
         "id": "bp_042",
         "name": "bp_042",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           141,
           4,
@@ -2011,6 +2263,12 @@
           "minecraft:red_bed": 16,
           "minecraft:jungle_stairs": 9
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2022,7 +2280,7 @@
       "meta": {
         "id": "bp_043",
         "name": "bp_043",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           148,
           4,
@@ -2067,6 +2325,12 @@
           "minecraft:chiseled_stone_bricks": 2,
           "minecraft:furnace": 3
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2078,7 +2342,7 @@
       "meta": {
         "id": "bp_044",
         "name": "bp_044",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           148,
           4,
@@ -2101,6 +2365,12 @@
           "minecraft:oak_button": 5,
           "minecraft:cobblestone_wall": 3
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2112,7 +2382,7 @@
       "meta": {
         "id": "bp_045",
         "name": "bp_045",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           170,
           4,
@@ -2162,6 +2432,12 @@
           "minecraft:brick_slab": 26,
           "minecraft:chiseled_stone_bricks": 3
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2173,7 +2449,7 @@
       "meta": {
         "id": "bp_046",
         "name": "bp_046",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           170,
           4,
@@ -2221,6 +2497,12 @@
           "minecraft:brick_stairs": 40,
           "minecraft:chiseled_stone_bricks": 3
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2232,7 +2514,7 @@
       "meta": {
         "id": "bp_047",
         "name": "bp_047",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           172,
           4,
@@ -2285,6 +2567,12 @@
           "minecraft:brick_slab": 52,
           "minecraft:oak_door": 2
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2296,7 +2584,7 @@
       "meta": {
         "id": "bp_048",
         "name": "bp_048",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           174,
           4,
@@ -2329,6 +2617,12 @@
           "minecraft:mossy_stone_bricks": 5,
           "minecraft:mossy_cobblestone_wall": 8
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2340,7 +2634,7 @@
       "meta": {
         "id": "bp_049",
         "name": "bp_049",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           174,
           4,
@@ -2363,6 +2657,12 @@
           "minecraft:oak_button": 9,
           "minecraft:cobblestone_wall": 5
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2374,7 +2674,7 @@
       "meta": {
         "id": "bp_050",
         "name": "bp_050",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           187,
           4,
@@ -2424,6 +2724,12 @@
           "minecraft:redstone_wire": 6,
           "minecraft:skeleton_skull": 4
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2435,7 +2741,7 @@
       "meta": {
         "id": "bp_051",
         "name": "bp_051",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           187,
           4,
@@ -2483,6 +2789,12 @@
           "minecraft:spruce_stairs": 3,
           "minecraft:jungle_stairs": 3
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2494,7 +2806,7 @@
       "meta": {
         "id": "bp_052",
         "name": "bp_052",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           187,
           4,
@@ -2548,6 +2860,12 @@
           "minecraft:piston": 10,
           "minecraft:magenta_wool": 5
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2559,7 +2877,7 @@
       "meta": {
         "id": "bp_053",
         "name": "bp_053",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           216,
           4,
@@ -2591,6 +2909,12 @@
           "minecraft:mossy_stone_bricks": 5,
           "minecraft:mossy_cobblestone_wall": 8
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2602,7 +2926,7 @@
       "meta": {
         "id": "bp_054",
         "name": "bp_054",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           216,
           4,
@@ -2625,6 +2949,12 @@
           "minecraft:oak_button": 9,
           "minecraft:cobblestone_wall": 5
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2636,7 +2966,7 @@
       "meta": {
         "id": "bp_055",
         "name": "bp_055",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           216,
           4,
@@ -2683,6 +3013,12 @@
           "minecraft:skeleton_skull": 4,
           "minecraft:piston": 5
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2694,7 +3030,7 @@
       "meta": {
         "id": "bp_056",
         "name": "bp_056",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           216,
           4,
@@ -2739,6 +3075,12 @@
           "minecraft:spruce_stairs": 14,
           "minecraft:oak_trapdoor": 4
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2750,7 +3092,7 @@
       "meta": {
         "id": "bp_057",
         "name": "bp_057",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           218,
           4,
@@ -2800,6 +3142,12 @@
           "minecraft:piston": 10,
           "minecraft:magenta_wool": 5
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2811,7 +3159,7 @@
       "meta": {
         "id": "bp_058",
         "name": "bp_058",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           233,
           4,
@@ -2861,6 +3209,12 @@
           "minecraft:jungle_slab": 12,
           "minecraft:oak_door": 4
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2872,7 +3226,7 @@
       "meta": {
         "id": "bp_059",
         "name": "bp_059",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           233,
           4,
@@ -2924,6 +3278,12 @@
           "minecraft:jungle_slab": 12,
           "minecraft:oak_door": 4
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2935,7 +3295,7 @@
       "meta": {
         "id": "bp_060",
         "name": "bp_060",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           249,
           4,
@@ -2963,6 +3323,12 @@
           "minecraft:stone_bricks": 2,
           "minecraft:mossy_cobblestone_wall": 1
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -2974,7 +3340,7 @@
       "meta": {
         "id": "bp_061",
         "name": "bp_061",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           249,
           4,
@@ -3002,6 +3368,12 @@
           "minecraft:stone_bricks": 2,
           "minecraft:mossy_cobblestone_wall": 1
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -3013,7 +3385,7 @@
       "meta": {
         "id": "bp_062",
         "name": "bp_062",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           257,
           4,
@@ -3067,6 +3439,12 @@
           "minecraft:ladder": 7,
           "minecraft:oak_door": 4
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -3078,7 +3456,7 @@
       "meta": {
         "id": "bp_063",
         "name": "bp_063",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           257,
           4,
@@ -3132,6 +3510,12 @@
           "minecraft:ladder": 12,
           "minecraft:oak_door": 4
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -3143,7 +3527,7 @@
       "meta": {
         "id": "bp_064",
         "name": "bp_064",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           258,
           4,
@@ -3193,6 +3577,12 @@
           "minecraft:spruce_leaves": 4,
           "minecraft:ladder": 6
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -3204,7 +3594,7 @@
       "meta": {
         "id": "bp_065",
         "name": "bp_065",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           262,
           4,
@@ -3251,6 +3641,12 @@
           "minecraft:oak_fence_gate": 2,
           "minecraft:oak_door": 4
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -3262,7 +3658,7 @@
       "meta": {
         "id": "bp_066",
         "name": "bp_066",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           262,
           4,
@@ -3311,6 +3707,12 @@
           "minecraft:oak_fence_gate": 2,
           "minecraft:oak_door": 4
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -3322,7 +3724,7 @@
       "meta": {
         "id": "bp_067",
         "name": "bp_067",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           273,
           4,
@@ -3350,6 +3752,12 @@
           "minecraft:stone_bricks": 2,
           "minecraft:mossy_cobblestone_wall": 1
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -3361,7 +3769,7 @@
       "meta": {
         "id": "bp_068",
         "name": "bp_068",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           273,
           4,
@@ -3389,6 +3797,12 @@
           "minecraft:stone_bricks": 2,
           "minecraft:mossy_cobblestone_wall": 1
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -3400,7 +3814,7 @@
       "meta": {
         "id": "bp_069",
         "name": "bp_069",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           280,
           4,
@@ -3447,6 +3861,12 @@
           "minecraft:oak_slab": 13,
           "minecraft:spruce_leaves": 4
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -3458,7 +3878,7 @@
       "meta": {
         "id": "bp_070",
         "name": "bp_070",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           283,
           4,
@@ -3506,6 +3926,12 @@
           "minecraft:glowstone": 1,
           "minecraft:oak_fence_gate": 2
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -3517,7 +3943,7 @@
       "meta": {
         "id": "bp_071",
         "name": "bp_071",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           283,
           4,
@@ -3554,6 +3980,12 @@
           "minecraft:oak_planks": 8,
           "minecraft:cobblestone": 4
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -3565,7 +3997,7 @@
       "meta": {
         "id": "bp_072",
         "name": "bp_072",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           283,
           4,
@@ -3615,6 +4047,12 @@
           "minecraft:oak_fence_gate": 2,
           "minecraft:spruce_stairs": 1
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -3626,7 +4064,7 @@
       "meta": {
         "id": "bp_073",
         "name": "bp_073",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           283,
           4,
@@ -3663,6 +4101,12 @@
           "minecraft:oak_planks": 8,
           "minecraft:cobblestone": 3
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -3674,7 +4118,7 @@
       "meta": {
         "id": "bp_074",
         "name": "bp_074",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           283,
           4,
@@ -3723,6 +4167,12 @@
           "minecraft:oak_fence_gate": 2,
           "minecraft:oak_door": 4
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -3734,7 +4184,7 @@
       "meta": {
         "id": "bp_075",
         "name": "bp_075",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           283,
           4,
@@ -3784,6 +4234,12 @@
           "minecraft:oak_fence_gate": 2,
           "minecraft:oak_door": 4
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -3795,7 +4251,7 @@
       "meta": {
         "id": "bp_076",
         "name": "bp_076",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           302,
           4,
@@ -3844,6 +4300,12 @@
           "minecraft:spruce_slab": 26,
           "minecraft:spruce_leaves": 4
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -3855,7 +4317,7 @@
       "meta": {
         "id": "bp_077",
         "name": "bp_077",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           304,
           4,
@@ -3899,6 +4361,12 @@
           "minecraft:wall_torch": 6,
           "minecraft:mossy_cobblestone_wall": 5
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -3910,7 +4378,7 @@
       "meta": {
         "id": "bp_078",
         "name": "bp_078",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           304,
           4,
@@ -3933,6 +4401,12 @@
           "minecraft:oak_button": 4,
           "minecraft:cobblestone_wall": 3
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -3944,7 +4418,7 @@
       "meta": {
         "id": "bp_079",
         "name": "bp_079",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           304,
           4,
@@ -3990,6 +4464,12 @@
           "minecraft:wall_torch": 7,
           "minecraft:mossy_cobblestone_wall": 5
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4001,7 +4481,7 @@
       "meta": {
         "id": "bp_080",
         "name": "bp_080",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           304,
           4,
@@ -4024,6 +4504,12 @@
           "minecraft:oak_button": 4,
           "minecraft:cobblestone_wall": 3
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4035,7 +4521,7 @@
       "meta": {
         "id": "bp_081",
         "name": "bp_081",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           310,
           4,
@@ -4086,6 +4572,12 @@
           "minecraft:glowstone": 1,
           "minecraft:oak_fence_gate": 2
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4097,7 +4589,7 @@
       "meta": {
         "id": "bp_082",
         "name": "bp_082",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           310,
           4,
@@ -4137,6 +4629,12 @@
           "minecraft:brick_slab": 10,
           "minecraft:glass_pane": 2
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4148,7 +4646,7 @@
       "meta": {
         "id": "bp_083",
         "name": "bp_083",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           310,
           4,
@@ -4200,6 +4698,12 @@
           "minecraft:oak_fence_gate": 2,
           "minecraft:spruce_stairs": 1
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4211,7 +4715,7 @@
       "meta": {
         "id": "bp_084",
         "name": "bp_084",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           310,
           4,
@@ -4251,6 +4755,12 @@
           "minecraft:brick_slab": 10,
           "minecraft:glass_pane": 2
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4262,7 +4772,7 @@
       "meta": {
         "id": "bp_085",
         "name": "bp_085",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           310,
           4,
@@ -4309,6 +4819,12 @@
           "minecraft:oak_slab": 4,
           "minecraft:spruce_slab": 16
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4320,7 +4836,7 @@
       "meta": {
         "id": "bp_086",
         "name": "bp_086",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           324,
           4,
@@ -4367,6 +4883,12 @@
           "minecraft:spruce_slab": 26,
           "minecraft:spruce_leaves": 4
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4378,7 +4900,7 @@
       "meta": {
         "id": "bp_087",
         "name": "bp_087",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           326,
           4,
@@ -4425,6 +4947,12 @@
           "minecraft:spruce_slab": 7,
           "minecraft:oak_slab": 3
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4436,7 +4964,7 @@
       "meta": {
         "id": "bp_088",
         "name": "bp_088",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           326,
           4,
@@ -4459,6 +4987,12 @@
           "minecraft:oak_button": 4,
           "minecraft:cobblestone_wall": 3
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4470,7 +5004,7 @@
       "meta": {
         "id": "bp_089",
         "name": "bp_089",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           326,
           4,
@@ -4517,6 +5051,12 @@
           "minecraft:spruce_slab": 7,
           "minecraft:oak_slab": 3
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4528,7 +5068,7 @@
       "meta": {
         "id": "bp_090",
         "name": "bp_090",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           326,
           4,
@@ -4551,6 +5091,12 @@
           "minecraft:oak_button": 4,
           "minecraft:cobblestone_wall": 3
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4562,7 +5108,7 @@
       "meta": {
         "id": "bp_091",
         "name": "bp_091",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           330,
           4,
@@ -4608,6 +5154,12 @@
           "minecraft:oak_slab": 4,
           "minecraft:wall_torch": 16
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4619,7 +5171,7 @@
       "meta": {
         "id": "bp_092",
         "name": "bp_092",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           337,
           4,
@@ -4668,6 +5220,12 @@
           "minecraft:jungle_slab": 12,
           "minecraft:oak_door": 6
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4679,7 +5237,7 @@
       "meta": {
         "id": "bp_093",
         "name": "bp_093",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           337,
           4,
@@ -4730,6 +5288,12 @@
           "minecraft:oak_door": 6,
           "minecraft:ladder": 6
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4741,7 +5305,7 @@
       "meta": {
         "id": "bp_094",
         "name": "bp_094",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           346,
           4,
@@ -4790,6 +5354,12 @@
           "minecraft:spruce_leaves": 4,
           "minecraft:oak_slab": 12
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4801,7 +5371,7 @@
       "meta": {
         "id": "bp_095",
         "name": "bp_095",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           348,
           4,
@@ -4848,6 +5418,12 @@
           "minecraft:oak_slab": 7,
           "minecraft:chiseled_stone_bricks": 2
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4859,7 +5435,7 @@
       "meta": {
         "id": "bp_096",
         "name": "bp_096",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           348,
           4,
@@ -4908,6 +5484,12 @@
           "minecraft:oak_door": 6,
           "minecraft:oak_slab": 7
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4919,7 +5501,7 @@
       "meta": {
         "id": "bp_097",
         "name": "bp_097",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           350,
           4,
@@ -4958,6 +5540,12 @@
           "minecraft:chiseled_stone_bricks": 2,
           "minecraft:spruce_leaves": 1
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -4969,7 +5557,7 @@
       "meta": {
         "id": "bp_098",
         "name": "bp_098",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           350,
           4,
@@ -5009,6 +5597,12 @@
           "minecraft:oak_planks": 1,
           "minecraft:spruce_leaves": 1
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -5020,7 +5614,7 @@
       "meta": {
         "id": "bp_099",
         "name": "bp_099",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           350,
           4,
@@ -5067,6 +5661,12 @@
           "minecraft:oak_slab": 4,
           "minecraft:spruce_slab": 16
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -5078,7 +5678,7 @@
       "meta": {
         "id": "bp_100",
         "name": "bp_100",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           358,
           4,
@@ -5121,6 +5721,12 @@
           "minecraft:wall_torch": 2,
           "minecraft:mossy_cobblestone_wall": 2
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -5132,7 +5738,7 @@
       "meta": {
         "id": "bp_101",
         "name": "bp_101",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           358,
           4,
@@ -5178,6 +5784,12 @@
           "minecraft:chiseled_stone_bricks": 2,
           "minecraft:mossy_cobblestone_wall": 2
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -5189,7 +5801,7 @@
       "meta": {
         "id": "bp_102",
         "name": "bp_102",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           364,
           4,
@@ -5242,6 +5854,12 @@
           "minecraft:oak_door": 6,
           "minecraft:ladder": 4
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -5253,7 +5871,7 @@
       "meta": {
         "id": "bp_103",
         "name": "bp_103",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           364,
           4,
@@ -5306,6 +5924,12 @@
           "minecraft:oak_door": 6,
           "minecraft:ladder": 12
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -5317,7 +5941,7 @@
       "meta": {
         "id": "bp_104",
         "name": "bp_104",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           368,
           4,
@@ -5363,6 +5987,12 @@
           "minecraft:oak_trapdoor": 8,
           "minecraft:spruce_leaves": 4
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -5374,7 +6004,7 @@
       "meta": {
         "id": "bp_105",
         "name": "bp_105",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           370,
           4,
@@ -5419,6 +6049,12 @@
           "minecraft:oak_slab": 4,
           "minecraft:chiseled_stone_bricks": 2
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -5430,7 +6066,7 @@
       "meta": {
         "id": "bp_106",
         "name": "bp_106",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           371,
           4,
@@ -5479,6 +6115,12 @@
           "minecraft:oak_door": 6,
           "minecraft:oak_slab": 7
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -5490,7 +6132,7 @@
       "meta": {
         "id": "bp_107",
         "name": "bp_107",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           371,
           4,
@@ -5540,6 +6182,12 @@
           "minecraft:oak_door": 6,
           "minecraft:oak_slab": 7
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -5551,7 +6199,7 @@
       "meta": {
         "id": "bp_108",
         "name": "bp_108",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           377,
           4,
@@ -5595,6 +6243,12 @@
           "minecraft:spruce_leaves": 1,
           "minecraft:oak_planks": 1
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -5606,7 +6260,7 @@
       "meta": {
         "id": "bp_109",
         "name": "bp_109",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           377,
           4,
@@ -5650,6 +6304,12 @@
           "minecraft:oak_planks": 2,
           "minecraft:spruce_leaves": 1
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -5661,7 +6321,7 @@
       "meta": {
         "id": "bp_110",
         "name": "bp_110",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           381,
           4,
@@ -5707,6 +6367,12 @@
           "minecraft:chiseled_stone_bricks": 1,
           "minecraft:mossy_cobblestone_wall": 3
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],
@@ -5718,7 +6384,7 @@
       "meta": {
         "id": "bp_111",
         "name": "bp_111",
-        "style": "medieval",
+        "style": "castle",
         "world_origin": [
           381,
           4,
@@ -5765,6 +6431,12 @@
           "minecraft:chiseled_stone_bricks": 3,
           "minecraft:mossy_cobblestone_wall": 3
         },
+        "forward_axis": "-z",
+        "forward_vec": [
+          0,
+          0,
+          -1
+        ],
         "category": null,
         "landmass": null,
         "tags": [],

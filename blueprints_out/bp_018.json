@@ -34,6 +34,12 @@
       "minecraft:oak_leaves": 303,
       "minecraft:oak_log": 27
     },
+    "forward_axis": "+z",
+    "forward_vec": [
+      0,
+      0,
+      1
+    ],
     "category": null,
     "landmass": null,
     "tags": [],

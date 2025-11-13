@@ -17,8 +17,8 @@
     "top_y_local": 12,
     "top_y_world": 13,
     "block_counts": {
-      "minecraft:dirt": 317,
-      "minecraft:grass_block": 89,
+      "minecraft:dirt": 318,
+      "minecraft:grass_block": 88,
       "minecraft:dark_oak_stairs": 215,
       "minecraft:stone_bricks": 229,
       "minecraft:chiseled_stone_bricks": 8,
@@ -32,6 +32,12 @@
       "minecraft:tripwire_hook": 1,
       "minecraft:oak_fence_gate": 1
     },
+    "forward_axis": "+z",
+    "forward_vec": [
+      0,
+      0,
+      1
+    ],
     "category": null,
     "landmass": null,
     "tags": [],
@@ -3689,10 +3695,8 @@
       "dx": 5,
       "dy": 1,
       "dz": 12,
-      "id": "minecraft:grass_block",
-      "props": {
-        "snowy": "false"
-      }
+      "id": "minecraft:dirt",
+      "props": {}
     },
     {
       "dx": 5,

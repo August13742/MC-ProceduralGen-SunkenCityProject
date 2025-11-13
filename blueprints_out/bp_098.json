@@ -2,7 +2,7 @@
   "meta": {
     "id": "bp_098",
     "name": "bp_098",
-    "style": "medieval",
+    "style": "castle",
     "world_origin": [
       350,
       4,
@@ -42,6 +42,12 @@
       "minecraft:oak_planks": 1,
       "minecraft:spruce_leaves": 1
     },
+    "forward_axis": "-z",
+    "forward_vec": [
+      0,
+      0,
+      -1
+    ],
     "category": null,
     "landmass": null,
     "tags": [],

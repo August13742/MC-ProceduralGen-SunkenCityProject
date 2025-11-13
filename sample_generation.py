@@ -1,11 +1,18 @@
 from __future__ import annotations
 from typing import Tuple, List, Dict, Any
+import math
 import random
 
 from gdpc import Editor
 from gdpc.block import Block
 
 from blueprint_db import iter_blueprints, place_blueprint
+
+# /setbuildarea ~0 ~0 ~0 ~800 255 ~800
+
+MAX_BUILDINGS = 512
+
+
 
 BP_DIR = "blueprints_cleaned"
 
@@ -23,7 +30,6 @@ GROUND_CANDIDATES = {
     "minecraft:gravel",
     "minecraft:sand",
     "minecraft:red_sand",
-    # add whatever else
 }
 
 
@@ -37,243 +43,355 @@ def detect_ground_y(
     """
     Heuristic ground detection:
 
-    1) Scan from y_max downward for the highest block whose id is in GROUND_CANDIDATES.
-    2) If none, scan downward for the highest non-air block.
-    3) If *still* none, return y_min.
+    1) Highest block in GROUND_CANDIDATES.
+    2) Otherwise: highest non-air.
+    3) Otherwise: y_min.
     """
-
-    # Pass 1: “real surface” blocks
     for y in range(y_max, y_min - 1, -1):
         blk = editor.getBlock((x, y, z))
-        bid = blk.id
-        if bid in GROUND_CANDIDATES:
+        if blk.id in GROUND_CANDIDATES:
             return y
 
-    # Pass 2: any non-air (fallback)
     for y in range(y_max, y_min - 1, -1):
         blk = editor.getBlock((x, y, z))
         if blk.id != "minecraft:air":
             return y
 
-    # Absolute worst case
     return y_min
+
+
 # ---------------------------------------------------------------------------
-# Blueprint selection helpers
+# Blueprint loading & selection
 # ---------------------------------------------------------------------------
 
 def load_blueprints() -> List[Tuple[str, Dict[str, Any], list]]:
     """Load all blueprints into a list for easy selection."""
     bps = list(iter_blueprints(BP_DIR))
     if not bps:
-        raise RuntimeError("No blueprints found in BLUEPRINTS.")
+        raise RuntimeError("No blueprints found in BP_DIR.")
     return bps
 
 
-def filter_blueprints_for_width(
+def filter_blueprints_by_max_size(
     blueprints: List[Tuple[str, Dict[str, Any], list]],
     max_size_x: int,
+    max_size_z: int,
 ) -> List[Tuple[str, Dict[str, Any], list]]:
-    """
-    Filter blueprints only by X footprint.
-    Z depth is ignored; buildings are allowed to stick out behind the plot.
-    """
+    """Drop obviously gigantic ones, keep anything that fits the area."""
     out: List[Tuple[str, Dict[str, Any], list]] = []
     for bp_id, meta, blocks in blueprints:
         size_x, size_y, size_z = meta["size"]
-        if size_x <= max_size_x:
+        if size_x <= max_size_x and size_z <= max_size_z:
             out.append((bp_id, meta, blocks))
     return out
 
 
-class BlueprintSelector:
+# ---------------------------------------------------------------------------
+# Geometry helpers
+# ---------------------------------------------------------------------------
+
+def rects_overlap(a: Tuple[int, int, int, int],
+                  b: Tuple[int, int, int, int]) -> bool:
     """
-    Stateful, round-robin blueprint selector.
+    Axis-aligned rectangle overlap in XZ.
 
-    - Keeps a circular index over the candidate list.
-    - For each call, tries up to N candidates to find one that fits remaining width.
-    - Ensures all blueprints get chances over time.
+    a, b = (min_x, max_x, min_z, max_z)
     """
+    ax0, ax1, az0, az1 = a
+    bx0, bx1, bz0, bz1 = b
 
-    def __init__(self, candidates: List[Tuple[str, Dict[str, Any], list]]) -> None:
-        # Optional: shuffle so the starting order isn't deterministic
-        random.shuffle(candidates)
+    if ax1 < bx0 or bx1 < ax0:
+        return False
+    if az1 < bz0 or bz1 < az0:
+        return False
+    return True
 
-        # Optional but useful: sort by width descending so big buildings
-        # get earlier opportunities to fit.
-        candidates.sort(key=lambda bp: bp[1]["size"][0], reverse=True)
 
-        self._candidates: List[Tuple[str, Dict[str, Any], list]] = candidates
-        self._idx: int = 0
+def compute_building_rect(
+    origin_x: int,
+    origin_z: int,
+    size_x: int,
+    size_z: int,
+) -> Tuple[int, int, int, int]:
+    """World-space XZ rect of a placed building."""
+    return (
+        origin_x,
+        origin_x + size_x - 1,
+        origin_z,
+        origin_z + size_z - 1,
+    )
 
-    def pick(self, max_size_x: int) -> Tuple[str, Dict[str, Any], list] | None:
-        if not self._candidates:
-            return None
 
-        n = len(self._candidates)
-        tried = 0
+def get_meta_forward_axis(meta: Dict[str, Any]) -> str:
+    """Meta may or may not contain forward_axis; default to '+z'."""
+    axis = meta.get("forward_axis", "+z")
+    if axis not in ("+z", "-z", "+x", "-x"):
+        axis = "+z"
+    return axis
 
-        # Try at most N distinct blueprints per call
-        while tried < n:
-            bp_id, meta, blocks = self._candidates[self._idx]
-            self._idx = (self._idx + 1) % n
-            tried += 1
 
-            size_x, size_y, size_z = meta["size"]
-            if size_x <= max_size_x:
-                return bp_id, meta, blocks
-
-        # Nothing fits the remaining width
-        return None
+def compute_front_midpoint(
+    origin_x: int,
+    origin_z: int,
+    size_x: int,
+    size_z: int,
+    forward_axis: str,
+) -> Tuple[int, int]:
+    """
+    Returns (fx, fz) = midpoint of the front edge, in world coords.
+    """
+    if forward_axis == "+z":
+        fx = origin_x + size_x // 2
+        fz = origin_z
+    elif forward_axis == "-z":
+        fx = origin_x + size_x // 2
+        fz = origin_z + size_z - 1
+    elif forward_axis == "+x":
+        fx = origin_x + size_x - 1
+        fz = origin_z + size_z // 2
+    elif forward_axis == "-x":
+        fx = origin_x
+        fz = origin_z + size_z // 2
+    else:
+        # Fallback: assume +z
+        fx = origin_x + size_x // 2
+        fz = origin_z
+    return fx, fz
 
 
 # ---------------------------------------------------------------------------
-# Road carving
+# Placement: organic scattering
 # ---------------------------------------------------------------------------
 
-def carve_road(
+class PlacedBuilding:
+    __slots__ = ("bp_id", "meta", "blocks", "origin", "rect", "front")
+
+    def __init__(
+        self,
+        bp_id: str,
+        meta: Dict[str, Any],
+        blocks: list,
+        origin: Tuple[int, int, int],
+        rect: Tuple[int, int, int, int],
+        front: Tuple[int, int],
+    ) -> None:
+        self.bp_id = bp_id
+        self.meta = meta
+        self.blocks = blocks
+        self.origin = origin      # (x, y, z)
+        self.rect = rect          # (min_x, max_x, min_z, max_z)
+        self.front = front        # (fx, fz)
+
+
+def scatter_buildings(
+    editor: Editor,
+    blueprints: List[Tuple[str, Dict[str, Any], list]],
+    area_x0: int,
+    area_x1: int,
+    area_z0: int,
+    area_z1: int,
+    ground_y: int,
+    max_buildings: int = 40,
+    max_attempts: int = 2000,
+) -> List[PlacedBuilding]:
+    """
+    Rejection-sampling placement:
+        - Random origin inside area
+        - Reject if rect overlaps existing rects
+        - Place, record, repeat
+    """
+    placed: List[PlacedBuilding] = []
+
+    # Slight inset so we don't clip outside the area when placing big buildings
+    area_width = area_x1 - area_x0 + 1
+    area_depth = area_z1 - area_z0 + 1
+
+    # Pre-sort blueprints by footprint area (big first) for nicer packing.
+    bps_sorted = sorted(
+        blueprints,
+        key=lambda b: b[1]["size"][0] * b[1]["size"][2],
+        reverse=True,
+    )
+
+    attempts = 0
+    while attempts < max_attempts and len(placed) < max_buildings:
+        attempts += 1
+
+        # Pick a blueprint with bias towards larger ones
+        bp_id, meta, blocks = random.choice(bps_sorted)
+        size_x, size_y, size_z = meta["size"]
+
+        if size_x > area_width or size_z > area_depth:
+            continue  # impossible in this area
+
+        # Random origin such that the building fully fits in the area
+        ox = random.randint(area_x0, area_x1 - size_x + 1)
+        oz = random.randint(area_z0, area_z1 - size_z + 1)
+        oy = ground_y  # flat for now
+
+        rect = compute_building_rect(ox, oz, size_x, size_z)
+
+        # Check overlap
+        conflict = False
+        for pb in placed:
+            if rects_overlap(rect, pb.rect):
+                conflict = True
+                break
+        if conflict:
+            continue
+
+        forward_axis = get_meta_forward_axis(meta)
+        fx, fz = compute_front_midpoint(ox, oz, size_x, size_z, forward_axis)
+
+        # Place in world
+        place_blueprint(editor, (ox, oy, oz), blocks)
+        print(f"[place] {bp_id} at ({ox}, {oy}, {oz}), size={meta['size']}, forward_axis={forward_axis}")
+
+        placed.append(
+            PlacedBuilding(
+                bp_id=bp_id,
+                meta=meta,
+                blocks=blocks,
+                origin=(ox, oy, oz),
+                rect=rect,
+                front=(fx, fz),
+            )
+        )
+
+    print(f"[scatter] placed {len(placed)} buildings after {attempts} attempts")
+    return placed
+
+
+# ---------------------------------------------------------------------------
+# Road carving between front points
+# ---------------------------------------------------------------------------
+
+def carve_road_segment_x(
     editor: Editor,
     x0: int,
     x1: int,
     z_center: int,
     width: int,
     y: int,
-    block_id: str = "minecraft:stone_bricks",
+    block: Block,
 ) -> None:
-    """Carve a straight road segment along X."""
-    if width <= 0:
-        return
-
     if x0 > x1:
         x0, x1 = x1, x0
-
     half = width // 2
     z_start = z_center - half
     z_end = z_center + half
-
-    block = Block(block_id)
 
     for x in range(x0, x1 + 1):
         for z in range(z_start, z_end + 1):
             editor.placeBlock((x, y, z), block)
 
 
-# ---------------------------------------------------------------------------
-# Row filling along +Z of a given road
-# ---------------------------------------------------------------------------
-
-def fill_building_row(
+def carve_road_segment_z(
     editor: Editor,
-    selector: BlueprintSelector,
-    row_x0: int,
-    row_x1: int,
-    front_z: int,
-    ground_y: int,
-    gap_x: int,
+    z0: int,
+    z1: int,
+    x_center: int,
+    width: int,
+    y: int,
+    block: Block,
 ) -> None:
-    if row_x0 > row_x1:
-        row_x0, row_x1 = row_x1, row_x0
+    if z0 > z1:
+        z0, z1 = z1, z0
+    half = width // 2
+    x_start = x_center - half
+    x_end = x_center + half
 
-    x = row_x0
-    max_x = row_x1
-
-    while x <= max_x:
-        remaining = max_x - x + 1
-        choice = selector.pick(remaining)
-        if choice is None:
-            break
-
-        bp_id, meta, blocks = choice
-        size_x, size_y, size_z = meta["size"]
-
-        origin_x = x
-        origin_y = ground_y
-        origin_z = front_z
-
-        place_blueprint(editor, (origin_x, origin_y, origin_z), blocks)
-        print(f"[row] placed {bp_id} at ({origin_x}, {origin_y}, {origin_z}), size={meta['size']}")
-
-        x += size_x + gap_x
+    for z in range(z0, z1 + 1):
+        for x in range(x_start, x_end + 1):
+            editor.placeBlock((x, y, z), block)
 
 
-
-
-# ---------------------------------------------------------------------------
-# 2D district generation
-# ---------------------------------------------------------------------------
-def generate_grid_district(
+def connect_buildings_with_roads(
     editor: Editor,
-    area_x0: int,
-    area_x1: int,
-    area_z0: int,
-    area_z1: int,
+    placed: List[PlacedBuilding],
     ground_y: int,
     road_width: int = 3,
-    plot_depth: int = 16,       # now: just spacing, not a hard constraint
-    road_spacing: int | None = None,
-    building_gap_x: int = 2,
+    block_id: str = "minecraft:stone_bricks",
 ) -> None:
-    if area_x0 > area_x1:
-        area_x0, area_x1 = area_x1, area_x0
-    if area_z0 > area_z1:
-        area_z0, area_z1 = area_z1, area_z0
-
-    if road_spacing is None:
-        road_spacing = road_width + plot_depth
-
-    all_bps = load_blueprints()
-
-    # Only filter by width in X
-    bps_for_plot = filter_blueprints_for_width(
-        all_bps,
-        max_size_x=(area_x1 - area_x0 + 1),
-    )
-    if not bps_for_plot:
-        raise RuntimeError("No blueprints fit the requested width.")
-
-    print(f"[district] using {len(bps_for_plot)} blueprints (width-filtered only)")
-
-    selector = BlueprintSelector(bps_for_plot)
-
-    road_half = road_width // 2
-
-    # Only ensure the *road* is inside the area; ignore building depth.
-    z_min = area_z0 + road_half
-    z_max = area_z1 - road_half
-
-    if z_min > z_max:
-        print("[district] no space for roads in given Z range")
+    """
+    Build an MST-ish graph over building front points, carve L-shaped roads.
+    """
+    n = len(placed)
+    if n <= 1:
         return
 
-    z = z_min
-    while z <= z_max:
-        # Carve the road
-        carve_road(editor, area_x0, area_x1, z_center=z, width=road_width, y=ground_y)
-        print(f"[district] carved road at z={z}")
+    road_block = Block(block_id)
 
-        # Buildings go on +Z side
-        front_z = z + road_half + 1
+    # Use building closest to area center as root.
+    xs = [pb.front[0] for pb in placed]
+    zs = [pb.front[1] for pb in placed]
+    center_x = sum(xs) / n
+    center_z = sum(zs) / n
 
-        fill_building_row(
+    root_idx = min(
+        range(n),
+        key=lambda i: (placed[i].front[0] - center_x) ** 2 + (placed[i].front[1] - center_z) ** 2,
+    )
+
+    connected = {root_idx}
+    remaining = set(range(n)) - connected
+
+    print(f"[roads] root building index = {root_idx}")
+
+    while remaining:
+        best_pair = None
+        best_dist2 = math.inf
+
+        for i in connected:
+            fx_i, fz_i = placed[i].front
+            for j in remaining:
+                fx_j, fz_j = placed[j].front
+                dx = fx_i - fx_j
+                dz = fz_i - fz_j
+                d2 = dx * dx + dz * dz
+                if d2 < best_dist2:
+                    best_dist2 = d2
+                    best_pair = (i, j)
+
+        if best_pair is None:
+            break
+
+        i, j = best_pair
+        connected.add(j)
+        remaining.remove(j)
+
+        fx_i, fz_i = placed[i].front
+        fx_j, fz_j = placed[j].front
+
+        print(f"[roads] connect {i} -> {j} via ({fx_i},{fz_i}) -> ({fx_j},{fz_j})")
+
+        # L-shape: horizontal then vertical (you can randomize order if you like)
+        carve_road_segment_x(
             editor,
-            selector=selector,
-            row_x0=area_x0,
-            row_x1=area_x1,
-            front_z=front_z,
-            ground_y=ground_y,
-            gap_x=building_gap_x,
+            x0=fx_i,
+            x1=fx_j,
+            z_center=fz_i,
+            width=road_width,
+            y=ground_y,
+            block=road_block,
         )
 
-        z += road_spacing
-
-
+        carve_road_segment_z(
+            editor,
+            z0=fz_i,
+            z1=fz_j,
+            x_center=fx_j,
+            width=road_width,
+            y=ground_y,
+            block=road_block,
+        )
 
 
 # ---------------------------------------------------------------------------
-# Debug markers
+# Debug marker
 # ---------------------------------------------------------------------------
 
 def place_debug_marker(editor: Editor, x: int, y: int, z: int) -> None:
-    """Place a tall pillar to help you find the generated area."""
     for dy in range(0, 20):
         editor.placeBlock((x, y + dy, z), Block("minecraft:gold_block"))
     print(f"[debug] marker pillar at ({x}, {y}, {z})")
@@ -286,37 +404,61 @@ def place_debug_marker(editor: Editor, x: int, y: int, z: int) -> None:
 def main():
     editor = Editor(buffering=True)
 
-    # Hard-coded debug area (adjust as you like)
-    area_x0 = -300
-    area_x1 = 300
-    area_z0 = -300
-    area_z1 = 300
+    # Define an area in which to scatter buildings and roads
+    build_area = editor.getBuildArea()
+    print(f"[info] buildArea: X=[{build_area.begin.x},{build_area.end.x}), "
+          f"Y=[{build_area.begin.y},{build_area.end.y}), "
+          f"Z=[{build_area.begin.z},{build_area.end.z})")
 
-    # For your superflat debug: ground is basically -61/-62.
+    # Slightly inset from the build area to avoid edges
+    area_x0 = build_area.begin.x + 5
+    area_x1 = build_area.end.x - 6
+    area_z0 = build_area.begin.z + 5
+    area_z1 = build_area.end.z - 6
+
+    # Ground detection near one corner
     ground_y = detect_ground_y(
         editor,
         x=area_x0,
         z=area_z0,
-        y_min=-64,
-        y_max=300,
+        y_min=build_area.begin.y,
+        y_max=build_area.end.y - 1,
     )
 
-    generate_grid_district(
+    print(f"[info] using area: X=[{area_x0},{area_x1}], Z=[{area_z0},{area_z1}], ground_y={ground_y}")
+    place_debug_marker(editor, area_x0, ground_y, area_z0)
+
+    # Load blueprints, filter by area size
+    all_bps = load_blueprints()
+    max_size_x = area_x1 - area_x0 + 1
+    max_size_z = area_z1 - area_z0 + 1
+    bps_filtered = filter_blueprints_by_max_size(all_bps, max_size_x, max_size_z)
+    print(f"[info] {len(bps_filtered)} blueprints fit into this area")
+
+    # 1) Scatter buildings organically
+    placed = scatter_buildings(
         editor,
+        bps_filtered,
         area_x0=area_x0,
         area_x1=area_x1,
         area_z0=area_z0,
         area_z1=area_z1,
         ground_y=ground_y,
+        max_buildings=MAX_BUILDINGS,
+        max_attempts=2000,
+    )
+
+    # 2) Connect their front directions with roads
+    connect_buildings_with_roads(
+        editor,
+        placed=placed,
+        ground_y=ground_y,
         road_width=3,
-        plot_depth=16,     # just spacing now
-        road_spacing=None, # => road_width + plot_depth
-        building_gap_x=2,
+        block_id="minecraft:stone_bricks",
     )
 
     editor.flushBuffer()
-    print("[done] grid district generated")
-
+    print("[done] organic district generated")
 
 
 if __name__ == "__main__":

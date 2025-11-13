@@ -2,7 +2,7 @@
   "meta": {
     "id": "bp_105",
     "name": "bp_105",
-    "style": "medieval",
+    "style": "castle",
     "world_origin": [
       370,
       4,
@@ -47,6 +47,12 @@
       "minecraft:oak_slab": 4,
       "minecraft:chiseled_stone_bricks": 2
     },
+    "forward_axis": "-z",
+    "forward_vec": [
+      0,
+      0,
+      -1
+    ],
     "category": null,
     "landmass": null,
     "tags": [],

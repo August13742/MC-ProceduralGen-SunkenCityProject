@@ -31,6 +31,12 @@
       "minecraft:torch": 2,
       "minecraft:oak_door": 2
     },
+    "forward_axis": "+z",
+    "forward_vec": [
+      0,
+      0,
+      1
+    ],
     "category": null,
     "landmass": null,
     "tags": [],

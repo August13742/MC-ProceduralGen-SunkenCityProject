@@ -2,7 +2,7 @@
   "meta": {
     "id": "bp_048",
     "name": "bp_048",
-    "style": "medieval",
+    "style": "castle",
     "world_origin": [
       174,
       4,
@@ -35,6 +35,12 @@
       "minecraft:mossy_stone_bricks": 5,
       "minecraft:mossy_cobblestone_wall": 8
     },
+    "forward_axis": "-z",
+    "forward_vec": [
+      0,
+      0,
+      -1
+    ],
     "category": null,
     "landmass": null,
     "tags": [],

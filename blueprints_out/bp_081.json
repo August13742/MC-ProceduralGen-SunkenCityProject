@@ -2,7 +2,7 @@
   "meta": {
     "id": "bp_081",
     "name": "bp_081",
-    "style": "medieval",
+    "style": "castle",
     "world_origin": [
       310,
       4,
@@ -53,6 +53,12 @@
       "minecraft:glowstone": 1,
       "minecraft:oak_fence_gate": 2
     },
+    "forward_axis": "-z",
+    "forward_vec": [
+      0,
+      0,
+      -1
+    ],
     "category": null,
     "landmass": null,
     "tags": [],

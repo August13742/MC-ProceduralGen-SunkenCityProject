@@ -39,6 +39,12 @@
       "minecraft:oak_door": 4,
       "minecraft:chest": 2
     },
+    "forward_axis": "+z",
+    "forward_vec": [
+      0,
+      0,
+      1
+    ],
     "category": null,
     "landmass": null,
     "tags": [],

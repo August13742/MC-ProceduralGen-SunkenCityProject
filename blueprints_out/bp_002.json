@@ -32,6 +32,12 @@
       "minecraft:white_wool": 48,
       "minecraft:stone_brick_stairs": 95
     },
+    "forward_axis": "+z",
+    "forward_vec": [
+      0,
+      0,
+      1
+    ],
     "category": null,
     "landmass": null,
     "tags": [],
