@@ -3191,8 +3191,7 @@
       "dz": 8,
       "id": "minecraft:chest",
       "props": {
-        "facing": "east",
-        "type": "left"
+        "facing": "east"
       }
     },
     {
@@ -3201,8 +3200,7 @@
       "dz": 9,
       "id": "minecraft:chest",
       "props": {
-        "facing": "east",
-        "type": "right"
+        "facing": "east"
       }
     },
     {
@@ -11974,8 +11972,7 @@
       "dz": 2,
       "id": "minecraft:chest",
       "props": {
-        "facing": "west",
-        "type": "right"
+        "facing": "west"
       }
     },
     {
@@ -11984,8 +11981,7 @@
       "dz": 3,
       "id": "minecraft:chest",
       "props": {
-        "facing": "west",
-        "type": "left"
+        "facing": "west"
       }
     },
     {
@@ -12033,8 +12029,7 @@
       "dz": 9,
       "id": "minecraft:chest",
       "props": {
-        "facing": "west",
-        "type": "right"
+        "facing": "west"
       }
     },
     {
@@ -12043,8 +12038,7 @@
       "dz": 10,
       "id": "minecraft:chest",
       "props": {
-        "facing": "west",
-        "type": "left"
+        "facing": "west"
       }
     },
     {

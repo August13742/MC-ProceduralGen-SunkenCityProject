@@ -1,0 +1,478 @@
+{
+  "meta": {
+    "id": "bp_068",
+    "name": "bp_068",
+    "style": "castle",
+    "world_origin": [
+      273,
+      4,
+      -318
+    ],
+    "platform_y": 5,
+    "size": [
+      4,
+      97,
+      4
+    ],
+    "top_y_local": 7,
+    "top_y_world": 11,
+    "block_counts": {
+      "minecraft:dirt": 16,
+      "minecraft:cobblestone": 2,
+      "minecraft:mossy_stone_bricks": 4,
+      "minecraft:grass_block": 13,
+      "minecraft:mossy_cobblestone": 1,
+      "minecraft:cobblestone_wall": 1,
+      "minecraft:cobblestone_slab": 3,
+      "minecraft:oak_log": 3,
+      "minecraft:stone_brick_stairs": 2,
+      "minecraft:button": 4,
+      "minecraft:stone_bricks": 2,
+      "minecraft:mossy_cobblestone_wall": 1
+    },
+    "category": null,
+    "landmass": null,
+    "tags": [],
+    "notes": ""
+  },
+  "blocks": [
+    {
+      "dx": 0,
+      "dy": 0,
+      "dz": 0,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 0,
+      "dz": 1,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 0,
+      "dz": 2,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 0,
+      "dz": 3,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 1,
+      "dz": 0,
+      "id": "minecraft:cobblestone",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 1,
+      "dz": 1,
+      "id": "minecraft:mossy_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 1,
+      "dz": 2,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": 1,
+      "dz": 3,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": 2,
+      "dz": 0,
+      "id": "minecraft:mossy_cobblestone",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 2,
+      "dz": 1,
+      "id": "minecraft:mossy_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 2,
+      "dz": 3,
+      "id": "minecraft:cobblestone_wall",
+      "props": {
+        "east": "none",
+        "north": "none",
+        "south": "none",
+        "up": "true",
+        "west": "tall"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": 3,
+      "dz": 0,
+      "id": "minecraft:cobblestone",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 3,
+      "dz": 1,
+      "id": "minecraft:mossy_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 3,
+      "dz": 3,
+      "id": "minecraft:cobblestone_slab",
+      "props": {
+        "type": "bottom"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": 4,
+      "dz": 0,
+      "id": "minecraft:oak_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": 4,
+      "dz": 1,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": 5,
+      "dz": 0,
+      "id": "minecraft:oak_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": 5,
+      "dz": 1,
+      "id": "minecraft:stone_button",
+      "props": {
+        "face": "wall",
+        "facing": "south",
+        "powered": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": 5,
+      "dz": 3,
+      "id": "minecraft:stone_button",
+      "props": {
+        "face": "wall",
+        "facing": "east",
+        "powered": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": 6,
+      "dz": 0,
+      "id": "minecraft:oak_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": 7,
+      "dz": 0,
+      "id": "minecraft:cobblestone_slab",
+      "props": {
+        "type": "bottom"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 0,
+      "dz": 0,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 1,
+      "dy": 0,
+      "dz": 1,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 1,
+      "dy": 0,
+      "dz": 2,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 1,
+      "dy": 0,
+      "dz": 3,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 1,
+      "dy": 1,
+      "dz": 0,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 1,
+      "dy": 1,
+      "dz": 1,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 1,
+      "dz": 2,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 1,
+      "dz": 3,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 2,
+      "dz": 0,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 1,
+      "dy": 3,
+      "dz": 0,
+      "id": "minecraft:mossy_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 1,
+      "dy": 4,
+      "dz": 0,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 5,
+      "dz": 0,
+      "id": "minecraft:stone_button",
+      "props": {
+        "face": "wall",
+        "facing": "east",
+        "powered": "false"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 0,
+      "dz": 0,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 0,
+      "dz": 1,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 0,
+      "dz": 2,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 0,
+      "dz": 3,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 1,
+      "dz": 0,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 1,
+      "dz": 1,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 1,
+      "dz": 2,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 1,
+      "dz": 3,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 0,
+      "dz": 0,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 0,
+      "dz": 1,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 0,
+      "dz": 2,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 0,
+      "dz": 3,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 1,
+      "dz": 0,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 1,
+      "dz": 1,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 1,
+      "dz": 2,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 1,
+      "dz": 3,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 2,
+      "dz": 0,
+      "id": "minecraft:mossy_cobblestone_wall",
+      "props": {
+        "east": "none",
+        "north": "tall",
+        "south": "none",
+        "up": "true",
+        "west": "none"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 3,
+      "dz": 0,
+      "id": "minecraft:cobblestone_slab",
+      "props": {
+        "type": "bottom"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 5,
+      "dz": 0,
+      "id": "minecraft:stone_button",
+      "props": {
+        "face": "wall",
+        "facing": "south",
+        "powered": "false"
+      }
+    }
+  ]
+}

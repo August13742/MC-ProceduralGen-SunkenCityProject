@@ -69,16 +69,18 @@ def load_blueprints() -> List[Tuple[str, Dict[str, Any], list]]:
     return bps
 
 
-def filter_blueprints_for_plot(
+def filter_blueprints_for_width(
     blueprints: List[Tuple[str, Dict[str, Any], list]],
     max_size_x: int,
-    max_size_z: int,
 ) -> List[Tuple[str, Dict[str, Any], list]]:
-    """Filter to only blueprints that fit within the given X/Z plot limits."""
-    out = []
+    """
+    Filter blueprints only by X footprint.
+    Z depth is ignored; buildings are allowed to stick out behind the plot.
+    """
+    out: List[Tuple[str, Dict[str, Any], list]] = []
     for bp_id, meta, blocks in blueprints:
         size_x, size_y, size_z = meta["size"]
-        if size_x <= max_size_x and size_z <= max_size_z:
+        if size_x <= max_size_x:
             out.append((bp_id, meta, blocks))
     return out
 
@@ -194,6 +196,7 @@ def fill_building_row(
 
 
 
+
 # ---------------------------------------------------------------------------
 # 2D district generation
 # ---------------------------------------------------------------------------
@@ -205,7 +208,7 @@ def generate_grid_district(
     area_z1: int,
     ground_y: int,
     road_width: int = 3,
-    plot_depth: int = 16,
+    plot_depth: int = 16,       # now: just spacing, not a hard constraint
     road_spacing: int | None = None,
     building_gap_x: int = 2,
 ) -> None:
@@ -217,40 +220,39 @@ def generate_grid_district(
     if road_spacing is None:
         road_spacing = road_width + plot_depth
 
-    # Load & filter blueprints once
     all_bps = load_blueprints()
-    bps_for_plot = filter_blueprints_for_plot(
+
+    # Only filter by width in X
+    bps_for_plot = filter_blueprints_for_width(
         all_bps,
         max_size_x=(area_x1 - area_x0 + 1),
-        max_size_z=plot_depth,
     )
     if not bps_for_plot:
-        raise RuntimeError("No blueprints fit the requested plot_depth / width.")
+        raise RuntimeError("No blueprints fit the requested width.")
 
-    print(f"[district] using {len(bps_for_plot)} blueprints that fit plot_depth={plot_depth}")
+    print(f"[district] using {len(bps_for_plot)} blueprints (width-filtered only)")
 
     selector = BlueprintSelector(bps_for_plot)
 
     road_half = road_width // 2
 
-    # Compute valid Z range for road centers
+    # Only ensure the *road* is inside the area; ignore building depth.
     z_min = area_z0 + road_half
-    z_max = area_z1 - road_half - plot_depth
+    z_max = area_z1 - road_half
 
     if z_min > z_max:
-        print("[district] no space for road+plot in given Z range")
+        print("[district] no space for roads in given Z range")
         return
 
     z = z_min
     while z <= z_max:
-        # Carve road
+        # Carve the road
         carve_road(editor, area_x0, area_x1, z_center=z, width=road_width, y=ground_y)
         print(f"[district] carved road at z={z}")
 
-        # Front Z for buildings on +Z side
+        # Buildings go on +Z side
         front_z = z + road_half + 1
 
-        # Fill building row along this road
         fill_building_row(
             editor,
             selector=selector,
@@ -262,6 +264,7 @@ def generate_grid_district(
         )
 
         z += road_spacing
+
 
 
 
@@ -283,22 +286,20 @@ def place_debug_marker(editor: Editor, x: int, y: int, z: int) -> None:
 def main():
     editor = Editor(buffering=True)
 
-    build_area = editor.getBuildArea()
-    bx0, by0, bz0 = build_area.begin
-    bx1, by1, bz1 = build_area.end
+    # Hard-coded debug area (adjust as you like)
+    area_x0 = -300
+    area_x1 = 300
+    area_z0 = -300
+    area_z1 = 300
 
-    area_x0 = bx0 + 5
-    area_x1 = bx1 - 5
-    area_z0 = bz0 + 5
-    area_z1 = bz1 - 5
-
-    ground_y = detect_ground_y(editor, area_x0, area_z0, y_min=-64, y_max=64)
-    print(f"[info] detected ground_y={ground_y}")
-
-    print(f"[info] buildArea: X=[{bx0},{bx1}), Y=[{by0},{by1}), Z=[{bz0},{bz1})")
-    print(f"[info] using area: X=[{area_x0},{area_x1}], Z=[{area_z0},{area_z1}], ground_y={ground_y}")
-
-    place_debug_marker(editor, area_x0, ground_y, area_z0)
+    # For your superflat debug: ground is basically -61/-62.
+    ground_y = detect_ground_y(
+        editor,
+        x=area_x0,
+        z=area_z0,
+        y_min=-64,
+        y_max=300,
+    )
 
     generate_grid_district(
         editor,
@@ -308,13 +309,14 @@ def main():
         area_z1=area_z1,
         ground_y=ground_y,
         road_width=3,
-        plot_depth=16,
-        road_spacing=None,
+        plot_depth=16,     # just spacing now
+        road_spacing=None, # => road_width + plot_depth
         building_gap_x=2,
     )
 
     editor.flushBuffer()
     print("[done] grid district generated")
+
 
 
 if __name__ == "__main__":
