@@ -6,24 +6,24 @@ Requires:
 
 Usage example:
 
-    python mc_world2db.py ^
-        --world "C:\\Users\\augus\\AppData\\Roaming\\.minecraft\\saves\\SordrinBuildingSet" ^
-        --dim overworld ^
-        --min 0 1 -500 ^
-        --max 900 100 256 ^
-        --platform-y 67 ^
-        --out-dir blueprints_out ^
-        --min-size 10
-        
-Note: 
-Won't work (stuck forever) if the world save is loaded (opened in MC)
-platform-y specification is -1 from what you see in F3 view (idk why but else it won't detect)
+    python mc_world2db.py --world "C:\\Users\\augus\\AppData\\Roaming\\.minecraft\\saves\\SordrinBuildingSet" --dim overworld --min 0 1 -500 --max 900 100 256 --platform-y 2 --out-dir blueprints_out --min-size 10 --style-tag medieval --mode overwrite
 
+mode option: overwrite, append
+Note:
+- Won't work (stuck forever) if the world save is loaded (opened in MC).
+- platform-y specification is -1 from what you see in F3 view 
+  (because your character is standing on it, which means ground is 1 lower).
+
+All later processing (classifying residential/commercial/etc., computing
+utility scores, city-planning heuristics) should operate purely on the
+generated JSON blueprints and not touch the world save again.
 """
 
 from __future__ import annotations
 import argparse
 import os
+import json
+
 from collections import Counter, deque
 from typing import Dict, List, Tuple, Any
 
@@ -42,17 +42,15 @@ DIM_MAP = {
 }
 
 PLATFORM_BLOCK_IDS = {
-    "universal_minecraft:grass_block",
-    "universal_minecraft:dirt",
+    "minecraft:grass_block",
+    "minecraft:dirt",
 }
 
 AIR_IDS = {
-    "universal_minecraft:air",
-    "universal_minecraft:cave_air",
-    "universal_minecraft:void_air",
+    "minecraft:air",
+    "minecraft:cave_air",
+    "minecraft:void_air",
 }
-
-BlockTuple = Tuple[int, int, int, str, Dict[str, Any]]  # (dx,dy,dz, id, props)
 
 
 # ---- Low-level helpers -----------------------------------------------------
@@ -66,13 +64,38 @@ def get_block(world, x: int, y: int, z: int, dim: str):
 
 
 def get_block_id(b) -> str:
-    """Extract namespaced block id from amulet block (None => air)."""
+    """Extract namespaced block id from amulet block (None => air).
+
+    - Amulet uses 'universal_minecraft:' as its internal namespace.
+    - We normalize that to 'minecraft:' because GDPC expects vanilla IDs.
+    """
     if b is None:
         return "minecraft:air"
+
     ns = getattr(b, "namespaced_name", None)
-    if isinstance(ns, str):
-        return ns
-    return str(ns) if ns is not None else "minecraft:air"
+    if not isinstance(ns, str):
+        ns = str(ns) if ns is not None else "minecraft:air"
+
+    if ns.startswith("universal_minecraft:"):
+        return "minecraft:" + ns.split(":", 1)[1]
+
+    # For modded content, keep the original namespace (modid:foo).
+    return ns
+
+
+def _normalise_nbt_value(v: Any) -> Any:
+    """
+    Try to convert Amulet NBT tags to plain Python types.
+    Fallback: string representation.
+    """
+    if hasattr(v, "value"):
+        return v.value
+    if hasattr(v, "py"):
+        try:
+            return v.py()
+        except Exception:
+            pass
+    return str(v)
 
 
 def get_block_props(b) -> Dict[str, Any]:
@@ -81,7 +104,169 @@ def get_block_props(b) -> Dict[str, Any]:
     props = getattr(b, "properties", None)
     if not props:
         return {}
-    return dict(props)
+    raw = dict(props)
+    return {k: _normalise_nbt_value(v) for k, v in raw.items()}
+
+
+# ---- Universal → Vanilla normalization ------------------------------------
+def _pop_material(props: Dict[str, Any], default: str = "oak") -> str:
+    """
+    Extract wood/material type from universal props if present.
+    Tries several common keys, falls back to `default` if nothing found.
+    """
+    if props is None:
+        return default
+
+    for key in ("material", "wood", "wood_type", "plank"):
+        if key in props:
+            return str(props.pop(key))
+
+    return default
+
+def normalize_block(block_id: str, props: Dict[str, Any]) -> tuple[str, Dict[str, Any]]:
+    """
+    Convert Amulet-style 'universal' blocks to real 1.13+ vanilla IDs/states
+    that the GDPC / Minecraft server actually understands.
+
+    Assumes get_block_id has already converted 'universal_minecraft:' to 'minecraft:'.
+    """
+    props = dict(props or {})
+    bid = block_id
+
+    # --- Stone bricks: variant -> separate blocks --------------------------
+    if bid == "minecraft:stone_bricks":
+        variant = props.pop("variant", "normal")
+        if variant == "chiseled":
+            bid = "minecraft:chiseled_stone_bricks"
+        elif variant == "cracked":
+            bid = "minecraft:cracked_stone_bricks"
+        elif variant == "mossy":
+            bid = "minecraft:mossy_stone_bricks"
+        # "normal" => keep stone_bricks, but without a variant property
+
+    # --- Logs ---------------------------------------------------------------
+    if bid == "minecraft:log":
+        mat = _pop_material(props, "oak")
+        stripped = props.pop("stripped", "false")
+        prefix = "stripped_" if str(stripped).lower() == "true" else ""
+        bid = f"minecraft:{prefix}{mat}_log"
+        # axis is valid on logs; keep it
+
+    # --- Leaves -------------------------------------------------------------
+    if bid == "minecraft:leaves":
+        mat = _pop_material(props, "oak")
+        props.pop("check_decay", None)  # legacy junk
+        bid = f"minecraft:{mat}_leaves"
+
+    # --- Planks -------------------------------------------------------------
+    if bid == "minecraft:planks":
+        mat = _pop_material(props, "oak")
+        bid = f"minecraft:{mat}_planks"
+        props.clear()  # planks have no states
+
+    # --- Stairs -------------------------------------------------------------
+    if bid == "minecraft:stairs":
+        mat = _pop_material(props, "oak")
+        bid = f"minecraft:{mat}_stairs"
+        # facing, half, shape are valid; keep them
+
+    # --- Slabs --------------------------------------------------------------
+    if bid == "minecraft:slab":
+        mat = _pop_material(props, "stone")
+        bid = f"minecraft:{mat}_slab"
+        # type (top/bottom/double) is valid
+
+    # --- Fences -------------------------------------------------------------
+    if bid == "minecraft:fence":
+        mat = _pop_material(props, "oak")
+        bid = f"minecraft:{mat}_fence"
+
+    # --- Fence gates --------------------------------------------------------
+    if bid == "minecraft:fence_gate":
+        mat = _pop_material(props, "oak")
+        bid = f"minecraft:{mat}_fence_gate"
+        # facing, open, powered, in_wall are valid; keep them
+
+    # --- Trapdoors ----------------------------------------------------------
+    if bid == "minecraft:trapdoor":
+        mat = _pop_material(props, "oak")
+        bid = f"minecraft:{mat}_trapdoor"
+
+    # --- Doors --------------------------------------------------------------
+    if bid == "minecraft:door":
+        mat = _pop_material(props, "oak")
+        bid = f"minecraft:{mat}_door"
+
+    # --- Walls --------------------------------------------------------------
+    if bid == "minecraft:wall":
+        mat = _pop_material(props, "cobblestone")
+        bid = f"minecraft:{mat}_wall"
+
+    # --- Bars (iron_bars in vanilla) ---------------------------------------
+    if bid == "minecraft:bars":
+        # In vanilla there's effectively only iron_bars.
+        props.pop("material", None)
+        bid = "minecraft:iron_bars"
+        # connectivity flags (north/east/south/west) are valid; keep them
+
+    # --- Wool & carpet (color -> ID) ---------------------------------------
+    if bid == "minecraft:wool":
+        color = props.pop("color", "white")
+        bid = f"minecraft:{color}_wool"
+
+    if bid == "minecraft:carpet":
+        color = props.pop("color", "white")
+        bid = f"minecraft:{color}_carpet"
+
+    # --- Torch / wall_torch -------------------------------------------------
+    if bid == "minecraft:torch":
+        facing = props.get("facing", "up")
+        if facing in ("north", "south", "east", "west"):
+            bid = "minecraft:wall_torch"
+            # wall_torch has facing; keep it
+        else:
+            props.pop("facing", None)  # standing torch has no facing
+
+    # --- Flower pot ---------------------------------------------------------
+    if bid == "minecraft:flower_pot":
+        plant = props.pop("plant", "none")
+        props.pop("update", None)
+        if plant != "none":
+            bid = f"minecraft:potted_{plant}"
+            props.clear()
+        else:
+            props.clear()
+
+    # --- Chest --------------------------------------------------------------
+    if bid == "minecraft:chest":
+        props.pop("material", None)
+        conn = props.pop("connection", None)
+        # universal uses "connection": single|left|right|none|...
+        if conn in ("single", "left", "right"):
+            props["type"] = conn
+        else:
+            # "none" or unknown -> let vanilla default to single, no explicit type
+            props.pop("type", None)
+
+    # --- Fluids -------------------------------------------------------------
+    if bid in ("minecraft:water", "minecraft:lava"):
+        # Universal may give us: level, falling, flowing, etc.
+        # Vanilla only understands 'level'. Nukes everything else.
+        raw_level = props.get("level", "0")
+
+        try:
+            lvl = int(raw_level)
+        except (ValueError, TypeError):
+            lvl = 0
+
+        lvl = max(0, min(15, lvl))
+
+        # Only keep 'level' as a *string* (vanilla accepts that)
+        props = {"level": str(lvl)}
+
+    return bid, props
+
+
 
 
 # ---- Optional (slow) platform detection -----------------------------------
@@ -186,62 +371,62 @@ def compute_building_bbox(x0: int, z0: int,
 
 
 def extract_relative_blocks(world, dim: str,
-                            bbox: Tuple[int, int, int, int, int, int]) -> List[BlockTuple]:
+                            bbox: Tuple[int, int, int, int, int, int]) -> List[Dict[str, Any]]:
     """
-    Extract all non-air blocks inside bbox as relative coordinates
-    (dx,dy,dz) from bbox origin (min_x, y0, min_z).
+    Extract all non-air blocks inside bbox as relative coordinates.
+
+    Return list of dicts:
+        {
+            "dx": int,
+            "dy": int,
+            "dz": int,
+            "id": "minecraft:whatever",   # vanilla-normalised
+            "props": {...}                # vanilla-valid blockstates
+        }
     """
     min_x, max_x, y0, y1, min_z, max_z = bbox
-    blocks_out: List[BlockTuple] = []
+    blocks_out: List[Dict[str, Any]] = []
 
     for wx in range(min_x, max_x + 1):
         for y in range(y0, y1 + 1):
             for wz in range(min_z, max_z + 1):
                 b = get_block(world, wx, y, wz, dim)
-                bid = get_block_id(b)
-                if bid in AIR_IDS:
+                raw_id = get_block_id(b)
+                if raw_id in AIR_IDS:
                     continue
+                raw_props = get_block_props(b)
+                bid, props = normalize_block(raw_id, raw_props)
+
                 dx, dy, dz = wx - min_x, y - y0, wz - min_z
-                props = get_block_props(b)
-                blocks_out.append((dx, dy, dz, bid, props))
+                blocks_out.append({
+                    "dx": dx,
+                    "dy": dy,
+                    "dz": dz,
+                    "id": bid,
+                    "props": props,
+                })
 
     return blocks_out
 
 
 # ---- File writers ----------------------------------------------------------
 
-def write_blueprint_file(path: str, name: str, blocks: List[BlockTuple]) -> None:
+def write_blueprint_json(path: str, meta: Dict[str, Any], blocks: List[Dict[str, Any]]) -> None:
+    data = {
+        "meta": meta,
+        "blocks": blocks,
+    }
     with open(path, "w", encoding="utf-8") as f:
-        f.write("# Auto-generated building blueprint\n")
-        f.write(f'NAME = "{name}"\n')
-        f.write("BLOCKS = [\n")
-        for (dx, dy, dz, block_id, props) in blocks:
-            f.write(
-                f"    (({dx}, {dy}, {dz}), "
-                f'"{block_id}", '
-                f"{repr(props)}),\n"
-            )
-        f.write("]\n")
+        json.dump(data, f, ensure_ascii=False, indent=2)
 
 
-def write_master_file(out_dir: str, module_names: List[str]) -> None:
-    master_path = os.path.join(out_dir, "blueprints_master.py")
-    with open(master_path, "w", encoding="utf-8") as f:
-        f.write("# Auto-generated master blueprint database\n")
-        for mod in module_names:
-            f.write(f"import {mod}\n")
-        f.write("\nBLUEPRINTS = {\n")
-        for mod in module_names:
-            f.write(f"    {mod}.NAME: {mod}.BLOCKS,\n")
-        f.write("}\n\n")
-        f.write(
-            "def place_blueprint(editor, origin, blocks):\n"
-            "    \"\"\"Place a blueprint at origin using GDPC editor.\"\"\"\n"
-            "    from gdpc.block import Block\n"
-            "    ox, oy, oz = origin\n"
-            "    for (dx, dy, dz), block_id, props in blocks:\n"
-            "        editor.placeBlock((ox+dx, oy+dy, oz+dz), Block(block_id, props))\n"
-        )
+def write_index_json(out_dir: str, index: Dict[str, Dict[str, Any]]) -> None:
+    """
+    index: id -> { "file": "bp_000.json", "meta": {...} }
+    """
+    idx_path = os.path.join(out_dir, "blueprints_index.json")
+    with open(idx_path, "w", encoding="utf-8") as f:
+        json.dump({"blueprints": index}, f, ensure_ascii=False, indent=2)
 
 
 # ---- main ------------------------------------------------------------------
@@ -257,20 +442,47 @@ def main():
     ap.add_argument("--platform-y", type=int, default=None,
                     help="Y-level of the grass platform. If omitted, auto-detect (slow).")
     ap.add_argument("--out-dir", required=True,
-                    help="Directory to output bp_XXX.py + blueprints_master.py")
+                    help="Directory to output bp_XXX.json + blueprints_index.json")
     ap.add_argument("--min-size", type=int, default=50,
-                    help="Minimum number of blocks to treat as a building")
+                    help="Minimum number of non-air blocks to treat as a building")
+    ap.add_argument("--style-tag", type=str, default="generic",
+                    help="Freeform style tag stored into META['style'] (e.g. 'medieval')")
+    ap.add_argument("--mode", choices=["overwrite", "append"], default="overwrite",
+                    help="overwrite: clear output dir first; append: add to existing blueprints")
     args = ap.parse_args()
 
     dim = DIM_MAP.get(str(args.dim).lower(), args.dim)
     (x0, y0, z0) = args.min
     (x1, y1, z1) = args.max
 
-    if x0 > x1: x0, x1 = x1, x0
-    if y0 > y1: y0, y1 = y1, y0
-    if z0 > z1: z0, z1 = z1, z0
+    if x0 > x1:
+        x0, x1 = x1, x0
+    if y0 > y1:
+        y0, y1 = y1, y0
+    if z0 > z1:
+        z0, z1 = z1, z0
 
     os.makedirs(args.out_dir, exist_ok=True)
+
+    # Load or initialize index
+    index_path = os.path.join(args.out_dir, "blueprints_index.json")
+    if args.mode == "append" and os.path.exists(index_path):
+        with open(index_path, "r", encoding="utf-8") as f:
+            index = json.load(f).get("blueprints", {})
+        print(f"[info] appending to existing index with {len(index)} blueprints")
+        existing_nums = []
+        for key in index.keys():
+            if key.startswith("bp_"):
+                try:
+                    existing_nums.append(int(key.split("_")[1]))
+                except (ValueError, IndexError):
+                    pass
+        start_idx = max(existing_nums) + 1 if existing_nums else 0
+    else:
+        index = {}
+        start_idx = 0
+        if args.mode == "overwrite":
+            print(f"[info] overwrite mode: starting fresh index")
 
     world = amulet.load_level(args.world)
     print(f"[info] loaded world {args.world}")
@@ -287,35 +499,77 @@ def main():
     comps = find_platform_components(world, dim, x0, x1, z0, z1, platform_y)
     print(f"[info] found {len(comps)} grass components")
 
+    if len(comps) == 0:
+        print("[warn] no components found - nothing to process")
+        print(f"[done] index: {index_path}")
+        return
+
     # Y-range for extraction: include platform-1 (dirt) up to max Y bound
     y_bottom = max(y0, platform_y - 1)
     y_top = y1
 
-    blueprint_modules: List[str] = []
     kept = 0
 
     for idx, comp_cells in enumerate(comps):
+        actual_idx = start_idx + idx
         bbox = compute_building_bbox(
             x0, z0,
             y_bottom, y_top,
             comp_cells
         )
+        min_x, max_x, yb, yt, min_z, max_z = bbox
         blocks_rel = extract_relative_blocks(world, dim, bbox)
 
         if len(blocks_rel) < args.min_size:
-            print(f"[skip] component {idx} too small ({len(blocks_rel)} blocks)")
+            print(f"[skip] component {actual_idx} too small ({len(blocks_rel)} blocks)")
             continue
 
-        mod_name = f"bp_{idx:03d}"
-        py_path = os.path.join(args.out_dir, f"{mod_name}.py")
-        write_blueprint_file(py_path, mod_name, blocks_rel)
-        blueprint_modules.append(mod_name)
-        kept += 1
-        print(f"[ok] wrote {py_path} with {len(blocks_rel)} blocks")
+        mod_name = f"bp_{actual_idx:03d}"
+        json_path = os.path.join(args.out_dir, f"{mod_name}.json")
 
-    write_master_file(args.out_dir, blueprint_modules)
+        # --- META construction ---
+        size_x = max_x - min_x + 1
+        size_y = yt - yb + 1
+        size_z = max_z - min_z + 1
+
+        if blocks_rel:
+            top_y_local = max(b["dy"] for b in blocks_rel)
+        else:
+            top_y_local = 0
+
+        top_y_world = yb + top_y_local
+
+        block_counts = Counter(b["id"] for b in blocks_rel)
+
+        meta = {
+            "id": mod_name,
+            "name": mod_name,
+            "style": args.style_tag,
+            "world_origin": (min_x, yb, min_z),
+            "platform_y": platform_y,
+            "size": (size_x, size_y, size_z),
+            "top_y_local": top_y_local,
+            "top_y_world": top_y_world,
+            "block_counts": dict(block_counts),
+            "category": None,
+            "landmass": None,
+            "tags": [],
+            "notes": "",
+        }
+
+        write_blueprint_json(json_path, meta, blocks_rel)
+
+        index[mod_name] = {
+            "file": f"{mod_name}.json",
+            "meta": meta,
+        }
+
+        kept += 1
+        print(f"[ok] wrote {json_path} with {len(blocks_rel)} blocks")
+
+    write_index_json(args.out_dir, index)
     print(f"[done] kept {kept} buildings")
-    print(f"[done] master DB: {os.path.join(args.out_dir, 'blueprints_master.py')}")
+    print(f"[done] index: {index_path}")
 
 
 if __name__ == "__main__":

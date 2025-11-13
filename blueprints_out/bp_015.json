@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "id": "bp_015",
+    "name": "bp_015",
+    "style": "medieval",
+    "world_origin": [
+      614,
+      1,
+      -438
+    ],
+    "platform_y": 2,
+    "size": [
+      2,
+      100,
+      1
+    ],
+    "top_y_local": 12,
+    "top_y_world": 13,
+    "block_counts": {
+      "minecraft:dirt": 4,
+      "minecraft:stone_bricks": 14,
+      "minecraft:dark_oak_log": 4,
+      "minecraft:dark_oak_stairs": 2,
+      "minecraft:cobblestone_wall": 1
+    },
+    "category": null,
+    "landmass": null,
+    "tags": [],
+    "notes": ""
+  },
+  "blocks": [
+    {
+      "dx": 0,
+      "dy": 0,
+      "dz": 0,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 1,
+      "dz": 0,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 2,
+      "dz": 0,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 3,
+      "dz": 0,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 4,
+      "dz": 0,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 5,
+      "dz": 0,
+      "id": "minecraft:dark_oak_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": 6,
+      "dz": 0,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 7,
+      "dz": 0,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 8,
+      "dz": 0,
+      "id": "minecraft:dark_oak_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": 9,
+      "dz": 0,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 10,
+      "dz": 0,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 0,
+      "dy": 11,
+      "dz": 0,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 0,
+      "dz": 0,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 1,
+      "dy": 1,
+      "dz": 0,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 1,
+      "dy": 2,
+      "dz": 0,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 1,
+      "dy": 3,
+      "dz": 0,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 1,
+      "dy": 4,
+      "dz": 0,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 1,
+      "dy": 5,
+      "dz": 0,
+      "id": "minecraft:dark_oak_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 6,
+      "dz": 0,
+      "id": "minecraft:cobblestone_wall",
+      "props": {
+        "east": "tall",
+        "north": "none",
+        "south": "none",
+        "up": "false",
+        "west": "tall"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 7,
+      "dz": 0,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 1,
+      "dy": 8,
+      "dz": 0,
+      "id": "minecraft:dark_oak_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 9,
+      "dz": 0,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 1,
+      "dy": 10,
+      "dz": 0,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 1,
+      "dy": 11,
+      "dz": 0,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 1,
+      "dy": 12,
+      "dz": 0,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    }
+  ]
+}
