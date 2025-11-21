@@ -510,8 +510,10 @@
       "dx": 2,
       "dy": 1,
       "dz": 3,
-      "id": "minecraft:dirt",
-      "props": {}
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
     },
     {
       "dx": 2,
@@ -538,10 +540,8 @@
       "dx": 2,
       "dy": 1,
       "dz": 7,
-      "id": "minecraft:grass_block",
-      "props": {
-        "snowy": "false"
-      }
+      "id": "minecraft:dirt",
+      "props": {}
     },
     {
       "dx": 2,

@@ -60,6 +60,7 @@ DIM_MAP = {
 PLATFORM_BLOCK_IDS = {
     "minecraft:grass_block",
     "minecraft:dirt",
+    "minecraft:gravel"
 }
 
 AIR_IDS = {

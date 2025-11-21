@@ -120,8 +120,8 @@
         "top_y_local": 41,
         "top_y_world": 42,
         "block_counts": {
-          "minecraft:dirt": 418,
-          "minecraft:grass_block": 291,
+          "minecraft:dirt": 417,
+          "minecraft:grass_block": 292,
           "minecraft:dark_oak_slab": 126,
           "minecraft:dark_oak_stairs": 336,
           "minecraft:stone_bricks": 412,
@@ -828,8 +828,8 @@
         "top_y_local": 9,
         "top_y_world": 10,
         "block_counts": {
-          "minecraft:dirt": 258,
-          "minecraft:grass_block": 80,
+          "minecraft:dirt": 261,
+          "minecraft:grass_block": 77,
           "minecraft:chiseled_stone_bricks": 8,
           "minecraft:stone_brick_stairs": 37,
           "minecraft:spruce_log": 12,
@@ -874,8 +874,8 @@
         "top_y_local": 12,
         "top_y_world": 13,
         "block_counts": {
-          "minecraft:dirt": 318,
-          "minecraft:grass_block": 88,
+          "minecraft:dirt": 317,
+          "minecraft:grass_block": 89,
           "minecraft:dark_oak_stairs": 215,
           "minecraft:stone_bricks": 229,
           "minecraft:chiseled_stone_bricks": 8,

@@ -3,7 +3,7 @@ from typing import Tuple, List, Dict, Any
 import math
 import random
 
-from gdpc import Editor
+from gdpc.editor import Editor
 from gdpc.block import Block
 
 from blueprint_db import iter_blueprints, place_blueprint

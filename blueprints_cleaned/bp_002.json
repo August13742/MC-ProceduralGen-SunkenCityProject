@@ -17,8 +17,8 @@
     "top_y_local": 41,
     "top_y_world": 42,
     "block_counts": {
-      "minecraft:dirt": 418,
-      "minecraft:grass_block": 291,
+      "minecraft:dirt": 417,
+      "minecraft:grass_block": 292,
       "minecraft:dark_oak_slab": 126,
       "minecraft:dark_oak_stairs": 336,
       "minecraft:stone_bricks": 412,
@@ -13255,8 +13255,10 @@
       "dx": 14,
       "dy": 0,
       "dz": 9,
-      "id": "minecraft:dirt",
-      "props": {}
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
     },
     {
       "dx": 14,

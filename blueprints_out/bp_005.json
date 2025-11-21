@@ -2021,10 +2021,8 @@
       "dx": 2,
       "dy": 0,
       "dz": 3,
-      "id": "minecraft:grass_block",
-      "props": {
-        "snowy": "false"
-      }
+      "id": "minecraft:dirt",
+      "props": {}
     },
     {
       "dx": 2,
@@ -18641,10 +18639,8 @@
       "dx": 20,
       "dy": 0,
       "dz": 2,
-      "id": "minecraft:grass_block",
-      "props": {
-        "snowy": "false"
-      }
+      "id": "minecraft:dirt",
+      "props": {}
     },
     {
       "dx": 20,
@@ -23428,8 +23424,10 @@
       "dx": 25,
       "dy": 0,
       "dz": 3,
-      "id": "minecraft:dirt",
-      "props": {}
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
     },
     {
       "dx": 25,
@@ -23470,8 +23468,10 @@
       "dx": 25,
       "dy": 0,
       "dz": 9,
-      "id": "minecraft:dirt",
-      "props": {}
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
     },
     {
       "dx": 25,

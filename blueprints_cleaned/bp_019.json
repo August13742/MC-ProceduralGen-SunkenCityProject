@@ -17,8 +17,8 @@
     "top_y_local": 9,
     "top_y_world": 10,
     "block_counts": {
-      "minecraft:dirt": 258,
-      "minecraft:grass_block": 80,
+      "minecraft:dirt": 261,
+      "minecraft:grass_block": 77,
       "minecraft:chiseled_stone_bricks": 8,
       "minecraft:stone_brick_stairs": 37,
       "minecraft:spruce_log": 12,
@@ -2480,10 +2480,8 @@
       "dx": 5,
       "dy": 1,
       "dz": 11,
-      "id": "minecraft:grass_block",
-      "props": {
-        "snowy": "false"
-      }
+      "id": "minecraft:dirt",
+      "props": {}
     },
     {
       "dx": 5,
@@ -4229,10 +4227,8 @@
       "dx": 9,
       "dy": 1,
       "dz": 3,
-      "id": "minecraft:grass_block",
-      "props": {
-        "snowy": "false"
-      }
+      "id": "minecraft:dirt",
+      "props": {}
     },
     {
       "dx": 9,
@@ -5310,10 +5306,8 @@
       "dx": 11,
       "dy": 1,
       "dz": 5,
-      "id": "minecraft:grass_block",
-      "props": {
-        "snowy": "false"
-      }
+      "id": "minecraft:dirt",
+      "props": {}
     },
     {
       "dx": 11,
