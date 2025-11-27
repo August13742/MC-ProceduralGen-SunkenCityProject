@@ -4,22 +4,30 @@
     "name": "bp_011",
     "style": "medieval",
     "world_origin": [
-      605,
-      1,
-      -441
+      792,
+      2,
+      -446
     ],
+    "base_y": 2,
+    "flat_y": 2,
     "platform_y": 2,
     "size": [
-      6,
-      100,
-      6
+      7,
+      7,
+      7
     ],
-    "top_y_local": 1,
-    "top_y_world": 2,
+    "top_y_local": 5,
+    "top_y_world": 7,
     "block_counts": {
-      "minecraft:dirt": 36,
-      "minecraft:stone_bricks": 12,
-      "minecraft:grass_block": 24
+      "minecraft:grass_block": 28,
+      "minecraft:stone_brick_stairs": 12,
+      "minecraft:dirt": 21,
+      "minecraft:stone_bricks": 23,
+      "minecraft:stone_brick_slab": 1,
+      "minecraft:iron_bars": 8,
+      "minecraft:chiseled_stone_bricks": 8,
+      "minecraft:cobblestone_wall": 4,
+      "minecraft:chest": 1
     },
     "forward_axis": "+z",
     "forward_vec": [
@@ -35,85 +43,82 @@
   "blocks": [
     {
       "dx": 0,
-      "dy": 0,
+      "dy": -1,
       "dz": 0,
-      "id": "minecraft:dirt",
-      "props": {}
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 1,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 2,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 3,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 4,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 5,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 6,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
     },
     {
       "dx": 0,
       "dy": 0,
-      "dz": 1,
-      "id": "minecraft:dirt",
-      "props": {}
-    },
-    {
-      "dx": 0,
-      "dy": 0,
-      "dz": 2,
-      "id": "minecraft:dirt",
-      "props": {}
-    },
-    {
-      "dx": 0,
-      "dy": 0,
       "dz": 3,
-      "id": "minecraft:dirt",
-      "props": {}
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight"
+      }
     },
     {
-      "dx": 0,
-      "dy": 0,
-      "dz": 4,
-      "id": "minecraft:dirt",
-      "props": {}
-    },
-    {
-      "dx": 0,
-      "dy": 0,
-      "dz": 5,
-      "id": "minecraft:dirt",
-      "props": {}
-    },
-    {
-      "dx": 0,
-      "dy": 1,
+      "dx": 1,
+      "dy": -1,
       "dz": 0,
-      "id": "minecraft:stone_bricks",
-      "props": {}
-    },
-    {
-      "dx": 0,
-      "dy": 1,
-      "dz": 1,
-      "id": "minecraft:stone_bricks",
-      "props": {}
-    },
-    {
-      "dx": 0,
-      "dy": 1,
-      "dz": 2,
-      "id": "minecraft:stone_bricks",
-      "props": {}
-    },
-    {
-      "dx": 0,
-      "dy": 1,
-      "dz": 3,
-      "id": "minecraft:stone_bricks",
-      "props": {}
-    },
-    {
-      "dx": 0,
-      "dy": 1,
-      "dz": 4,
-      "id": "minecraft:stone_bricks",
-      "props": {}
-    },
-    {
-      "dx": 0,
-      "dy": 1,
-      "dz": 5,
       "id": "minecraft:grass_block",
       "props": {
         "snowy": "false"
@@ -121,56 +126,7 @@
     },
     {
       "dx": 1,
-      "dy": 0,
-      "dz": 0,
-      "id": "minecraft:dirt",
-      "props": {}
-    },
-    {
-      "dx": 1,
-      "dy": 0,
-      "dz": 1,
-      "id": "minecraft:dirt",
-      "props": {}
-    },
-    {
-      "dx": 1,
-      "dy": 0,
-      "dz": 2,
-      "id": "minecraft:dirt",
-      "props": {}
-    },
-    {
-      "dx": 1,
-      "dy": 0,
-      "dz": 3,
-      "id": "minecraft:dirt",
-      "props": {}
-    },
-    {
-      "dx": 1,
-      "dy": 0,
-      "dz": 4,
-      "id": "minecraft:dirt",
-      "props": {}
-    },
-    {
-      "dx": 1,
-      "dy": 0,
-      "dz": 5,
-      "id": "minecraft:dirt",
-      "props": {}
-    },
-    {
-      "dx": 1,
-      "dy": 1,
-      "dz": 0,
-      "id": "minecraft:stone_bricks",
-      "props": {}
-    },
-    {
-      "dx": 1,
-      "dy": 1,
+      "dy": -1,
       "dz": 1,
       "id": "minecraft:grass_block",
       "props": {
@@ -179,34 +135,28 @@
     },
     {
       "dx": 1,
-      "dy": 1,
+      "dy": -1,
       "dz": 2,
-      "id": "minecraft:grass_block",
-      "props": {
-        "snowy": "false"
-      }
+      "id": "minecraft:dirt",
+      "props": {}
     },
     {
       "dx": 1,
-      "dy": 1,
+      "dy": -1,
       "dz": 3,
-      "id": "minecraft:grass_block",
-      "props": {
-        "snowy": "false"
-      }
+      "id": "minecraft:dirt",
+      "props": {}
     },
     {
       "dx": 1,
-      "dy": 1,
+      "dy": -1,
       "dz": 4,
-      "id": "minecraft:grass_block",
-      "props": {
-        "snowy": "false"
-      }
+      "id": "minecraft:dirt",
+      "props": {}
     },
     {
       "dx": 1,
-      "dy": 1,
+      "dy": -1,
       "dz": 5,
       "id": "minecraft:grass_block",
       "props": {
@@ -214,50 +164,71 @@
       }
     },
     {
-      "dx": 2,
-      "dy": 0,
-      "dz": 0,
-      "id": "minecraft:dirt",
-      "props": {}
+      "dx": 1,
+      "dy": -1,
+      "dz": 6,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
     },
     {
-      "dx": 2,
-      "dy": 0,
-      "dz": 1,
-      "id": "minecraft:dirt",
-      "props": {}
-    },
-    {
-      "dx": 2,
+      "dx": 1,
       "dy": 0,
       "dz": 2,
-      "id": "minecraft:dirt",
+      "id": "minecraft:stone_bricks",
       "props": {}
     },
     {
-      "dx": 2,
+      "dx": 1,
       "dy": 0,
       "dz": 3,
-      "id": "minecraft:dirt",
+      "id": "minecraft:stone_bricks",
       "props": {}
     },
     {
-      "dx": 2,
+      "dx": 1,
       "dy": 0,
       "dz": 4,
-      "id": "minecraft:dirt",
+      "id": "minecraft:stone_bricks",
       "props": {}
     },
     {
-      "dx": 2,
+      "dx": 1,
       "dy": 0,
       "dz": 5,
-      "id": "minecraft:dirt",
-      "props": {}
+      "id": "minecraft:stone_brick_slab",
+      "props": {
+        "type": "bottom"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 1,
+      "dz": 2,
+      "id": "minecraft:iron_bars",
+      "props": {
+        "east": "true",
+        "north": "false",
+        "south": "false",
+        "west": "false"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 1,
+      "dz": 4,
+      "id": "minecraft:iron_bars",
+      "props": {
+        "east": "true",
+        "north": "false",
+        "south": "false",
+        "west": "false"
+      }
     },
     {
       "dx": 2,
-      "dy": 1,
+      "dy": -1,
       "dz": 0,
       "id": "minecraft:grass_block",
       "props": {
@@ -266,8 +237,43 @@
     },
     {
       "dx": 2,
-      "dy": 1,
+      "dy": -1,
       "dz": 1,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": -1,
+      "dz": 2,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": -1,
+      "dz": 3,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": -1,
+      "dz": 4,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": -1,
+      "dz": 5,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": -1,
+      "dz": 6,
       "id": "minecraft:grass_block",
       "props": {
         "snowy": "false"
@@ -275,35 +281,198 @@
     },
     {
       "dx": 2,
-      "dy": 1,
+      "dy": 0,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 0,
       "dz": 2,
-      "id": "minecraft:grass_block",
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 0,
+      "dz": 3,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 0,
+      "dz": 4,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 0,
+      "dz": 5,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 1,
+      "dz": 1,
+      "id": "minecraft:iron_bars",
       "props": {
-        "snowy": "false"
+        "east": "false",
+        "north": "false",
+        "south": "true",
+        "west": "false"
       }
     },
     {
       "dx": 2,
       "dy": 1,
-      "dz": 3,
-      "id": "minecraft:grass_block",
-      "props": {
-        "snowy": "false"
-      }
+      "dz": 2,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
     },
     {
       "dx": 2,
       "dy": 1,
       "dz": 4,
-      "id": "minecraft:grass_block",
-      "props": {
-        "snowy": "false"
-      }
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
     },
     {
       "dx": 2,
       "dy": 1,
       "dz": 5,
+      "id": "minecraft:iron_bars",
+      "props": {
+        "east": "false",
+        "north": "true",
+        "south": "false",
+        "west": "false"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 2,
+      "dz": 2,
+      "id": "minecraft:cobblestone_wall",
+      "props": {
+        "east": "none",
+        "north": "none",
+        "south": "none",
+        "up": "true",
+        "west": "none"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 2,
+      "dz": 4,
+      "id": "minecraft:cobblestone_wall",
+      "props": {
+        "east": "none",
+        "north": "none",
+        "south": "none",
+        "up": "true",
+        "west": "none"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 3,
+      "dz": 2,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 3,
+      "dz": 4,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 4,
+      "dz": 2,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "outer_right"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 4,
+      "dz": 3,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 4,
+      "dz": 4,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "outer_right"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 0,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 1,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 2,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 3,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 4,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 5,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 6,
       "id": "minecraft:grass_block",
       "props": {
         "snowy": "false"
@@ -313,47 +482,107 @@
       "dx": 3,
       "dy": 0,
       "dz": 0,
-      "id": "minecraft:dirt",
-      "props": {}
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
     },
     {
       "dx": 3,
       "dy": 0,
       "dz": 1,
-      "id": "minecraft:dirt",
+      "id": "minecraft:stone_bricks",
       "props": {}
     },
     {
       "dx": 3,
       "dy": 0,
       "dz": 2,
-      "id": "minecraft:dirt",
+      "id": "minecraft:stone_bricks",
       "props": {}
     },
     {
       "dx": 3,
       "dy": 0,
       "dz": 3,
-      "id": "minecraft:dirt",
+      "id": "minecraft:stone_bricks",
       "props": {}
     },
     {
       "dx": 3,
       "dy": 0,
       "dz": 4,
-      "id": "minecraft:dirt",
+      "id": "minecraft:stone_bricks",
       "props": {}
     },
     {
       "dx": 3,
       "dy": 0,
       "dz": 5,
-      "id": "minecraft:dirt",
+      "id": "minecraft:stone_bricks",
       "props": {}
     },
     {
       "dx": 3,
+      "dy": 0,
+      "dz": 6,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
       "dy": 1,
+      "dz": 3,
+      "id": "minecraft:chest",
+      "props": {
+        "facing": "south"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 4,
+      "dz": 2,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 4,
+      "dz": 3,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 4,
+      "dz": 4,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 5,
+      "dz": 3,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": -1,
       "dz": 0,
       "id": "minecraft:grass_block",
       "props": {
@@ -361,45 +590,44 @@
       }
     },
     {
-      "dx": 3,
-      "dy": 1,
+      "dx": 4,
+      "dy": -1,
       "dz": 1,
-      "id": "minecraft:grass_block",
-      "props": {
-        "snowy": "false"
-      }
+      "id": "minecraft:dirt",
+      "props": {}
     },
     {
-      "dx": 3,
-      "dy": 1,
+      "dx": 4,
+      "dy": -1,
       "dz": 2,
-      "id": "minecraft:grass_block",
-      "props": {
-        "snowy": "false"
-      }
+      "id": "minecraft:dirt",
+      "props": {}
     },
     {
-      "dx": 3,
-      "dy": 1,
+      "dx": 4,
+      "dy": -1,
       "dz": 3,
-      "id": "minecraft:grass_block",
-      "props": {
-        "snowy": "false"
-      }
+      "id": "minecraft:dirt",
+      "props": {}
     },
     {
-      "dx": 3,
-      "dy": 1,
+      "dx": 4,
+      "dy": -1,
       "dz": 4,
-      "id": "minecraft:grass_block",
-      "props": {
-        "snowy": "false"
-      }
+      "id": "minecraft:dirt",
+      "props": {}
     },
     {
-      "dx": 3,
-      "dy": 1,
+      "dx": 4,
+      "dy": -1,
       "dz": 5,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": -1,
+      "dz": 6,
       "id": "minecraft:grass_block",
       "props": {
         "snowy": "false"
@@ -408,55 +636,263 @@
     {
       "dx": 4,
       "dy": 0,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": 0,
+      "dz": 2,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": 0,
+      "dz": 3,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": 0,
+      "dz": 4,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": 0,
+      "dz": 5,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": 1,
+      "dz": 1,
+      "id": "minecraft:iron_bars",
+      "props": {
+        "east": "false",
+        "north": "false",
+        "south": "true",
+        "west": "false"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 1,
+      "dz": 2,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": 1,
+      "dz": 4,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": 1,
+      "dz": 5,
+      "id": "minecraft:iron_bars",
+      "props": {
+        "east": "false",
+        "north": "true",
+        "south": "false",
+        "west": "false"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 2,
+      "dz": 2,
+      "id": "minecraft:cobblestone_wall",
+      "props": {
+        "east": "none",
+        "north": "none",
+        "south": "none",
+        "up": "true",
+        "west": "none"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 2,
+      "dz": 4,
+      "id": "minecraft:cobblestone_wall",
+      "props": {
+        "east": "none",
+        "north": "none",
+        "south": "none",
+        "up": "true",
+        "west": "none"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 3,
+      "dz": 2,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": 3,
+      "dz": 4,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": 4,
+      "dz": 2,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "outer_left"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 4,
+      "dz": 3,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 4,
+      "dz": 4,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "outer_left"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": -1,
       "dz": 0,
-      "id": "minecraft:dirt",
-      "props": {}
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
     },
     {
-      "dx": 4,
-      "dy": 0,
+      "dx": 5,
+      "dy": -1,
       "dz": 1,
-      "id": "minecraft:dirt",
-      "props": {}
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
     },
     {
-      "dx": 4,
-      "dy": 0,
+      "dx": 5,
+      "dy": -1,
       "dz": 2,
       "id": "minecraft:dirt",
       "props": {}
     },
     {
-      "dx": 4,
-      "dy": 0,
+      "dx": 5,
+      "dy": -1,
       "dz": 3,
       "id": "minecraft:dirt",
       "props": {}
     },
     {
-      "dx": 4,
-      "dy": 0,
+      "dx": 5,
+      "dy": -1,
       "dz": 4,
       "id": "minecraft:dirt",
       "props": {}
     },
     {
-      "dx": 4,
-      "dy": 0,
+      "dx": 5,
+      "dy": -1,
       "dz": 5,
-      "id": "minecraft:dirt",
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": -1,
+      "dz": 6,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 0,
+      "dz": 2,
+      "id": "minecraft:stone_bricks",
       "props": {}
     },
     {
-      "dx": 4,
+      "dx": 5,
+      "dy": 0,
+      "dz": 3,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 5,
+      "dy": 0,
+      "dz": 4,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 5,
       "dy": 1,
+      "dz": 2,
+      "id": "minecraft:iron_bars",
+      "props": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "west": "true"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 1,
+      "dz": 4,
+      "id": "minecraft:iron_bars",
+      "props": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "west": "true"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": -1,
       "dz": 0,
-      "id": "minecraft:stone_bricks",
-      "props": {}
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
     },
     {
-      "dx": 4,
-      "dy": 1,
+      "dx": 6,
+      "dy": -1,
       "dz": 1,
       "id": "minecraft:grass_block",
       "props": {
@@ -464,8 +900,8 @@
       }
     },
     {
-      "dx": 4,
-      "dy": 1,
+      "dx": 6,
+      "dy": -1,
       "dz": 2,
       "id": "minecraft:grass_block",
       "props": {
@@ -473,8 +909,8 @@
       }
     },
     {
-      "dx": 4,
-      "dy": 1,
+      "dx": 6,
+      "dy": -1,
       "dz": 3,
       "id": "minecraft:grass_block",
       "props": {
@@ -482,8 +918,8 @@
       }
     },
     {
-      "dx": 4,
-      "dy": 1,
+      "dx": 6,
+      "dy": -1,
       "dz": 4,
       "id": "minecraft:grass_block",
       "props": {
@@ -491,8 +927,8 @@
       }
     },
     {
-      "dx": 4,
-      "dy": 1,
+      "dx": 6,
+      "dy": -1,
       "dz": 5,
       "id": "minecraft:grass_block",
       "props": {
@@ -500,89 +936,23 @@
       }
     },
     {
-      "dx": 5,
-      "dy": 0,
-      "dz": 0,
-      "id": "minecraft:dirt",
-      "props": {}
-    },
-    {
-      "dx": 5,
-      "dy": 0,
-      "dz": 1,
-      "id": "minecraft:dirt",
-      "props": {}
-    },
-    {
-      "dx": 5,
-      "dy": 0,
-      "dz": 2,
-      "id": "minecraft:dirt",
-      "props": {}
-    },
-    {
-      "dx": 5,
-      "dy": 0,
-      "dz": 3,
-      "id": "minecraft:dirt",
-      "props": {}
-    },
-    {
-      "dx": 5,
-      "dy": 0,
-      "dz": 4,
-      "id": "minecraft:dirt",
-      "props": {}
-    },
-    {
-      "dx": 5,
-      "dy": 0,
-      "dz": 5,
-      "id": "minecraft:dirt",
-      "props": {}
-    },
-    {
-      "dx": 5,
-      "dy": 1,
-      "dz": 0,
-      "id": "minecraft:stone_bricks",
-      "props": {}
-    },
-    {
-      "dx": 5,
-      "dy": 1,
-      "dz": 1,
-      "id": "minecraft:stone_bricks",
-      "props": {}
-    },
-    {
-      "dx": 5,
-      "dy": 1,
-      "dz": 2,
-      "id": "minecraft:stone_bricks",
-      "props": {}
-    },
-    {
-      "dx": 5,
-      "dy": 1,
-      "dz": 3,
-      "id": "minecraft:stone_bricks",
-      "props": {}
-    },
-    {
-      "dx": 5,
-      "dy": 1,
-      "dz": 4,
-      "id": "minecraft:stone_bricks",
-      "props": {}
-    },
-    {
-      "dx": 5,
-      "dy": 1,
-      "dz": 5,
+      "dx": 6,
+      "dy": -1,
+      "dz": 6,
       "id": "minecraft:grass_block",
       "props": {
         "snowy": "false"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 0,
+      "dz": 3,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight"
       }
     }
   ]
