@@ -1,8 +1,8 @@
 """
 mc_world2db_region.py
 
-Extract an entire region of a Minecraft world to a blueprint JSON file,
-filtering out unwanted blocks (air, common terrain, user-specified blocks).
+Extract an entire region of a Minecraft world to a COMPACT format,
+optimized for erosion processing (sunken city generation).
 
 Requires:
     pip install amulet-map-editor
@@ -12,18 +12,21 @@ Usage example:
     python mc_world2db_region.py --world "C:\\path\\to\\world" \
         --dim overworld \
         --min 100 60 200 --max 200 120 300 \
-        --out region_export.json \
-        --filter-blocks minecraft:dirt minecraft:grass_block \
-        --style-tag medieval
+        --out region_export.json
 
-python mc_world2db_region.py --world "C:\\Users\\augus\\AppData\\Roaming\\.minecraft\\saves\\Weston City V0.3" --dim overworld --min -1000 40 -1000 --max 1000 200 1000 --out city_region.json
+Output format (optimized for size):
+    {
+        "size": [x, y, z],
+        "origin": [x, y, z],
+        "palette": ["minecraft:stone", "minecraft:oak_planks", ...],
+        "blocks": [[dx, dy, dz, palette_index], ...]
+    }
 
-Pipeline:
-
-1. Scan the entire bounding box from min to max coordinates.
-2. Filter out air blocks and common terrain blocks (configurable).
-3. Filter out any additional user-specified blocks.
-4. Dump all remaining blocks as a single blueprint JSON with relative coordinates.
+This format:
+- Uses a palette to avoid repeating block IDs
+- Stores only position + palette index (no props - erosion doesn't need them)
+- Uses arrays instead of objects for block data
+- Typically 10-20x smaller than verbose format
 """
 
 from __future__ import annotations
@@ -31,20 +34,11 @@ import argparse
 import os
 import json
 
-from collections import Counter
-from typing import Dict, List, Tuple, Any, Set
+from typing import Dict, List, Tuple, Set
 
 import amulet
 from amulet.api.errors import ChunkDoesNotExist
-from normalise_block import normalise_block
 
-
-AXIS_TO_VEC: Dict[str, Tuple[int, int, int]] = {
-    "+x": (1, 0, 0),
-    "-x": (-1, 0, 0),
-    "+z": (0, 0, 1),
-    "-z": (0, 0, -1),
-}
 
 # ---- Dimension mapping -----------------------------------------------------
 
@@ -64,11 +58,49 @@ AIR_IDS = {
     "minecraft:void_air",
 }
 
-# Common terrain/filler blocks that are typically unwanted in building exports
+# Common terrain/filler blocks filtered by default
 COMMON_TERRAIN_BLOCKS = {
     "minecraft:dirt",
     "minecraft:grass_block",
+    "minecraft:stone",
+    "minecraft:deepslate",
     "minecraft:bedrock",
+    "minecraft:gravel",
+    "minecraft:sand",
+    "minecraft:red_sand",
+    "minecraft:clay",
+    "minecraft:coarse_dirt",
+    "minecraft:rooted_dirt",
+    "minecraft:mud",
+    "minecraft:podzol",
+    "minecraft:mycelium",
+    "minecraft:soul_sand",
+    "minecraft:soul_soil",
+    "minecraft:netherrack",
+    "minecraft:end_stone",
+    "minecraft:water",
+    "minecraft:lava",
+    "minecraft:flowing_water",
+    "minecraft:flowing_lava",
+    "minecraft:coal_ore",
+    "minecraft:iron_ore",
+    "minecraft:copper_ore",
+    "minecraft:gold_ore",
+    "minecraft:redstone_ore",
+    "minecraft:emerald_ore",
+    "minecraft:lapis_ore",
+    "minecraft:diamond_ore",
+    "minecraft:deepslate_coal_ore",
+    "minecraft:deepslate_iron_ore",
+    "minecraft:deepslate_copper_ore",
+    "minecraft:deepslate_gold_ore",
+    "minecraft:deepslate_redstone_ore",
+    "minecraft:deepslate_emerald_ore",
+    "minecraft:deepslate_lapis_ore",
+    "minecraft:deepslate_diamond_ore",
+    "minecraft:nether_gold_ore",
+    "minecraft:nether_quartz_ore",
+    "minecraft:ancient_debris",
 }
 
 
@@ -83,11 +115,7 @@ def get_block(world, x: int, y: int, z: int, dim: str):
 
 
 def get_block_id(b) -> str:
-    """Extract namespaced block id from amulet block (None => air).
-
-    - Amulet uses 'universal_minecraft:' as its internal namespace.
-    - We normalize that to 'minecraft:' because GDPC expects vanilla IDs.
-    """
+    """Extract namespaced block id from amulet block (None => air)."""
     if b is None:
         return "minecraft:air"
 
@@ -98,56 +126,25 @@ def get_block_id(b) -> str:
     if ns.startswith("universal_minecraft:"):
         return "minecraft:" + ns.split(":", 1)[1]
 
-    # For modded content, keep the original namespace (modid:foo).
     return ns
-
-
-def _normalise_nbt_value(v: Any) -> Any:
-    """
-    Try to convert Amulet NBT tags to plain Python types.
-    Fallback: string representation.
-    """
-    if hasattr(v, "value"):
-        return v.value
-    if hasattr(v, "py"):
-        try:
-            return v.py()
-        except Exception:
-            pass
-    return str(v)
-
-
-def get_block_props(b) -> Dict[str, Any]:
-    if b is None:
-        return {}
-    props = getattr(b, "properties", None)
-    if not props:
-        return {}
-    raw = dict(props)
-    return {k: _normalise_nbt_value(v) for k, v in raw.items()}
 
 
 # ---- Block extraction with filtering ---------------------------------------
 
-def extract_region_blocks(world,
-                          dim: str,
-                          x0: int, x1: int,
-                          y0: int, y1: int,
-                          z0: int, z1: int,
-                          filter_blocks: Set[str],
-                          include_common_terrain: bool = False
-                          ) -> List[Dict[str, Any]]:
+def extract_region_compact(world,
+                           dim: str,
+                           x0: int, x1: int,
+                           y0: int, y1: int,
+                           z0: int, z1: int,
+                           filter_blocks: Set[str],
+                           include_common_terrain: bool = False
+                           ) -> Tuple[List[str], List[List[int]]]:
     """
-    Extract all blocks in the given region, filtering out unwanted blocks.
+    Extract all blocks in the given region using compact format.
     
-    Returns list of dicts with relative coordinates:
-        {
-            "dx": int,
-            "dy": int,
-            "dz": int,
-            "id": "minecraft:whatever",
-            "props": {...}
-        }
+    Returns:
+        palette: List of unique block IDs
+        blocks: List of [dx, dy, dz, palette_idx] arrays
     """
     # Build complete filter set
     full_filter = set(AIR_IDS)
@@ -155,64 +152,54 @@ def extract_region_blocks(world,
         full_filter.update(COMMON_TERRAIN_BLOCKS)
     full_filter.update(filter_blocks)
     
-    blocks_out: List[Dict[str, Any]] = []
+    # Palette: block_id -> index
+    palette_map: Dict[str, int] = {}
+    palette: List[str] = []
+    
+    # Blocks as compact arrays: [dx, dy, dz, palette_idx]
+    blocks: List[List[int]] = []
     
     total_scanned = 0
     total_filtered = 0
     
     for wx in range(x0, x1 + 1):
-        for y in range(y0, y1 + 1):
-            for wz in range(z0, z1 + 1):
+        for wz in range(z0, z1 + 1):
+            for y in range(y0, y1 + 1):
                 total_scanned += 1
                 
                 b = get_block(world, wx, y, wz, dim)
-                raw_id = get_block_id(b)
+                bid = get_block_id(b)
                 
                 # Check if block should be filtered
-                if raw_id in full_filter:
-                    total_filtered += 1
-                    continue
-                
-                raw_props = get_block_props(b)
-                bid, props = normalise_block(raw_id, raw_props)
-                
-                # Check normalized id as well
                 if bid in full_filter:
                     total_filtered += 1
                     continue
                 
+                # Get or create palette index
+                if bid not in palette_map:
+                    palette_map[bid] = len(palette)
+                    palette.append(bid)
+                
+                idx = palette_map[bid]
                 dx, dy, dz = wx - x0, y - y0, wz - z0
-                blocks_out.append({
-                    "dx": dx,
-                    "dy": dy,
-                    "dz": dz,
-                    "id": bid,
-                    "props": props,
-                })
+                blocks.append([dx, dy, dz, idx])
+        
+        # Progress indicator every 100 X slices
+        if (wx - x0) % 100 == 0:
+            pct = ((wx - x0) / (x1 - x0 + 1)) * 100
+            print(f"  {pct:.1f}% scanned...")
     
-    print(f"[info] scanned {total_scanned} positions, filtered {total_filtered}, kept {len(blocks_out)}")
+    print(f"[info] scanned {total_scanned} positions, filtered {total_filtered}, kept {len(blocks)}")
+    print(f"[info] palette size: {len(palette)} unique block types")
     
-    return blocks_out
-
-
-# ---- File writer -----------------------------------------------------------
-
-def write_blueprint_json(path: str,
-                         meta: Dict[str, Any],
-                         blocks: List[Dict[str, Any]]) -> None:
-    data = {
-        "meta": meta,
-        "blocks": blocks,
-    }
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+    return palette, blocks
 
 
 # ---- main ------------------------------------------------------------------
 
 def main():
     ap = argparse.ArgumentParser(
-        description="Extract a region of a Minecraft world to a blueprint JSON, filtering unwanted blocks."
+        description="Extract a Minecraft world region to compact format for erosion processing."
     )
     ap.add_argument("--world", required=True,
                     help="Path to Java world root (contains level.dat)")
@@ -225,22 +212,12 @@ def main():
                     metavar=("X1", "Y1", "Z1"), required=True,
                     help="Maximum corner of region to extract")
     ap.add_argument("--out", required=True,
-                    help="Output JSON file path (e.g., region_export.json)")
+                    help="Output JSON file path")
     ap.add_argument("--filter-blocks", nargs="*", default=[],
                     metavar="BLOCK_ID",
-                    help="Additional block IDs to filter out (e.g., minecraft:cobblestone)")
+                    help="Additional block IDs to filter out")
     ap.add_argument("--include-common-terrain", action="store_true",
-                    help="Include common terrain blocks (dirt, stone, gravel, etc.) instead of filtering them")
-    ap.add_argument("--style-tag", type=str, default="generic",
-                    help="Freeform style tag stored into META['style'] (e.g., 'medieval')")
-    ap.add_argument("--name", type=str, default=None,
-                    help="Name for the blueprint (defaults to output filename)")
-    ap.add_argument(
-        "--forward-axis",
-        choices=["+x", "-x", "+z", "-z"],
-        default="+z",
-        help="World-space forward direction of building façades.",
-    )
+                    help="Include common terrain blocks instead of filtering them")
 
     args = ap.parse_args()
 
@@ -256,10 +233,6 @@ def main():
     if z0 > z1:
         z0, z1 = z1, z0
 
-    forward_axis: str = args.forward_axis
-    forward_vec = AXIS_TO_VEC[forward_axis]
-
-    # Parse additional filter blocks
     filter_blocks: Set[str] = set(args.filter_blocks)
     
     # Ensure output directory exists
@@ -270,68 +243,44 @@ def main():
     world = amulet.load_level(args.world)
     print(f"[info] loaded world {args.world}")
     print(f"[info] scanning region X[{x0},{x1}] Y[{y0},{y1}] Z[{z0},{z1}] in dim={dim}")
-    print(f"[info] forward_axis={forward_axis}, forward_vec={forward_vec}")
     
-    if filter_blocks:
-        print(f"[info] additional filter blocks: {filter_blocks}")
-    if args.include_common_terrain:
-        print("[info] including common terrain blocks (dirt, stone, etc.)")
-    else:
-        print("[info] filtering common terrain blocks")
+    region_size = (x1 - x0 + 1) * (y1 - y0 + 1) * (z1 - z0 + 1)
+    print(f"[info] region volume: {region_size:,} blocks")
 
     # Extract blocks
-    print("[info] extracting blocks from region...")
-    blocks_rel = extract_region_blocks(
+    print("[info] extracting blocks...")
+    palette, blocks = extract_region_compact(
         world, dim,
         x0, x1, y0, y1, z0, z1,
         filter_blocks,
         include_common_terrain=args.include_common_terrain
     )
 
-    if len(blocks_rel) == 0:
-        print("[warn] no blocks extracted after filtering - output will be empty")
+    if len(blocks) == 0:
+        print("[warn] no blocks extracted after filtering")
 
-    # Determine blueprint name
-    if args.name:
-        bp_name = args.name
-    else:
-        bp_name = os.path.splitext(os.path.basename(args.out))[0]
-
-    # --- META construction ---
-    size_x = x1 - x0 + 1
-    size_y = y1 - y0 + 1
-    size_z = z1 - z0 + 1
-
-    if blocks_rel:
-        top_y_local = max(b["dy"] for b in blocks_rel)
-    else:
-        top_y_local = 0
-
-    top_y_world = y0 + top_y_local
-
-    block_counts = Counter(b["id"] for b in blocks_rel)
-
-    meta = {
-        "id": bp_name,
-        "name": bp_name,
-        "style": args.style_tag,
-        "world_origin": (x0, y0, z0),
-        "size": (size_x, size_y, size_z),
-        "top_y_local": top_y_local,
-        "top_y_world": top_y_world,
-        "block_counts": dict(block_counts),
-        "forward_axis": forward_axis,
-        "forward_vec": forward_vec,
-        "filtered_blocks": list(filter_blocks),
-        "included_common_terrain": args.include_common_terrain,
-        "category": None,
-        "landmass": None,
-        "tags": [],
-        "notes": "",
+    # Build compact output
+    data = {
+        "size": [x1 - x0 + 1, y1 - y0 + 1, z1 - z0 + 1],
+        "origin": [x0, y0, z0],
+        "palette": palette,
+        "blocks": blocks,
     }
 
-    write_blueprint_json(args.out, meta, blocks_rel)
-    print(f"[done] wrote {args.out} with {len(blocks_rel)} blocks")
+    # Write with minimal whitespace
+    print(f"[info] writing to {args.out}...")
+    with open(args.out, "w", encoding="utf-8") as f:
+        json.dump(data, f, separators=(",", ":"))
+    
+    # Report file size
+    file_size = os.path.getsize(args.out)
+    if file_size > 1024 * 1024:
+        size_str = f"{file_size / (1024*1024):.1f} MB"
+    else:
+        size_str = f"{file_size / 1024:.1f} KB"
+    
+    print(f"[done] wrote {args.out} ({size_str})")
+    print(f"[done] {len(blocks):,} blocks, {len(palette)} block types")
 
 
 if __name__ == "__main__":
