@@ -5,7 +5,12 @@
 # Optimized to filter out underground terrain to save space.
 
 # Usage:
-#     python SunkenCityProject/extract_city.py --world "C:\Users\augus\AppData\Roaming\.minecraft\saves\Weston City V0.3" --bounds -1000 -1000 1000 1000 --min-y 0 --prune-terrain
+#     python SunkenCityProject/extract_city.py --world "C:\Users\augus\AppData\Roaming\.minecraft\saves\Weston City V0.3" --bounds -1500 -1600 1500 1600 --min-y 50 --prune-terrain --out city_original.bin
+#
+# Note: No hardcoded size limits. Extract areas as large as needed.
+# Bounds format: x1 z1 x2 z2 (in block coordinates)
+# Example: --bounds -1000 -1600 1000 1600 extracts 2000x3200 area
+# Example: --bounds -3000 -3000 3000 3000 extracts 6000x6000 area
 
 
 import argparse
@@ -14,7 +19,13 @@ import amulet
 import traceback
 import sys
 import os
+import warnings
+from tqdm import tqdm
 from city_utils import write_bin
+
+# Suppress Amulet's NBT encoding warnings (harmless format variations)
+warnings.filterwarnings("ignore", message=".*Encoded long array.*")
+warnings.filterwarnings("ignore", category=UserWarning, module="amulet.*")
 
 # Add parent directory to path to import normalise_block
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -23,13 +34,18 @@ from normalise_block import normalise_block
 # Blocks that are almost certainly useless underground filler
 TERRAIN_BLOCKS = {
     "minecraft:bedrock",
-    "minecraft:gravel",
-    "minecraft:dirt",
-    "minecraft:grass_block",
 }
 
+# Cache for normalized block names
+_normalize_cache = {}
+
 def normalize_name(name):
-    """Convert Amulet block names to valid Minecraft IDs."""
+    """Convert Amulet block names to valid Minecraft IDs (cached)."""
+    if name in _normalize_cache:
+        return _normalize_cache[name]
+    
+    original_name = name
+    
     if "universal_minecraft:" in name:
         name = name.replace("universal_minecraft:", "minecraft:")
     
@@ -49,6 +65,7 @@ def normalize_name(name):
     # e.g., minecraft:planks -> minecraft:oak_planks
     normalized_id, _ = normalise_block(block_id, props)
     
+    _normalize_cache[original_name] = normalized_id
     return normalized_id
 
 def main():
@@ -108,16 +125,12 @@ def main():
                     # 'minecraft:overworld' is the standard dimension ID
                     chunk = level.get_chunk(cx, cz, "minecraft:overworld")
                     
-                    # 1. Get raw block indices (16, Height, 16)
-                    # We copy to numpy array to ensure we have the full volume
-                    blocks_idx = np.array(chunk.blocks) 
+                    # 1. Get raw block indices (16, Height, 16) - already numpy
+                    blocks_idx = chunk.blocks
                     
-                    # 2. Build Lookup Table (LUT)
+                    # 2. Build Lookup Table (LUT) - vectorized
                     local_p = chunk.block_palette
-                    lut = np.zeros(len(local_p), dtype=np.uint16)
-                    
-                    for i, b in enumerate(local_p):
-                        lut[i] = get_id(b.namespaced_name)
+                    lut = np.array([get_id(b.namespaced_name) for b in local_p], dtype=np.uint16)
                         
                     # 3. Translate to Global Palette
                     global_blocks = lut[blocks_idx]

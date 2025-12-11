@@ -14,3 +14,22 @@ python mc_world2db.py --world "C:\\Users\\augus\\AppData\\Roaming\\.minecraft\\s
 castle:
 
 python mc_world2db.py --world "C:\\Users\\augus\\AppData\\Roaming\\.minecraft\\saves\\CastlePartsWorld" --dim overworld --min 0 1 -500 --max 550 100 0 --platform-y 5 --out-dir blueprints_out --min-size 10 --style-tag castle --mode append --forward-axis=-z
+
+
+
+# 1. Extract both city and terrain (~5 min)
+python SunkenCityProject/extract_city.py --world "..." --bounds -1500 -1600 1500 1600 --min-y 50 --prune-terrain --out city_original.bin
+python SunkenCityProject/extract_terrain.py --world "..." --bounds -1500 -1600 1500 1600 --output terrain_extracted.bin
+
+# 2. Process city (~3 min)
+python SunkenCityProject/erode_city_ultra.py --input city_original.bin --config erosion_config_merged.json --out city_eroded.bin --workers 8
+python SunkenCityProject/exposure_decay.py --input city_eroded.bin --output city_exposed.bin --threshold 4 --decay-chance 0.6
+
+# 3. Merge & blend (~4 min)
+python SunkenCityProject/merge_chunks.py --city city_exposed.bin --terrain terrain_extracted.bin --output city_merged.bin --city-y -71 --strategy underwater
+python SunkenCityProject/blend_underwater.py --input city_merged.bin --output city_final.bin --ocean-floor 60 --city-level 67 --all-stages
+
+# 4. Preview in Amulet Editor (optional - 0 min, no Minecraft needed!)
+
+# 5. Place final result (~66 min)
+python SunkenCityProject/restore_city_amulet_ultra.py --input city_final.bin --world "..." --y-start -64 --batch-size 100

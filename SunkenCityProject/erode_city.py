@@ -1,147 +1,181 @@
 import argparse
 import json
 import numpy as np
-import sys
-import os
+import random
 from opensimplex import OpenSimplex
 from city_utils import read_bin_generator, write_bin
 
-# python SunkenCityProject/erode_city.py --input city_original.bin --config erosion_config_fixed.json --out city_eroded.bin
-
-# Add parent directory to path to import normalise_block
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from normalise_block import normalise_block
-
-class ErosionProcessor:
+class HybridEroder:
     def __init__(self, config):
-        self.config = config
-        self.categories = config['categories']
-        self.global_settings = config['global_settings']
-        self.ignored_blocks = set(config.get('ignored', []))
+        self.settings = config["global_settings"]
+        self.ignored = set(config.get("ignored", []))
         
-        # Setup Noise
-        self.noise_gen = OpenSimplex(seed=self.global_settings.get('seed', 1234))
+        # Build reverse mapping from blocks to their categories and replacements
+        self.block_to_category = {}
+        self.category_replacements = {}
         
-        # Internal Palette
-        self.palette = ["minecraft:air"]
-        self.palette_map = {"minecraft:air": 0}
-    
-    def get_id(self, block_name: str) -> int:
-        """Get or create ID for block string."""
-        # Normalize the block name to ensure it's a valid Minecraft ID
-        # This handles generic names like 'minecraft:planks' -> 'minecraft:oak_planks'
-        normalized_name, _ = normalise_block(block_name, {})
+        for category_name, category_data in config.get("categories", {}).items():
+            blocks = category_data.get("blocks", [])
+            replacements = category_data.get("replacements", [])
+            
+            for block in blocks:
+                self.block_to_category[block] = category_name
+            
+            self.category_replacements[category_name] = replacements
         
-        if normalized_name not in self.palette_map:
-            idx = len(self.palette)
-            self.palette.append(normalized_name)
-            self.palette_map[normalized_name] = idx
-        return self.palette_map[normalized_name]
-    
-    def process_chunk(self, chunk_blocks, cx, cz):
-        """Apply erosion rules to a 3D numpy array of IDs."""
-        # Generate deterministic noise map based on chunk coords
-        seed_val = ((cx * 34123) ^ (cz * 4231)) & 0xFFFFFFFF
-        np.random.seed(seed_val)
-        noise_map = np.random.random_sample(chunk_blocks.shape)
+        self.noise = OpenSimplex(seed=self.settings.get("seed", 1234))
+        self.passes = self.settings.get("passes", 2)
+
+    def get_replacement(self, block_name):
+        """Returns new block ID string based on config weights."""
+        if block_name in self.ignored: 
+            return block_name
         
-        result = chunk_blocks.copy()
+        # Look up category
+        category = self.block_to_category.get(block_name)
+        if not category:
+            # Unknown block - default decay to air with 70% chance
+            if random.random() < 0.7:
+                return "minecraft:air"
+            return block_name
         
-        # Iterate Categories
-        for cat_name, data in self.categories.items():
-            blocks_in_cat = data['blocks']
-            rules = data['replacements']
-            
-            if not rules:
-                continue
-            
-            # Get valid IDs for this category
-            valid_ids = [self.palette_map[b] for b in blocks_in_cat if b in self.palette_map]
-            if not valid_ids:
-                continue
-            
-            # Create Boolean Mask
-            cat_mask = np.isin(chunk_blocks, valid_ids)
-            
-            if not np.any(cat_mask):
-                continue
-            
-            # Apply Replacements
-            current_threshold = 0.0
-            
-            for target_name, chance in rules:
-                target_id = self.get_id(target_name)
-                
-                lower = current_threshold
-                upper = current_threshold + chance
-                
-                change_mask = cat_mask & (noise_map >= lower) & (noise_map < upper)
-                result[change_mask] = target_id
-                
-                current_threshold += chance
+        # Get replacements for this category
+        replacements = self.category_replacements.get(category, [])
+        if not replacements:
+            return block_name  # No replacements defined
         
-        return result
+        # Pick transition based on weights
+        choices, weights = zip(*replacements)
+        return random.choices(choices, weights=weights, k=1)[0]
+
+    def process_chunk(self, blocks, palette, cx, cz):
+        """Apply CA physics, using JSON rules for outcomes."""
+        H = blocks.shape[1]
+        
+        # Map palette indices to Block Names for easy lookup
+        # (Optimization: We could map indices to rule objects directly, but this is clearer)
+        id_to_name = {i: name for i, name in enumerate(palette)}
+        
+        # Create a working copy
+        current_grid = blocks.copy()
+        
+        for p in range(self.passes):
+            snapshot = current_grid.copy()
+            
+            # Iterate Volume
+            # (Note: Python loops are slow for 16x256x16. For production, use Numba or just wait)
+            for x in range(16):
+                for z in range(16):
+                    for y in range(H - 1, -1, -1):
+                        idx = snapshot[x, y, z]
+                        if idx == 0: continue # Air
+                        
+                        name = id_to_name[idx]
+                        if name in self.ignored: continue
+                        
+                        # --- PHYSICS CHECK ---
+                        instability = 0.0
+                        
+                        # 1. Noise (The "Chaos" Factor)
+                        n_val = (self.noise.noise3(x*0.1 + cx*16, y*0.1, z*0.1 + cz*16) + 1) / 2
+                        instability += n_val * 0.4
+                        
+                        # 2. Gravity (The "Structure" Factor)
+                        # If block below is Air/Water (assuming water is non-structural for bricks)
+                        below_idx = snapshot[x, y-1, z] if y > 0 else 1 # Treat floor as solid
+                        if below_idx == 0: 
+                            instability += 1.0 # Massive penalty for floating
+                            
+                        # 3. Exposure (The "Rot" Factor)
+                        # Simplified neighbor check (only checking up/down/NSEW within chunk)
+                        neighbors = 0
+                        if y < H-1 and snapshot[x, y+1, z] == 0: neighbors += 1
+                        if x > 0 and snapshot[x-1, y, z] == 0: neighbors += 1
+                        if x < 15 and snapshot[x+1, y, z] == 0: neighbors += 1
+                        if z > 0 and snapshot[x, y, z-1] == 0: neighbors += 1
+                        if z < 15 and snapshot[x, y, z+1] == 0: neighbors += 1
+                        
+                        instability += (neighbors * 0.1)
+                        
+                        # --- DECISION ---
+                        threshold = 1.0 - self.settings.get("erosion_rate", 0.3)
+                        
+                        if instability > threshold:
+                            new_name = self.get_replacement(name)
+                            
+                            # If the block changed
+                            if new_name != name:
+                                # Update Palette
+                                if new_name not in palette:
+                                    palette.append(new_name)
+                                    id_to_name[len(palette)-1] = new_name
+                                    new_idx = len(palette)-1
+                                else:
+                                    new_idx = palette.index(new_name)
+                                
+                                current_grid[x, y, z] = new_idx
+
+        return current_grid, palette
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input", required=True, help="city_original.bin")
-    parser.add_argument("--config", required=True, help="erosion_config.json")
-    parser.add_argument("--out", default="city_eroded.bin")
-    parser.add_argument("--peaks-out", default="peaks.json")
-    parser.add_argument("--sea-level", type=int, default=63)
-    parser.add_argument("--seed", type=int, default=13742)
+    parser.add_argument("--input", required=True)
+    parser.add_argument("--config", required=True)
+    parser.add_argument("--out", default="city_eroded_hybrid.bin")
     args = parser.parse_args()
-
-    # Load Config
+    
     with open(args.config) as f:
-        cfg = json.load(f)
-    
-    eroder = ErosionProcessor(cfg)
-    eroder.global_settings['seed'] = args.seed
-    peaks = []
-
-    def process_stream():
-        # Generator that reads raw -> erodes -> yields eroded
+        config = json.load(f)
         
-        for cx, cz, blocks, palette in read_bin_generator(args.input):
-            # Pre-process: Map input palette to eroder's internal palette
-            lut = np.zeros(len(palette), dtype=np.uint16)
-            for i, block_name in enumerate(palette):
-                lut[i] = eroder.get_id(block_name)
-            
-            # Convert blocks to global IDs
-            blocks_mapped = lut[blocks]
-            
-            # Apply Erosion
-            eroded_blocks = eroder.process_chunk(blocks_mapped, cx, cz)
-            
-            # Peak Detection
-            # Scan top-down for solid blocks
-            heights = np.zeros((16, 16), dtype=int)
-            for x in range(16):
-                for z in range(16):
-                    col = eroded_blocks[x, :, z]
-                    non_zeros = np.nonzero(col)[0]
-                    if len(non_zeros) > 0:
-                        heights[x, z] = non_zeros[-1] - 64
-            
-            # Find local maxima in chunk
-            mx, mz = np.unravel_index(np.argmax(heights), heights.shape)
-            max_y = heights[mx, mz]
-            
-            # Save Peak if in support range
-            if max_y > -40 and max_y < (args.sea_level - 5):
-                peaks.append(((cx * 16) + int(mx), int(max_y), (cz * 16) + int(mz)))
-
-            yield cx, cz, eroded_blocks
+    eroder = HybridEroder(config)
     
-    # Write the eroded binary with final palette
-    write_bin(args.out, process_stream(), eroder.palette)
+    # Load all chunks into memory (file is ~4.5MB, easily fits in 64GB RAM)
+    print("Loading city data into memory...")
+    chunks = []
+    global_palette = None
     
-    # Save Peaks
-    with open(args.peaks_out, 'w') as f:
-        json.dump(peaks, f)
-    print(f"Saved {len(peaks)} potential island sites to {args.peaks_out}")
+    for cx, cz, blocks, palette in read_bin_generator(args.input):
+        chunks.append((cx, cz, blocks, list(palette)))
+        global_palette = list(palette)  # Keep the latest palette
+        
+    print(f"Loaded {len(chunks)} chunks.")
+    
+    # Process all chunks
+    print("Processing erosion...")
+    import struct
+    import zlib
+    
+    processed_chunks = []
+    for i, (cx, cz, blocks, palette) in enumerate(chunks):
+        new_blocks, new_palette = eroder.process_chunk(blocks, palette, cx, cz)
+        processed_chunks.append((cx, cz, new_blocks, new_palette))
+        
+        # Update global palette with any new blocks
+        for block in new_palette:
+            if block not in global_palette:
+                global_palette.append(block)
+        
+        print(f"Processed chunk {i+1}/{len(chunks)}...", end='\r')
+    
+    print("\nWriting output...")
+    with open(args.out, 'wb') as f:
+        f.write(b'EROS')
+        f.write(struct.pack('<Q', 0))  # Placeholder for palette offset
+        
+        for cx, cz, blocks, palette in processed_chunks:
+            raw = blocks.astype(np.uint16).tobytes()
+            comp = zlib.compress(raw)
+            f.write(struct.pack('<iiiI', cx, cz, len(raw), len(comp)))
+            f.write(comp)
+            
+        # Write global palette
+        ptr = f.tell()
+        f.write(json.dumps(global_palette).encode('utf-8'))
+        f.seek(4)
+        f.write(struct.pack('<Q', ptr))
+        
+    print(f"Done! Saved to {args.out}")
+    print(f"Final palette contains {len(global_palette)} unique blocks.")
 
 if __name__ == "__main__":
     main()

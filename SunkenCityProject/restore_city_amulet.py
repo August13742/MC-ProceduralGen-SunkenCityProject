@@ -69,20 +69,16 @@ def main():
                 for pair in props_str.split(','):
                     if '=' in pair:
                         k, v = pair.split('=', 1)
-                        props[k.strip()] = amulet.api.block_entity.BlockEntityData(v.strip())
+                        props[k.strip()] = amulet.StringTag(v.strip())
             else:
                 block_id = block_name
                 props = {}
             
-            # Split namespace and base_name
-            # Block() expects: Block(namespace, base_name, properties)
+            # Parse namespace and base name
             if ':' in block_id:
                 namespace, base_name = block_id.split(':', 1)
-                # Convert minecraft -> universal_minecraft for Amulet
-                if namespace == "minecraft":
-                    namespace = "universal_minecraft"
             else:
-                namespace = "universal_minecraft"
+                namespace = "minecraft"
                 base_name = block_id
             
             amulet_palette.append(Block(namespace, base_name, props))
