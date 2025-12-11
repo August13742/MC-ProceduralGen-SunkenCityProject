@@ -62,6 +62,87 @@ def normalise_block(block_id: str, props: Dict[str, Any]) -> Tuple[str, Dict[str
         bid = f"minecraft:{mat}_planks"
         props.clear()  # planks have no states
 
+    # --- Wood (stripped and regular) ----------------------------------------
+    if bid == "minecraft:wood":
+        mat = _pop_material(props, "oak")
+        stripped = props.pop("stripped", "false")
+        prefix = "stripped_" if str(stripped).lower() == "true" else ""
+        bid = f"minecraft:{prefix}{mat}_wood"
+
+    # --- Pressure Plates ----------------------------------------------------
+    if bid == "minecraft:pressure_plate":
+        mat = _pop_material(props, "oak")
+        if mat in ["stone", "light_weighted", "heavy_weighted", "polished_blackstone"]:
+            # Stone variants don't follow the pattern
+            if mat == "stone":
+                bid = "minecraft:stone_pressure_plate"
+            else:
+                bid = f"minecraft:{mat}_pressure_plate"
+        else:
+            # Wood variants
+            bid = f"minecraft:{mat}_pressure_plate"
+
+    if bid == "minecraft:wooden_pressure_plate":
+        mat = _pop_material(props, "oak")
+        bid = f"minecraft:{mat}_pressure_plate"
+
+    # --- Hanging Signs ------------------------------------------------------
+    if bid == "minecraft:hanging_sign":
+        mat = _pop_material(props, "oak")
+        bid = f"minecraft:{mat}_hanging_sign"
+    
+    if bid == "minecraft:wall_hanging_sign":
+        mat = _pop_material(props, "oak")
+        bid = f"minecraft:{mat}_wall_hanging_sign"
+
+    # --- Shulker Boxes ------------------------------------------------------
+    if bid == "minecraft:shulker_box":
+        color = str(props.pop("color", "purple"))  # Default uncolored is just "shulker_box"
+        if color != "purple":
+            bid = f"minecraft:{color}_shulker_box"
+        # else keep as minecraft:shulker_box
+
+    # --- Candles ------------------------------------------------------------
+    if bid == "minecraft:candle":
+        color = str(props.pop("color", "none"))
+        if color != "none":
+            bid = f"minecraft:{color}_candle"
+        # else keep as minecraft:candle
+
+    # --- Terracotta ---------------------------------------------------------
+    if bid == "minecraft:terracotta":
+        color = str(props.pop("color", "none"))
+        if color != "none":
+            bid = f"minecraft:{color}_terracotta"
+        # else keep as plain minecraft:terracotta
+
+    # --- Coral & Coral Fans -------------------------------------------------
+    if bid == "minecraft:coral_block":
+        variant = str(props.pop("variant", "tube")).lower()
+        dead = str(props.pop("dead", "false")).lower() == "true"
+        prefix = "dead_" if dead else ""
+        bid = f"minecraft:{prefix}{variant}_coral_block"
+        props.clear()
+
+    if bid == "minecraft:coral":
+        variant = str(props.pop("variant", "tube")).lower()
+        dead = str(props.pop("dead", "false")).lower() == "true"
+        prefix = "dead_" if dead else ""
+        bid = f"minecraft:{prefix}{variant}_coral"
+        props.clear()
+
+    if bid == "minecraft:coral_fan":
+        variant = str(props.pop("variant", "tube")).lower()
+        dead = str(props.pop("dead", "false")).lower() == "true"
+        prefix = "dead_" if dead else ""
+        bid = f"minecraft:{prefix}{variant}_coral_fan"
+
+    if bid == "minecraft:wall_coral_fan":
+        variant = str(props.pop("variant", "tube")).lower()
+        dead = str(props.pop("dead", "false")).lower() == "true"
+        prefix = "dead_" if dead else ""
+        bid = f"minecraft:{prefix}{variant}_coral_wall_fan"
+
     # --- Stairs -------------------------------------------------------------
     if bid == "minecraft:stairs":
         mat = _pop_material(props, "oak")
@@ -94,6 +175,24 @@ def normalise_block(block_id: str, props: Dict[str, Any]) -> Tuple[str, Dict[str
     if bid == "minecraft:door":
         mat = _pop_material(props, "oak")
         bid = f"minecraft:{mat}_door"
+
+    # --- Signs (standing and wall-mounted) ----------------------------------
+    if bid == "minecraft:sign":
+        mat = _pop_material(props, "oak")
+        bid = f"minecraft:{mat}_sign"
+    
+    if bid == "minecraft:wall_sign":
+        mat = _pop_material(props, "oak")
+        bid = f"minecraft:{mat}_wall_sign"
+
+    # --- Banners (standing and wall-mounted) --------------------------------
+    if bid == "minecraft:banner":
+        color = str(props.pop("color", "white"))
+        bid = f"minecraft:{color}_banner"
+    
+    if bid == "minecraft:wall_banner":
+        color = str(props.pop("color", "white"))
+        bid = f"minecraft:{color}_wall_banner"
 
     # --- Walls --------------------------------------------------------------
     if bid == "minecraft:wall":
@@ -132,6 +231,37 @@ def normalise_block(block_id: str, props: Dict[str, Any]) -> Tuple[str, Dict[str
     if bid == "minecraft:carpet":
         color = props.pop("color", "white")
         bid = f"minecraft:{color}_carpet"
+
+    # --- Concrete & Concrete Powder -----------------------------------------
+    if bid == "minecraft:concrete":
+        color = props.pop("color", "white")
+        bid = f"minecraft:{color}_concrete"
+        props.clear()
+
+    if bid == "minecraft:concrete_powder":
+        color = props.pop("color", "white")
+        bid = f"minecraft:{color}_concrete_powder"
+        props.clear()
+
+    # --- Stained Glass & Panes ----------------------------------------------
+    if bid == "minecraft:stained_glass":
+        color = props.pop("color", "white")
+        bid = f"minecraft:{color}_stained_glass"
+        props.clear()
+
+    if bid == "minecraft:stained_glass_pane":
+        color = props.pop("color", "white")
+        bid = f"minecraft:{color}_stained_glass_pane"
+
+    # --- Terracotta ---------------------------------------------------------
+    if bid == "minecraft:stained_terracotta":
+        color = props.pop("color", "white")
+        bid = f"minecraft:{color}_terracotta"
+        props.clear()
+
+    if bid == "minecraft:glazed_terracotta":
+        color = props.pop("color", "white")
+        bid = f"minecraft:{color}_glazed_terracotta"
 
     # --- Torch / wall_torch -------------------------------------------------
     if bid == "minecraft:torch":
@@ -200,6 +330,30 @@ def normalise_block(block_id: str, props: Dict[str, Any]) -> Tuple[str, Dict[str
             # Wall-vs-floor, facing, etc. we can ignore safely.
             props.clear()
 
+    # --- Wall-mounted heads -------------------------------------------------
+    if bid == "minecraft:wall_head":
+        # Same as regular heads but wall-mounted variants
+        head_type = (
+            str(props.pop("type", "") or
+                props.pop("skull_type", "") or
+                props.pop("head_type", ""))
+            .lower()
+        )
+
+        mapping = {
+            "skeleton": "skeleton_wall_skull",
+            "wither_skeleton": "wither_skeleton_wall_skull",
+            "wither": "wither_skeleton_wall_skull",
+            "zombie": "zombie_wall_head",
+            "creeper": "creeper_wall_head",
+            "dragon": "dragon_wall_head",
+            "player": "player_wall_head",
+        }
+
+        stem = mapping.get(head_type, "skeleton_wall_skull")
+        bid = f"minecraft:{stem}"
+        # Keep 'facing' property for wall-mounted heads
+
     # --- Infested blocks ---------------------------------------------------
     if bid == "minecraft:infested_block":
         # universal probably gives "variant": stone|cobblestone|stone_bricks|mossy_stone_bricks|cracked_stone_bricks|chiseled_stone_bricks
@@ -255,5 +409,47 @@ def normalise_block(block_id: str, props: Dict[str, Any]) -> Tuple[str, Dict[str
 
         # Only keep 'level' as a *string* (vanilla accepts that)
         props = {"level": str(lvl)}
+
+    # --- Plants (generic -> specific) ---------------------------------------
+    if bid == "minecraft:plant":
+        # Amulet's generic "plant" - default to short_grass (was "grass" in old versions)
+        plant_type = str(props.pop("plant_type", "grass")).lower()
+        
+        # Common mappings
+        plant_map = {
+            "grass": "minecraft:short_grass",  # Modern name
+            "short_grass": "minecraft:short_grass",
+            "fern": "minecraft:fern",
+            "dead_bush": "minecraft:dead_bush",
+            "dandelion": "minecraft:dandelion",
+            "poppy": "minecraft:poppy",
+            "blue_orchid": "minecraft:blue_orchid",
+            "allium": "minecraft:allium",
+            "azure_bluet": "minecraft:azure_bluet",
+            "tulip": "minecraft:red_tulip",
+            "oxeye_daisy": "minecraft:oxeye_daisy",
+            "cornflower": "minecraft:cornflower",
+            "lily_of_the_valley": "minecraft:lily_of_the_valley",
+            "wither_rose": "minecraft:wither_rose",
+        }
+        
+        bid = plant_map.get(plant_type, "minecraft:short_grass")
+        props.clear()
+
+    if bid == "minecraft:double_plant":
+        # Tall plants (2-block tall)
+        plant_type = str(props.pop("plant_type", "sunflower")).lower()
+        
+        plant_map = {
+            "sunflower": "minecraft:sunflower",
+            "lilac": "minecraft:lilac",
+            "tall_grass": "minecraft:tall_grass",
+            "large_fern": "minecraft:large_fern",
+            "rose_bush": "minecraft:rose_bush",
+            "peony": "minecraft:peony",
+        }
+        
+        bid = plant_map.get(plant_type, "minecraft:sunflower")
+        # Keep 'half' property if present (upper/lower)
 
     return bid, props
