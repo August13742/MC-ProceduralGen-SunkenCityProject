@@ -60,6 +60,18 @@ def inspect_bin(filename, sample_chunks=5):
         pct = (count / sum(total_blocks.values())) * 100
         print(f"  {block_name:50s} {count:12,} ({pct:5.2f}%)")
     
+    # Search for city blocks
+    city_keywords = ['white_concrete', 'oak_planks', 'oak_log', 'spruce', 'birch', 'stone_brick']
+    city_blocks = {name: count for name, count in total_blocks.items() 
+                   if any(kw in name for kw in city_keywords)}
+    if city_blocks:
+        print(f"\nCity-related blocks found ({len(city_blocks)} types):")
+        for block_name, count in sorted(city_blocks.items(), key=lambda x: -x[1])[:20]:
+            pct = (count / sum(total_blocks.values())) * 100
+            print(f"  {block_name:50s} {count:12,} ({pct:5.2f}%)")
+    else:
+        print("\n⚠ No obvious city blocks found!")
+    
     # Show sample chunks
     print(f"\nSample chunks (first {len(sample_data)}):")
     for i, sample in enumerate(sample_data, 1):

@@ -1,7 +1,7 @@
 {
     "global_settings": {
-        "erosion_rate": 0.3,
-        "passes": 3,
+        "erosion_rate": 0.75,
+        "passes": 8,
         "seed": 1337
     },
     "preserve": [
@@ -12,7 +12,7 @@
     ],
     "decay_rules": {
         "organic": {
-            "chance": 0.8,
+            "chance": 0.95,
             "transitions": [
                 [
                     "minecraft:air",
@@ -21,7 +21,7 @@
             ]
         },
         "fragile": {
-            "chance": 0.9,
+            "chance": 0.98,
             "transitions": [
                 [
                     "minecraft:air",
@@ -30,24 +30,24 @@
             ]
         },
         "metal": {
-            "chance": 0.2,
+            "chance": 0.6,
             "transitions": [
                 [
                     "minecraft:oxidized_copper",
-                    0.8
+                    0.7
                 ],
                 [
                     "minecraft:air",
-                    0.2
+                    0.3
                 ]
             ]
         },
         "stone": {
-            "chance": 0.4,
+            "chance": 0.7,
             "transitions": [
                 [
                     "minecraft:cobblestone",
-                    0.5
+                    0.4
                 ],
                 [
                     "minecraft:mossy_cobblestone",

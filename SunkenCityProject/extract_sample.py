@@ -7,7 +7,7 @@ Much faster than loading all 37k chunks!
 Usage:
     python SunkenCityProject/extract_sample.py --input city_merged.bin --world-path "path/to/world" --chunks 100
     
-python SunkenCityProject/extract_sample.py --input city_merged.bin --world-path "$env:APPDATA\.minecraft\saves\GDMC_Test_Visualiser" --chunks 200
+python SunkenCityProject/extract_sample.py --input city_merged.bin --world-path "$env:APPDATA\.minecraft\saves\GDMC_Test_Visualiser" --chunks 500
 """
 
 import argparse
@@ -132,6 +132,7 @@ def main():
     parser.add_argument("--chunks", type=int, default=200, help="Number of chunks to extract (default: 200)")
     parser.add_argument("--center-x", type=int, default=0, help="Center X chunk coordinate (default: 0)")
     parser.add_argument("--center-z", type=int, default=0, help="Center Z chunk coordinate (default: 0)")
+    parser.add_argument("--y-start", type=int, default=-64, help="World Y coordinate for array index 0 (default: -64 for ocean floor placement)")
     
     args = parser.parse_args()
     
@@ -159,7 +160,8 @@ def main():
         sys.executable,
         restore_script,
         "--input", args.output,
-        "--world", args.world_path
+        "--world", args.world_path,
+        "--y-start", str(args.y_start)
     ])
     
     if result.returncode == 0:

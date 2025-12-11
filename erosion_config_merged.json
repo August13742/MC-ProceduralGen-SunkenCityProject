@@ -2,9 +2,10 @@
     "global_settings": {
         "noise_scale": 0.15,
         "seed": 13742,
-        "erosion_rate": 0.3,
-        "passes": 3,
-        "universal_decay_chance": 0.0,
+        "erosion_rate": 0.5,
+        "passes": 6,
+        "universal_decay_chance": 0.15,
+        "material_decay_rate": 0.4,
         "exposure_decay_enabled": true,
         "exposure_decay_threshold": 4,
         "exposure_decay_chance": 0.6
@@ -272,11 +273,11 @@
             "replacements": [
                 [
                     "minecraft:air",
-                    0.6
+                    0.85
                 ],
                 [
                     "minecraft:spruce_slab",
-                    0.15
+                    0.10
                 ],
                 [
                     "minecraft:oak_stairs",
@@ -284,7 +285,7 @@
                 ]
             ]
         },
-        "organic_soft": {
+        "wood_structural": {
             "blocks": [
                 "minecraft:white_bed",
                 "minecraft:orange_bed",
@@ -545,7 +546,6 @@
             "blocks": [
                 "minecraft:amethyst_block",
                 "minecraft:ancient_debris",
-                "minecraft:bone_block",
                 "minecraft:coal_block",
                 "minecraft:crying_obsidian",
                 "minecraft:diamond_block",
@@ -568,6 +568,25 @@
                 ]
             ]
         },
+        "bone_building": {
+            "blocks": [
+                "minecraft:bone_block"
+            ],
+            "replacements": [
+                [
+                    "minecraft:air",
+                    0.6
+                ],
+                [
+                    "minecraft:white_concrete_powder",
+                    0.25
+                ],
+                [
+                    "minecraft:cobblestone",
+                    0.15
+                ]
+            ]
+        },
         "fragile_decorative": {
             "blocks": [
                 "minecraft:amethyst_cluster",
@@ -579,11 +598,7 @@
             "replacements": [
                 [
                     "minecraft:air",
-                    0.9
-                ],
-                [
-                    "minecraft:amethyst_block",
-                    0.1
+                    0.7
                 ]
             ]
         },

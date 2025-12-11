@@ -114,6 +114,34 @@ class UltraFastEroder:
                     
                     current_grid[x, y, z] = new_idx
 
+        # MATERIAL-BASED DECAY PASS: Apply decay to ALL blocks based on category
+        # This ensures even structurally-stable blocks get weathered
+        material_decay_rate = self.settings.get("material_decay_rate", 0.3)
+        if material_decay_rate > 0:
+            for x in range(16):
+                for z in range(16):
+                    for y in range(H):
+                        idx = current_grid[x, y, z]
+                        if idx == 0:  # Skip air
+                            continue
+                        if idx < len(ignored_arr) and ignored_arr[idx]:
+                            continue
+                        
+                        name = id_to_name.get(idx, "")
+                        if name in self.block_to_category:
+                            # Block has a category - apply material decay
+                            if random.random() < material_decay_rate:
+                                new_name = self.get_replacement(name)
+                                if new_name != name:
+                                    if new_name not in name_to_idx:
+                                        palette.append(new_name)
+                                        new_idx = len(palette) - 1
+                                        name_to_idx[new_name] = new_idx
+                                        id_to_name[new_idx] = new_name
+                                    else:
+                                        new_idx = name_to_idx[new_name]
+                                    current_grid[x, y, z] = new_idx
+
         return current_grid, palette
     
     def _compute_noise_field(self, cx, cz, H):
@@ -238,10 +266,13 @@ def main():
             unit="chunk"
         ))
     
-    # Update global palette
-    for _, _, _, palette in processed_chunks:
+    # Update global palette efficiently using a set
+    print("Building global palette...")
+    global_palette_set = set(global_palette)
+    for _, _, _, palette in tqdm(processed_chunks, desc="Building palette", unit="chunk"):
         for block in palette:
-            if block not in global_palette:
+            if block not in global_palette_set:
+                global_palette_set.add(block)
                 global_palette.append(block)
     
     elapsed = time.time() - start_time

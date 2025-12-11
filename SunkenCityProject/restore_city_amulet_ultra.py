@@ -21,7 +21,6 @@ python SunkenCityProject/restore_city_amulet_ultra.py --input city_merged.bin --
 
 Note: World MUST be closed before running this!
 """
-
 import argparse
 import struct
 import json
@@ -31,7 +30,6 @@ import time
 from tqdm import tqdm
 import amulet
 from amulet.api.block import Block
-from amulet.api.chunk import Chunk
 from amulet.utils.world_utils import block_coords_to_chunk_coords
 import sys
 
@@ -67,7 +65,7 @@ def parse_block_name(block_name):
 
 
 class ChunkBatcher:
-    """Batches chunk operations for maximum performance."""
+    """Batches chunk operations for maximum performance using direct array manipulation."""
     
     def __init__(self, level, dimension, y_start, batch_size=50):
         self.level = level
@@ -90,12 +88,15 @@ class ChunkBatcher:
             return 0
         
         blocks_placed = 0
+        
+        # Process all chunks first (keeps them in memory)
         for cx, cz, chunk_blocks, amulet_palette in self.pending_chunks:
             blocks = self._place_chunk_direct(cx, cz, chunk_blocks, amulet_palette)
             blocks_placed += blocks
         
-        # Save all at once
+        # Single save for entire batch (this is the expensive operation)
         self.level.save()
+        
         self.total_saved += len(self.pending_chunks)
         count = len(self.pending_chunks)
         self.pending_chunks = []
@@ -103,7 +104,15 @@ class ChunkBatcher:
         return blocks_placed
     
     def _place_chunk_direct(self, cx, cz, chunk_blocks, amulet_palette):
-        """Place chunk using direct block array manipulation for maximum speed."""
+        """
+        ULTRA-FAST chunk placement using direct array manipulation.
+        
+        This bypasses all translation by:
+        1. Registering blocks directly to chunk's internal palette
+        2. Setting block indices directly in the chunk's block array
+        
+        No PyMCTranslate calls = maximum speed!
+        """
         height = chunk_blocks.shape[1]
         
         try:
@@ -111,17 +120,24 @@ class ChunkBatcher:
         except:
             chunk = self.level.create_chunk(cx, cz, self.dimension)
         
+        # Step 1: Register all our blocks to chunk's palette and build index mapping
+        # This maps our palette indices to the chunk's internal palette indices
+        index_map = {}
+        for our_idx, block in enumerate(amulet_palette):
+            # get_add_block returns the chunk's internal index for this block
+            chunk_idx = chunk.block_palette.get_add_block(block)
+            index_map[our_idx] = chunk_idx
+        
+        # Step 2: Direct array manipulation - set blocks using indices only
         blocks_placed = 0
         
-        # Direct manipulation of chunk's internal block array (FAST!)
-        # Get chunk's block array (this is the internal representation)
         for lx in range(16):
             for ly in range(height):
                 for lz in range(16):
-                    block_idx = chunk_blocks[lx, ly, lz]
+                    our_idx = chunk_blocks[lx, ly, lz]
                     
                     # Skip air (index 0)
-                    if block_idx == 0:
+                    if our_idx == 0:
                         continue
                     
                     wy = self.y_start + ly
@@ -130,14 +146,9 @@ class ChunkBatcher:
                     if wy < -64 or wy >= 320:
                         continue
                     
-                    block = amulet_palette[block_idx]
-                    
-                    # Use universal block format (no translation needed)
-                    try:
-                        chunk.set_block(lx, wy, lz, block)
-                        blocks_placed += 1
-                    except:
-                        pass
+                    # Direct array assignment - no translation!
+                    chunk.blocks[lx, wy, lz] = index_map[our_idx]
+                    blocks_placed += 1
         
         # Mark chunk as changed
         chunk.changed = True
@@ -204,6 +215,8 @@ def main():
                         help="Stop after N chunks (0 for all)")
     parser.add_argument("--batch-size", type=int, default=100,
                         help="Number of chunks per batch save (smaller = more frequent saves)")
+    parser.add_argument("--save-at-end", action="store_true",
+                        help="Only save once at the end (fastest but risky - no intermediate saves)")
     
     args = parser.parse_args()
     
@@ -236,23 +249,33 @@ def main():
     
     # Process chunks
     print(f"\n Step 3: Placing blocks")
-    print(f"   Batch size: {args.batch_size} chunks per save")
+    if args.save_at_end:
+        print(f"   ⚠️  SAVE AT END MODE - No intermediate saves!")
+        print(f"   Processing all {len(chunks_data):,} chunks then saving once")
+        # Set batch size to total chunks to prevent intermediate saves
+        effective_batch_size = len(chunks_data) + 1
+    else:
+        print(f"   Batch size: {args.batch_size} chunks per save")
+        effective_batch_size = args.batch_size
     print(f"   Total chunks: {len(chunks_data):,}")
     print("-" * 70)
     
     t_start = time.time()
-    batcher = ChunkBatcher(level, args.dimension, args.y_start, args.batch_size)
+    batcher = ChunkBatcher(level, args.dimension, args.y_start, effective_batch_size)
     total_blocks_placed = 0
     
     pbar = tqdm(chunks_data, desc="Placing chunks", unit="chunk")
     for cx, cz, chunk_blocks in pbar:
         batcher.add_chunk(cx, cz, chunk_blocks, amulet_palette)
-        pbar.set_postfix({"saved": f"{batcher.total_saved:,}"})
+        if not args.save_at_end:
+            pbar.set_postfix({"saved": f"{batcher.total_saved:,}"})
     
     # Flush remaining
     print(f"\n\n Step 4: Final save...")
     blocks_placed = batcher.flush()
     total_blocks_placed += blocks_placed
+    
+    print(f"   DEBUG: Final flush placed {blocks_placed:,} blocks")
     
     level.close()
     

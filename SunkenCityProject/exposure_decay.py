@@ -170,22 +170,27 @@ def main():
         "minecraft:bedrock"
     }
     
+    # Initial load
+    chunks_data = []
+    print("Loading initial chunks...")
+    for cx, cz, blocks, palette in tqdm(read_bin_generator(args.input), desc="Loading", unit="chunk"):
+        chunks_data.append((cx, cz, blocks, palette))
+    print(f"✓ Loaded {len(chunks_data):,} chunks into memory\n")
+    
+    # Multi-pass processing - all in memory!
     for pass_num in range(args.passes):
         if args.passes > 1:
             print(f"\n{'=' * 70}")
             print(f"PASS {pass_num + 1}/{args.passes}")
             print('=' * 70)
         
-        # Read chunks
-        chunks_data = []
         total_changes = 0
-        
-        # Seed for this pass
         current_seed = 13742 + pass_num * 1000
         
+        # Process chunks in-place
+        new_chunks_data = []
         pbar = tqdm(desc=f"Pass {pass_num+1}/{args.passes}", unit="chunk")
-        chunk_idx = 0
-        for cx, cz, blocks, palette in read_bin_generator(args.input if pass_num == 0 else args.output):
+        for chunk_idx, (cx, cz, blocks, palette) in enumerate(chunks_data):
             pbar.update(1)
             
             # Process chunk with optimized function
@@ -194,46 +199,45 @@ def main():
                 preserve_set, current_seed + chunk_idx
             )
             total_changes += changes
-            chunk_idx += 1
-            
-            chunks_data.append((cx, cz, blocks, palette))
+            new_chunks_data.append((cx, cz, blocks, palette))
         
         pbar.close()
+        chunks_data = new_chunks_data  # Update for next pass
         print(f"✓ Processed {len(chunks_data):,} chunks")
         print(f"✓ Blocks decayed: {total_changes:,}")
+    
+    # Write final output only once
+    print(f"\nWriting final output to {args.output}...")
+    
+    # Build global palette from all chunks
+    global_palette = []
+    palette_set = set()
+    for cx, cz, blocks, palette in chunks_data:
+        for block_name in palette:
+            if block_name not in palette_set:
+                palette_set.add(block_name)
+                global_palette.append(block_name)
+    
+    # Remap all chunks to global palette
+    remapped_chunks = []
+    for cx, cz, blocks, palette in chunks_data:
+        # Create mapping from local to global palette
+        local_to_global = np.zeros(len(palette), dtype=np.uint16)
+        for local_idx, block_name in enumerate(palette):
+            local_to_global[local_idx] = global_palette.index(block_name)
         
-        # Write output using standard format
-        print(f"\nWriting to {args.output}...")
-        
-        # Build global palette from all chunks
-        global_palette = []
-        palette_set = set()
-        for cx, cz, blocks, palette in chunks_data:
-            for block_name in palette:
-                if block_name not in palette_set:
-                    palette_set.add(block_name)
-                    global_palette.append(block_name)
-        
-        # Remap all chunks to global palette
-        remapped_chunks = []
-        for cx, cz, blocks, palette in chunks_data:
-            # Create mapping from local to global palette
-            local_to_global = np.zeros(len(palette), dtype=np.uint16)
-            for local_idx, block_name in enumerate(palette):
-                local_to_global[local_idx] = global_palette.index(block_name)
-            
-            # Remap blocks
-            remapped_blocks = local_to_global[blocks]
-            remapped_chunks.append((cx, cz, remapped_blocks))
-        
-        # Write using city_utils standard format
-        from city_utils import write_bin
-        
-        def chunk_gen():
-            for cx, cz, blocks in remapped_chunks:
-                yield cx, cz, blocks
-        
-        write_bin(args.output, chunk_gen(), global_palette)
+        # Remap blocks
+        remapped_blocks = local_to_global[blocks]
+        remapped_chunks.append((cx, cz, remapped_blocks))
+    
+    # Write using city_utils standard format
+    from city_utils import write_bin
+    
+    def chunk_gen():
+        for cx, cz, blocks in remapped_chunks:
+            yield cx, cz, blocks
+    
+    write_bin(args.output, chunk_gen(), global_palette)
     
     print("\n" + "=" * 70)
     print("EXPOSURE DECAY COMPLETE")
