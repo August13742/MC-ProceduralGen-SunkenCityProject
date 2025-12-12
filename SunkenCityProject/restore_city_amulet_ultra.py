@@ -12,15 +12,15 @@ Usage:
         --input city_eroded.bin \
         --world "C:\Users\augus\AppData\Roaming\.minecraft\saves\GDMC_Test (1)" \
         --y-start 45
-        
-python SunkenCityProject/restore_city_amulet_ultra.py --input city_eroded.bin --world "C:\Users\augus\AppData\Roaming\.minecraft\saves\GDMC_Test (2)" --y-start 20 --batch-size 100
 
+python SunkenCityProject/restore_city_amulet_ultra.py --input city_eroded.bin --world "C:\Users\augus\AppData\Roaming\.minecraft\saves\GDMC_Test (2)" --y-start 20 --batch-size 100
 
 python SunkenCityProject/restore_city_amulet_ultra.py --input city_merged.bin --world "C:\Users\augus\AppData\Roaming\.minecraft\saves\GDMC_Test_Visualiser" --batch-size 100
 
-
 Note: World MUST be closed before running this!
+
 """
+
 import argparse
 import struct
 import json
@@ -30,13 +30,9 @@ import time
 from tqdm import tqdm
 import amulet
 from amulet.api.block import Block
-from amulet.utils.world_utils import block_coords_to_chunk_coords
-import sys
 
 def parse_block_name(block_name):
     """Parse Minecraft block string into Amulet format."""
-    
-    # Strip universal_ prefix if present
     if block_name.startswith("universal_minecraft:"):
         block_name = block_name.replace("universal_minecraft:", "minecraft:")
     elif block_name.startswith("universal_"):
@@ -54,7 +50,6 @@ def parse_block_name(block_name):
         block_id = block_name
         props = {}
     
-    # Parse namespace and base name
     if ':' in block_id:
         namespace, base_name = block_id.split(':', 1)
     else:
@@ -65,9 +60,7 @@ def parse_block_name(block_name):
 
 
 class ChunkBatcher:
-    """Batches chunk operations for maximum performance using direct array manipulation."""
-    
-    def __init__(self, level, dimension, y_start, batch_size=50):
+    def __init__(self, level, dimension, y_start, batch_size=256):
         self.level = level
         self.dimension = dimension
         self.y_start = y_start
@@ -76,224 +69,153 @@ class ChunkBatcher:
         self.total_saved = 0
         
     def add_chunk(self, cx, cz, chunk_blocks, amulet_palette):
-        """Add a chunk to the batch."""
         self.pending_chunks.append((cx, cz, chunk_blocks, amulet_palette))
-        
         if len(self.pending_chunks) >= self.batch_size:
             self.flush()
     
     def flush(self):
-        """Process and save all pending chunks."""
         if not self.pending_chunks:
             return 0
         
         blocks_placed = 0
+        chunks_to_unload = []
         
-        # Process all chunks first (keeps them in memory)
+        # 1. Place blocks in memory
         for cx, cz, chunk_blocks, amulet_palette in self.pending_chunks:
             blocks = self._place_chunk_direct(cx, cz, chunk_blocks, amulet_palette)
             blocks_placed += blocks
+            chunks_to_unload.append((cx, cz))
         
-        # Single save for entire batch (this is the expensive operation)
+        # 2. Save to disk
         self.level.save()
         
+        # 3. CRITICAL: Manually unload from internal RAM cache
+        # Amulet caches everything in a dictionary called `_chunks`.
+        # We must delete entries here or RAM usage will never go down.
+        for cx, cz in chunks_to_unload:
+            key = (cx, cz, self.dimension)
+            if hasattr(self.level, "_chunks") and key in self.level._chunks:
+                del self.level._chunks[key]
+        
         self.total_saved += len(self.pending_chunks)
-        count = len(self.pending_chunks)
         self.pending_chunks = []
         
         return blocks_placed
     
     def _place_chunk_direct(self, cx, cz, chunk_blocks, amulet_palette):
-        """
-        ULTRA-FAST chunk placement using direct array manipulation.
-        
-        This bypasses all translation by:
-        1. Registering blocks directly to chunk's internal palette
-        2. Setting block indices directly in the chunk's block array
-        
-        No PyMCTranslate calls = maximum speed!
-        """
         height = chunk_blocks.shape[1]
+        
+        # OPTIMIZATION: Use NumPy to find ALL non-air blocks at once
+        # This is O(1) vs O(n) for the old triple-nested loop
+        non_air_mask = chunk_blocks != 0
+        non_air_coords = np.argwhere(non_air_mask)  # Returns (N, 3) array of [lx, ly, lz]
+        
+        if len(non_air_coords) == 0:
+            return 0  # Empty chunk, nothing to do
         
         try:
             chunk = self.level.get_chunk(cx, cz, self.dimension)
         except:
             chunk = self.level.create_chunk(cx, cz, self.dimension)
         
-        # Step 1: Register all our blocks to chunk's palette and build index mapping
-        # This maps our palette indices to the chunk's internal palette indices
+        # Build index map only for blocks we actually need
+        unique_indices = np.unique(chunk_blocks[non_air_mask])
         index_map = {}
-        for our_idx, block in enumerate(amulet_palette):
-            # get_add_block returns the chunk's internal index for this block
-            chunk_idx = chunk.block_palette.get_add_block(block)
+        for our_idx in unique_indices:
+            if our_idx == 0: continue
+            chunk_idx = chunk.block_palette.get_add_block(amulet_palette[our_idx])
             index_map[our_idx] = chunk_idx
         
-        # Step 2: Direct array manipulation - set blocks using indices only
+        # Place only non-air blocks (vectorized coordinate access)
         blocks_placed = 0
+        for lx, ly, lz in non_air_coords:
+            our_idx = chunk_blocks[lx, ly, lz]
+            wy = self.y_start + ly
+            if wy < -64 or wy >= 320: continue
+            
+            chunk.blocks[lx, wy, lz] = index_map[our_idx]
+            blocks_placed += 1
         
-        for lx in range(16):
-            for ly in range(height):
-                for lz in range(16):
-                    our_idx = chunk_blocks[lx, ly, lz]
-                    
-                    # Skip air (index 0)
-                    if our_idx == 0:
-                        continue
-                    
-                    wy = self.y_start + ly
-                    
-                    # Bounds check
-                    if wy < -64 or wy >= 320:
-                        continue
-                    
-                    # Direct array assignment - no translation!
-                    chunk.blocks[lx, wy, lz] = index_map[our_idx]
-                    blocks_placed += 1
-        
-        # Mark chunk as changed
         chunk.changed = True
-        
         return blocks_placed
 
 
 def load_chunks_from_bin(input_file):
-    """Load all chunks from binary file into memory."""
     chunks_data = []
-    
     with open(input_file, 'rb') as f:
         magic = f.read(4)
-        if magic != b'EROS':
-            raise ValueError("Invalid file format")
-        
+        if magic != b'EROS': raise ValueError("Invalid file format")
         palette_ptr = struct.unpack('<Q', f.read(8))[0]
         
-        # Read palette
         current_pos = f.tell()
         f.seek(palette_ptr)
-        palette_data = f.read()
-        palette = json.loads(palette_data.decode('utf-8'))
+        palette = json.loads(f.read().decode('utf-8'))
+        amulet_palette = [parse_block_name(b) for b in palette]
         
-        # Convert palette to Amulet blocks
-        print(f"   Converting {len(palette)} blocks to Amulet format...", end='', flush=True)
-        amulet_palette = [parse_block_name(block_name) for block_name in palette]
-        print(" Done!")
-        
-        # Read chunks
         f.seek(current_pos)
-        
         pbar = tqdm(desc="Loading chunks", unit="chunk")
+        skipped_empty = 0
         while f.tell() < palette_ptr:
-            header_bytes = f.read(16)
-            if len(header_bytes) < 16:
-                break
+            header = f.read(16)
+            if len(header) < 16: break
+            cx, cz, _, comp_len = struct.unpack('<iiiI', header)
+            raw_data = zlib.decompress(f.read(comp_len))
+            indices = np.frombuffer(raw_data, dtype=np.uint16)
             
-            cx, cz, raw_len, comp_len = struct.unpack('<iiiI', header_bytes)
-            compressed_data = f.read(comp_len)
-            raw_data = zlib.decompress(compressed_data)
-            block_indices = np.frombuffer(raw_data, dtype=np.uint16)
-            
-            height = len(block_indices) // 256
-            chunk_blocks = block_indices.reshape((16, height, 16))
-            
-            chunks_data.append((cx, cz, chunk_blocks))
+            # OPTIMIZATION: Skip chunks that are 100% air
+            if np.all(indices == 0):
+                skipped_empty += 1
+                pbar.update(1)
+                continue
+                
+            height = len(indices) // 256
+            chunks_data.append((cx, cz, indices.reshape((16, height, 16))))
             pbar.update(1)
-        
         pbar.close()
-    
+        
+        if skipped_empty > 0:
+            print(f"✓ Skipped {skipped_empty:,} empty chunks (100% air)")
     return chunks_data, amulet_palette
 
-
 def main():
-    parser = argparse.ArgumentParser(description="Ultra-fast restore binary city to Minecraft")
-    parser.add_argument("--input", required=True, help="Path to .bin file")
-    parser.add_argument("--world", required=True, help="Path to Minecraft world folder")
-    parser.add_argument("--y-start", type=int, default=-64, 
-                        help="World Y coordinate for index 0")
-    parser.add_argument("--dimension", default="minecraft:overworld", 
-                        help="Dimension to place in")
-    parser.add_argument("--chunk-limit", type=int, default=0, 
-                        help="Stop after N chunks (0 for all)")
-    parser.add_argument("--batch-size", type=int, default=100,
-                        help="Number of chunks per batch save (smaller = more frequent saves)")
-    parser.add_argument("--save-at-end", action="store_true",
-                        help="Only save once at the end (fastest but risky - no intermediate saves)")
-    
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", required=True)
+    parser.add_argument("--world", required=True)
+    parser.add_argument("--y-start", type=int, default=-64)
+    parser.add_argument("--batch-size", type=int, default=256)
+    parser.add_argument("--chunk-limit", type=int, default=0, help="Stop after N chunks (0 = all)")
+    parser.add_argument("--save-at-end", action="store_true", help="Only save once at the end (faster but risky)")
     args = parser.parse_args()
     
-    print("=" * 70)
-    print("ULTRA-FAST BLOCK PLACEMENT ENGINE")
-    print("=" * 70)
-    
-    # Load all chunks into memory
-    print(f"\n Step 1: Loading chunks from {args.input}")
-    t_load_start = time.time()
+    print("Loading Data...")
     chunks_data, amulet_palette = load_chunks_from_bin(args.input)
-    t_load_end = time.time()
     
-    print(f"   ✓ Loaded {len(chunks_data):,} chunks in {t_load_end - t_load_start:.2f}s")
-    print(f"   ✓ Palette contains {len(amulet_palette)} block types")
-    
+    # Apply chunk limit
     if args.chunk_limit > 0:
+        print(f"Limiting to first {args.chunk_limit:,} chunks.")
         chunks_data = chunks_data[:args.chunk_limit]
-        print(f"   ⚠ Limited to first {args.chunk_limit:,} chunks")
     
-    # Load world
-    print(f"\n Step 2: Opening world")
-    print(f"   Path: {args.world}")
+    print(f"Opening World: {args.world}")
     try:
         level = amulet.load_level(args.world)
-        print(f"   ✓ World loaded successfully")
     except Exception as e:
-        print(f"   ✗ Error: {e}")
+        print(f"Error opening world: {e}")
         return
+
+    print("Restoring...")
+    # If save-at-end, set batch size to total chunks to force single save
+    batch_size = len(chunks_data) + 1 if args.save_at_end else args.batch_size
+    batcher = ChunkBatcher(level, "minecraft:overworld", args.y_start, batch_size)
     
-    # Process chunks
-    print(f"\n Step 3: Placing blocks")
-    if args.save_at_end:
-        print(f"   ⚠️  SAVE AT END MODE - No intermediate saves!")
-        print(f"   Processing all {len(chunks_data):,} chunks then saving once")
-        # Set batch size to total chunks to prevent intermediate saves
-        effective_batch_size = len(chunks_data) + 1
-    else:
-        print(f"   Batch size: {args.batch_size} chunks per save")
-        effective_batch_size = args.batch_size
-    print(f"   Total chunks: {len(chunks_data):,}")
-    print("-" * 70)
-    
-    t_start = time.time()
-    batcher = ChunkBatcher(level, args.dimension, args.y_start, effective_batch_size)
-    total_blocks_placed = 0
-    
-    pbar = tqdm(chunks_data, desc="Placing chunks", unit="chunk")
+    pbar = tqdm(chunks_data, unit="chunk")
     for cx, cz, chunk_blocks in pbar:
         batcher.add_chunk(cx, cz, chunk_blocks, amulet_palette)
-        if not args.save_at_end:
-            pbar.set_postfix({"saved": f"{batcher.total_saved:,}"})
-    
-    # Flush remaining
-    print(f"\n\n Step 4: Final save...")
-    blocks_placed = batcher.flush()
-    total_blocks_placed += blocks_placed
-    
-    print(f"   DEBUG: Final flush placed {blocks_placed:,} blocks")
-    
+        if batcher.total_saved % args.batch_size == 0:
+            pbar.set_postfix({"saved": batcher.total_saved})
+            
+    batcher.flush()
     level.close()
-    
-    t_end = time.time()
-    total_time = t_end - t_start
-    
-    print("\n" + "=" * 70)
-    print("PLACEMENT COMPLETE")
-    print("=" * 70)
-    print(f"✓ Chunks processed: {len(chunks_data):,}")
-    print(f"✓ Chunks saved: {batcher.total_saved:,}")
-    print(f"✓ Total time: {total_time:.1f}s")
-    print(f"✓ Average speed: {len(chunks_data)/total_time:.1f} chunks/sec")
-    if total_blocks_placed > 0:
-        print(f"✓ Block placement: {total_blocks_placed:,} blocks")
-        print(f"✓ Block speed: {total_blocks_placed/total_time:.0f} blocks/sec")
-    print("=" * 70)
-    print("\n World is ready! You can now open it in Minecraft.")
+    print("\nDone!")
 
 if __name__ == "__main__":
     main()
