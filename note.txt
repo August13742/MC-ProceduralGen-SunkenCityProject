@@ -26,7 +26,7 @@ python SunkenCityProject/erode_city_ultra.py --input city_original.bin --config 
 python SunkenCityProject/exposure_decay.py --input city_eroded.bin --output city_exposed.bin --threshold 4 --decay-chance 0.6
 
 # 3. Merge & blend (~4 min)
-python SunkenCityProject/merge_chunks.py --city city_exposed.bin --terrain terrain_extracted.bin --output city_merged.bin --city-y -71 --strategy underwater
+python SunkenCityProject/merge_chunks.py --city city_exposed.bin --terrain terrain_extracted.bin --output city_merged.bin --city-y -57 --strategy underwater
 python SunkenCityProject/blend_underwater.py --input city_merged.bin --output city_final.bin --ocean-floor 60 --city-level 67 --all-stages
 
 # 4. Preview in Amulet Editor (optional - 0 min, no Minecraft needed!)

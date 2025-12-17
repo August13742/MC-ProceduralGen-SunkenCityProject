@@ -58,3 +58,13 @@ def read_bin_generator(filename):
             # Assume 16x16 footprint, calculate height
             height = len(arr) // 256
             yield cx, cz, arr.reshape((16, height, 16)), palette
+
+
+def read_bin_palette(filename):
+    """Return the stored palette for a compressed .bin dump."""
+    with open(filename, 'rb') as f:
+        if f.read(4) != b'EROS':
+            raise ValueError("Invalid magic while reading palette")
+        ptr = struct.unpack('<Q', f.read(8))[0]
+        f.seek(ptr)
+        return json.loads(f.read().decode('utf-8'))
