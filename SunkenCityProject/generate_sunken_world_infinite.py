@@ -7,7 +7,7 @@ REAL-TIME Sunken City Generator.
 3. Adapts to terrain heightmap on the fly.
 
 Usage:
-  python SunkenCityProject/generate_sunken_world_infinite.py --shards shards/WestonSunken --radius 8
+  python SunkenCityProject/generate_sunken_world_infinite.py --shards shards/WestonSunken --radius 5
 """
 import argparse
 import json
@@ -29,8 +29,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from normalise_block import normalise_block
 
 # --- CONFIG ---
-CITY_SCALE = 0.003       # Lower = Larger contiguous city areas
-CLUSTER_THRESHOLD = 0.3  # Lower = More land, less ocean gap
+CITY_SCALE = 0.01       # Lower = Larger contiguous city areas
+CLUSTER_THRESHOLD = 0.4  # Lower = More land, less ocean gap
 FOUNDATION_BLOCK = Block("minecraft:deepslate")
 ORIGINAL_STREET_Y = 10 
 HISTORY_FILE = "generated_chunks.json"
@@ -222,14 +222,17 @@ def main():
         box_sx = (max_tx - min_tx + 1) * 16
         box_sz = (max_tz - min_tz + 1) * 16
         
+        seabed_map = None
         try:
             load_rect = Rect(ivec2(box_x, box_z), ivec2(box_sx, box_sz))
             world_slice = editor.loadWorldSlice(rect=load_rect)
-            seabed_map = world_slice.heightmaps['OCEAN_FLOOR']
+            # Try to get OCEAN_FLOOR heightmap, but fall back gracefully if corrupted
+            if 'OCEAN_FLOOR' in world_slice.heightmaps:
+                seabed_map = world_slice.heightmaps['OCEAN_FLOOR']
+            else:
+                print("Warning: OCEAN_FLOOR heightmap not available, using default seabed height")
         except Exception as e:
-            print(f"Failed to load world slice: {e}")
-            time.sleep(2)
-            continue
+            print(f"Warning: Could not load world slice heightmap ({e}), using default seabed height")
 
         count = 0
         for tx, tz in chunks_to_gen:
@@ -250,36 +253,30 @@ def main():
             local_z_center = (tz * 16) + 8 - box_z
             
             seabed_y = 30
-            if (0 <= local_x_center < seabed_map.shape[0] and 
+            if seabed_map is not None and (0 <= local_x_center < seabed_map.shape[0] and 
                 0 <= local_z_center < seabed_map.shape[1]):
                 seabed_y = seabed_map[local_x_center, local_z_center]
             
-            y_offset = seabed_y - ORIGINAL_STREET_Y
             H = blocks.shape[1]
+
+            # Find lowest block in entire chunk to anchor it to ground
+            lowest_block_y = H
+            for x in range(16):
+                for z in range(16):
+                    for y in range(H):
+                        if blocks[x, y, z] != 0:
+                            lowest_block_y = min(lowest_block_y, y)
+                            break
+
+            # Calculate chunk-wide Y offset so lowest block lands at seabed
+            if lowest_block_y < H:
+                y_offset = seabed_y - lowest_block_y
+            else:
+                # No blocks in chunk, use default offset
+                y_offset = seabed_y - ORIGINAL_STREET_Y
 
             for x in range(16):
                 for z in range(16):
-                    col_lx = (tx * 16) + x - box_x
-                    col_lz = (tz * 16) + z - box_z
-                    
-                    col_floor = seabed_y
-                    if (0 <= col_lx < seabed_map.shape[0] and 
-                        0 <= col_lz < seabed_map.shape[1]):
-                        col_floor = seabed_map[col_lx, col_lz]
-
-                    # Find bottom of structure
-                    bottom_structure_y = -1
-                    for y in range(H):
-                         if blocks[x, y, z] != 0:
-                             bottom_structure_y = y + y_offset
-                             break
-                    
-                    # Extrude foundation
-                    if bottom_structure_y != -1 and bottom_structure_y > col_floor:
-                         depth = min(30, bottom_structure_y - col_floor)
-                         for i in range(depth):
-                             editor.placeBlock(ivec3(wx+x, bottom_structure_y - 1 - i, wz+z), FOUNDATION_BLOCK)
-
                     # Place Blocks
                     for y in range(H):
                         idx = blocks[x, y, z]
