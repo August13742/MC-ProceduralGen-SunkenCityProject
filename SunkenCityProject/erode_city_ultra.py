@@ -47,7 +47,7 @@ class UltraFastEroder:
             # Get replacements for this category
             replacements = self.category_replacements.get(category, [])
             if replacements:
-                # Pick transition based on weights
+                # Pick transition based on weights (cached if possible)
                 choices, weights = zip(*replacements)
                 new_block = random.choices(choices, weights=weights, k=1)[0]
         
@@ -58,6 +58,10 @@ class UltraFastEroder:
                 return "minecraft:air"
         
         return new_block
+    
+    def get_replacement_batch(self, block_names):
+        """Batch version for better performance."""
+        return [self.get_replacement(name) for name in block_names]
 
     def process_chunk(self, blocks, palette, cx, cz):
         """Apply CA physics with Numba optimization."""
@@ -66,18 +70,16 @@ class UltraFastEroder:
         # Pre-compute noise field for entire chunk
         noise_field = self._compute_noise_field(cx, cz, H)
         
-        # Build index-to-name mapping and ignored array
+        # Build mappings
         id_to_name = {i: name for i, name in enumerate(palette)}
+        name_to_idx = {name: i for i, name in enumerate(palette)}
         
         # Create boolean array for ignored indices
-        max_idx = max(id_to_name.keys()) + 1 if id_to_name else 1
+        max_idx = len(palette)
         ignored_arr = np.zeros(max_idx, dtype=np.bool_)
-        for i, name in id_to_name.items():
-            if name in self.ignored:
+        for i in range(max_idx):
+            if palette[i] in self.ignored:
                 ignored_arr[i] = True
-        
-        # Create lookup table for palette index
-        name_to_idx = {name: i for i, name in enumerate(palette)}
         
         # Process with Numba
         current_grid = blocks.copy()
@@ -91,24 +93,36 @@ class UltraFastEroder:
                 snapshot, noise_field, threshold, ignored_arr, H
             )
             
-            # Apply replacements based on changes
-            for i in range(len(change_x)):
-                x, y, z, idx = change_x[i], change_y[i], change_z[i], change_idx[i]
-                name = id_to_name[idx]
-                new_name = self.get_replacement(name)
+            # Batch process replacements
+            num_changes = len(change_x)
+            if num_changes == 0:
+                continue
+            
+            # Get all block names that need replacement
+            block_names = [id_to_name[change_idx[i]] for i in range(num_changes)]
+            new_names = self.get_replacement_batch(block_names)
+            
+            # Apply replacements
+            for i in range(num_changes):
+                x, y, z = change_x[i], change_y[i], change_z[i]
+                name = block_names[i]
+                new_name = new_names[i]
                 
                 if new_name != name:
-                    # Update palette if needed
+                    # Get or add to palette
                     if new_name not in name_to_idx:
+                        new_idx = len(palette)
                         palette.append(new_name)
-                        new_idx = len(palette) - 1
                         name_to_idx[new_name] = new_idx
                         id_to_name[new_idx] = new_name
                         # Expand ignored_arr if needed
                         if new_idx >= len(ignored_arr):
-                            new_ignored = np.zeros(new_idx + 1, dtype=np.bool_)
-                            new_ignored[:len(ignored_arr)] = ignored_arr
+                            old_len = len(ignored_arr)
+                            new_ignored = np.zeros(new_idx + 10, dtype=np.bool_)  # Extra buffer
+                            new_ignored[:old_len] = ignored_arr
                             ignored_arr = new_ignored
+                            if new_name in self.ignored:
+                                ignored_arr[new_idx] = True
                     else:
                         new_idx = name_to_idx[new_name]
                     
@@ -118,24 +132,25 @@ class UltraFastEroder:
         # This ensures even structurally-stable blocks get weathered
         material_decay_rate = self.settings.get("material_decay_rate", 0.3)
         if material_decay_rate > 0:
-            for x in range(16):
-                for z in range(16):
-                    for y in range(H):
+            ignored_len = len(ignored_arr)
+            for y in range(H):  # Y-first for better cache locality
+                for x in range(16):
+                    for z in range(16):
                         idx = current_grid[x, y, z]
                         if idx == 0:  # Skip air
                             continue
-                        if idx < len(ignored_arr) and ignored_arr[idx]:
+                        if idx < ignored_len and ignored_arr[idx]:
                             continue
                         
-                        name = id_to_name.get(idx, "")
-                        if name in self.block_to_category:
+                        name = id_to_name.get(idx)
+                        if name and name in self.block_to_category:
                             # Block has a category - apply material decay
                             if random.random() < material_decay_rate:
                                 new_name = self.get_replacement(name)
                                 if new_name != name:
                                     if new_name not in name_to_idx:
+                                        new_idx = len(palette)
                                         palette.append(new_name)
-                                        new_idx = len(palette) - 1
                                         name_to_idx[new_name] = new_idx
                                         id_to_name[new_idx] = new_name
                                     else:
@@ -145,13 +160,21 @@ class UltraFastEroder:
         return current_grid, palette
     
     def _compute_noise_field(self, cx, cz, H):
-        """Pre-compute noise for entire chunk (vectorized)."""
+        """Pre-compute noise for entire chunk (optimized)."""
         noise_field = np.zeros((16, H, 16), dtype=np.float32)
         
-        for x in range(16):
-            for z in range(16):
-                for y in range(H):
-                    n_val = (self.noise.noise3(x*0.1 + cx*16, y*0.1, z*0.1 + cz*16) + 1) / 2
+        # Create coordinate grids
+        cx_offset = cx * 16
+        cz_offset = cz * 16
+        
+        # Compute noise in chunks for better cache locality
+        for y in range(H):
+            y_scaled = y * 0.1
+            for x in range(16):
+                x_scaled = (x + cx_offset) * 0.1
+                for z in range(16):
+                    z_scaled = (z + cz_offset) * 0.1
+                    n_val = (self.noise.noise3(x_scaled, y_scaled, z_scaled) + 1) / 2
                     noise_field[x, y, z] = n_val * 0.4
         
         return noise_field
@@ -257,23 +280,33 @@ def main():
     import time
     start_time = time.time()
     
+    # Calculate optimal chunk size for imap
+    chunksize = max(1, len(chunks) // (num_workers * 4))
+    
     # Use multiprocessing pool with progress bar
     with Pool(processes=num_workers, initializer=_init_worker, initargs=(config,)) as pool:
         processed_chunks = list(tqdm(
-            pool.imap(_process_chunk_worker, chunks),
+            pool.imap(_process_chunk_worker, chunks, chunksize=chunksize),
             total=len(chunks),
             desc="Eroding chunks",
-            unit="chunk"
+            unit="chunk",
+            smoothing=0.1
         ))
     
     # Update global palette efficiently using a set
     print("Building global palette...")
     global_palette_set = set(global_palette)
-    for _, _, _, palette in tqdm(processed_chunks, desc="Building palette", unit="chunk"):
+    new_blocks = []
+    
+    for _, _, _, palette in processed_chunks:
         for block in palette:
             if block not in global_palette_set:
                 global_palette_set.add(block)
-                global_palette.append(block)
+                new_blocks.append(block)
+    
+    global_palette.extend(new_blocks)
+    if new_blocks:
+        print(f"  Added {len(new_blocks)} new blocks to palette")
     
     elapsed = time.time() - start_time
     print(f"\nProcessing completed in {elapsed:.2f} seconds")
@@ -281,23 +314,35 @@ def main():
     print(f"  Throughput: {len(chunks)/elapsed:.1f} chunks/sec")
     
     print("Writing output...")
+    total_compressed = 0
+    total_uncompressed = 0
+    
     with open(args.out, 'wb') as f:
         f.write(b'EROS')
-        f.write(struct.pack('<Q', 0))
+        f.write(struct.pack('<Q', 0))  # Placeholder for palette pointer
         
         for cx, cz, blocks, palette in tqdm(processed_chunks, desc="Writing chunks", unit="chunk"):
             raw = blocks.astype(np.uint16).tobytes()
-            comp = zlib.compress(raw)
+            comp = zlib.compress(raw, level=6)  # Balance speed/compression
+            total_uncompressed += len(raw)
+            total_compressed += len(comp)
             f.write(struct.pack('<iiiI', cx, cz, len(raw), len(comp)))
             f.write(comp)
             
         ptr = f.tell()
-        f.write(json.dumps(global_palette).encode('utf-8'))
+        palette_json = json.dumps(global_palette)
+        f.write(palette_json.encode('utf-8'))
         f.seek(4)
         f.write(struct.pack('<Q', ptr))
-        
+    
+    compression_ratio = 100 * (1 - total_compressed / total_uncompressed) if total_uncompressed > 0 else 0
+    
+    print(f"\n{'='*60}")
     print(f"Done! Saved to {args.out}")
-    print(f"Final palette contains {len(global_palette)} unique blocks.")
+    print(f"  Chunks: {len(processed_chunks)}")
+    print(f"  Palette: {len(global_palette)} unique blocks")
+    print(f"  Compression: {compression_ratio:.1f}% ({total_compressed:,} / {total_uncompressed:,} bytes)")
+    print(f"{'='*60}")
 
 if __name__ == "__main__":
     main()

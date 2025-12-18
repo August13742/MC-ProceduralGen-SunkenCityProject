@@ -206,6 +206,12 @@ def normalise_block(block_id: str, props: Dict[str, Any]) -> Tuple[str, Dict[str
         bid = "minecraft:iron_bars"
         # connectivity flags (north/east/south/west) are valid; keep them
 
+    # --- Chain --------------------------------------------------------------
+    if bid == "minecraft:chain":
+        # Chain block is valid in vanilla; just ensure we clear unknown properties
+        props.pop("material", None)
+        # connectivity flags (north/east/south/west) are valid; keep them
+
     # --- Buttons ------------------------------------------------------------
     if bid == "minecraft:button":
         # universal "button" => either stone_button or <wood>_button
