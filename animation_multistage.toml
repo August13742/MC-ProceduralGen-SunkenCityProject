@@ -1,0 +1,47 @@
+# GDMC Construction Animation — Multi-Stage Config (build + erode)
+# =================================================================
+
+[source]
+source_file = "blueprints_cleaned/bp_000.json"
+source_format = "blueprint_json"
+
+[placement]
+origin_x = 0
+origin_y = 64
+origin_z = 0
+gdmc_host = "localhost:9000"
+clear_area_first = true
+use_player_tracking = false
+
+[timing]
+per_block_delay_ms = 0
+per_layer_delay_ms = 200
+flush_every_n_blocks = 64
+
+[preview]
+preview_enabled = true
+preview_output_dir = "output"
+preview_view = "iso_right"
+preview_width = 512
+preview_height = 512
+preview_bg_colour = [30, 30, 30]
+preview_output_format = "gif"
+preview_fps = 10
+preview_hold_last_frames = 15
+
+# Stage 1: build the structure bottom-up
+[[stages]]
+name = "construct"
+mode = "build"
+strategy = "y_up"
+per_layer_delay_ms = 200
+
+# Stage 2: erode and animate the crumbling top-down
+[[stages]]
+name = "erode"
+mode = "erode"
+strategy = "y_down"
+per_layer_delay_ms = 150
+erosion_seed = 1337
+erosion_aggression = 0.6
+erosion_passes = 3

@@ -180,3 +180,9 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 shards/
+
+# Rendered output (debug PNGs, animation GIFs/MP4s)
+output/
+frames/
+*.gif
+*.mp4

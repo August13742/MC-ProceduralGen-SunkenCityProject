@@ -281,9 +281,13 @@ def main():
                     for y in range(H):
                         idx = blocks[x, y, z]
                         if idx == 0: continue
+                        block = loader.palette[idx]
+                        # Skip water blocks
+                        if block.id == "minecraft:water":
+                            continue
                         world_y = y + y_offset
                         if 0 <= world_y < 320:
-                            editor.placeBlock(ivec3(wx+x, world_y, wz+z), loader.palette[idx])
+                            editor.placeBlock(ivec3(wx+x, world_y, wz+z), block)
 
             generated_chunks.add(f"{tx},{tz}")
             count += 1
