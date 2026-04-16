@@ -1,22 +1,29 @@
 # Animation System — Architecture & Onboarding
 
 Quick-start reference for the GDMC **Construction Animation System**.
-Generates frame-by-frame construction sequences from block blueprints,
-outputting to GIF/MP4 for offline preview or placing blocks live in
-Minecraft via the GDMC-HTTP interface.
+It supports three practical workflows:
+
+1. build a structure live in Minecraft
+2. clear / rebuild it in-game without tabbing back to the shell
+3. apply in-place modifications by diffing the current built state against a
+   target blueprint or configured stage sequence
+
+Offline preview still renders GIF/MP4 without needing Minecraft.
 
 ## Directory Layout
 
 ```
 animation/
-├── cli.py               # Argparse CLI (animate / preview subcommands)
+├── cli.py               # Argparse CLI (animate / modify / control / preview / clear / status)
 ├── config.py            # TOML → frozen dataclass config loader
+├── controller.py        # In-game trigger controller (clear / rebuild / modify)
+├── session.py           # Persisted origin + logical block-state snapshot
 ├── strategies.py        # Block ordering generators (5 strategies)
 ├── preview.py           # Offline renderer: IncrementalScene → GIF/MP4/PNG
 ├── placer.py            # GDMC live placement engine (gdpc Editor)
 ├── stages.py            # Multi-stage orchestrator (build → erode → diff)
 ├── diff.py              # Block-level diff between two blueprint states
-├── player_tracking.py   # Player position polling via GDMC HTTP
+├── player_tracking.py   # Player pose polling + grounded player-relative spawn
 ├── __main__.py          # Entry: python -m animation → cli.main()
 └── test_building.json   # Sample 974-block blueprint fixture
 ```
@@ -28,37 +35,45 @@ animation/
        │
        ├── load_config_with_stages()
        │     AnimationConfig (frozen dataclass)
-       │     list[Stage] (optional — empty = single-stage mode)
+       │     list[Stage] (optional)
+       │
+       ▼
+  Session State
+       │
+       ├── .animation_session.json         # origin + bounds + metadata
+       └── .animation_session_blocks.json  # current logical block state
        │
        ▼
   Origin Resolution
        │
-       ├── Static: origin_x/y/z from config
-       └── Dynamic: poll_player_position() via GDMC HTTP
+       ├── Reuse sticky origin from session if present
+       ├── Otherwise resolve from config origin
+       └── Or resolve player-relative spawn:
+             pose -> facing -> footprint-aware offset -> ground raycast
        │
        ▼
-  Block Loading
+  Block Loading / Target State
        │
-       └── load_blocks(config) → list[{dx, dy, dz, id, properties}]
-             Supports: blueprint_json, vps_prefab, raw_block_array
+       ├── build: load_blocks(config)
+       ├── modify: current session state vs target blueprint diff
+       └── multi-stage: resolve_stage_blocks(...)
        │
        ▼
   Strategy Generator
        │
-       └── get_strategy_generator(name, blocks) → BatchGenerator
-             Yields batches of blocks in animation order
+       └── get_strategy_generator(name, blocks) -> batch generator
        │
        ├────────────────────┐
        ▼                    ▼
-   [preview]            [animate]
+    [preview]      [animate / modify / control]
        │                    │
-   IncrementalScene     gdpc Editor
-   + render_single_view    placeBlock per batch
-   per-batch frame         flush + sleep
+    IncrementalScene     gdpc Editor
+    + render_single_view    placeBlock per batch
+    per-batch frame         flush + sleep
        │                    │
        ▼                    ▼
-   _write_output()      Minecraft world
-   → GIF / MP4 / PNG
+    _write_output()      Minecraft world
+    → GIF / MP4 / PNG
 ```
 
 ## Ordering Strategies
@@ -101,6 +116,45 @@ IncrementalScene(adjacency_enabled=True)
 Each frame, `render_single_view()` is called on the scene to produce a
 base64 PNG, which is decoded into a PIL Image and accumulated.
 
+## Modes
+
+### 1. Build
+
+`animate` builds the configured `source_file`.
+
+- if a matching session exists: reuse its stored origin
+- otherwise: resolve a fresh origin (usually player-relative)
+- after completion: persist both session metadata and the resulting block state
+
+### 2. Rebuild / Clear (in-game)
+
+`control` keeps a lightweight trigger listener alive:
+
+- `/trigger animctl set 1` -> clear current build and forget sticky origin
+- `/trigger animctl set 2` -> build/rebuild from config
+- `/trigger animctl set 3` -> modify current build in place
+
+This minimises shell usage to a single long-running process.
+
+### 3. Modify / Upgrade
+
+`modify` transforms the currently-built structure in place.
+
+Two resolution paths exist:
+
+1. if non-`build` stages are configured: run those stages against the persisted
+   current state
+2. otherwise: diff the persisted current state against a target blueprint and
+   place only changed blocks
+
+Target blueprint selection order:
+
+1. `modify_source_file` if set
+2. otherwise `source_file`
+
+This is the current "upgrade" path: no full clear, no full rebuild, only the
+delta is placed.
+
 ## Multi-Stage System
 
 Stages enable sequencing of different animation phases (build, then erode,
@@ -113,8 +167,9 @@ then overlay modifications). Each stage has its own strategy and timing.
 | `diff_overlay` | Generic diff between previous state and a new source file |
 
 **State threading:** `iterate_stages()` maintains `current_state` across
-stages. Each stage receives the previous state and returns both the blocks
-to animate and the resulting state for the next stage.
+stages. The live placer also persists the final resulting state to
+`.animation_session_blocks.json`, so later modify passes can start from the
+actual previously-built logical state.
 
 **Diff computation** (`diff.py`): compares two block lists by position.
 Removals become `minecraft:air` placements so the strategy system handles
@@ -125,15 +180,22 @@ them without special-casing.
 ```toml
 [source]
 source_file = "blueprints_cleaned/bp_000.json"
+modify_source_file = "blueprints_cleaned/bp_001.json"  # Optional mode-3 target blueprint
 source_format = "blueprint_json"              # blueprint_json | vps_prefab | raw_block_array
 
 [placement]
 origin_x = 0
 origin_y = 64
 origin_z = 0
-gdmc_host = "localhost:9000"
+gdmc_host = "http://localhost:9000"
 clear_area_first = true
-use_player_tracking = false                   # true → origin from player position
+use_player_tracking = true                    # resolve relative to player by default
+use_ground_raycast = true                     # raycast target XZ down to ground
+player_clearance_blocks = 3                   # keep footprint away from player
+player_spawn_margin_blocks = 2                # extra gap beyond footprint depth
+enable_in_game_controls = true
+control_objective = "animctl"
+clear_item_drops_first = true
 
 [strategy]
 strategy = "y_up"                             # y_up | y_down | radial_out | random | structural_phases
@@ -175,29 +237,46 @@ erosion_aggression = 0.6
 erosion_passes = 3
 ```
 
-## Player Tracking
+## Player-Relative Placement
 
-When `use_player_tracking = true`, the system polls the GDMC server to find
-the nearest player's position and uses it as the placement origin.
+When `use_player_tracking = true`, placement is not on the player's face and
+not simply at the player's block position. The resolver computes a safe spawn:
 
-Two strategies are tried in order:
-1. `GET /players` — clean JSON endpoint (GDMC-HTTP 1.x+)
-2. `POST /command` with `data get entity @p Pos` — regex-parses NBT response
+1. poll nearest player pose (`Pos` + `Rotation`)
+2. derive facing direction from yaw
+3. compute a forward offset from the actual structure footprint depth
+4. add configured clearance + margin so the player is outside the build bounds
+5. raycast the chosen X/Z column downward to stable ground
+6. anchor the blueprint so its lowest layer sits on that ground
 
-`poll_player_position()` retries up to 10 times at 1-second intervals.
-Raises `RuntimeError` if no player is found.
+After the first build, the resolved origin is sticky and reused until `clear`
+deletes the session.
+
+## Session State
+
+Two files are persisted in the working directory:
+
+- `.animation_session.json`: origin, bounds, source/config metadata
+- `.animation_session_blocks.json`: current logical block list
+
+This enables:
+
+- sticky placement origin between builds
+- in-game clear/rebuild behaviour
+- in-place modify/upgrade passes without rebuilding from scratch
 
 ## GDMC Live Placer
 
-`run_animation()` / `run_multistage_animation()` in `placer.py`:
+`run_animation()` / `run_multistage_animation()` / `run_modify_animation()` in `placer.py`:
 
 1. Create `gdpc.Editor(buffering=True, host=config.gdmc_host)`
-2. If `clear_area_first`: fill bounding box with air, flush
+2. If clearing is required: fill bounding box with air with `doBlockUpdates=False`
+   and `spawnDrops=False`, then purge dropped item entities in the cleared box
 3. Iterate strategy batches:
    - `editor.placeBlock((ox+dx, oy+dy, oz+dz), Block(id, props))`
    - Flush every `flush_every_n_blocks` blocks
    - Sleep `per_block_delay_ms` between blocks, `per_layer_delay_ms` between batches
-4. Progress logged every 5 batches
+4. Persist resulting logical state to session files
 
 ## CLI Usage
 
@@ -207,8 +286,25 @@ python -m animation preview --config animation_config.toml
 python -m animation preview --config animation_config.toml --format mp4 --output output/
 
 # Live placement (requires GDMC-HTTP mod running)
-python -m animation animate --config animation_config.toml
+uv run python -m animation animate --config animation_config.toml
+
+# In-place modify / upgrade
+uv run python -m animation modify --config animation_config.toml
+
+# One-shell in-game controller
+uv run python -m animation control --config animation_config.toml
+
+# Hard reset build + sticky origin
+uv run python -m animation clear
 ```
+
+## In-Game Controls
+
+With `control` running:
+
+- `/trigger animctl set 1` -> clear current build and forget origin/state
+- `/trigger animctl set 2` -> build/rebuild from config
+- `/trigger animctl set 3` -> modify current build in place
 
 ## Dependencies
 
@@ -219,7 +315,7 @@ python -m animation animate --config animation_config.toml
 
 Manage with UV:
 ```bash
-cd Minecraft-Voxel-Renderer && uv sync
+uv sync
 ```
 
 ## Key Design Decisions
@@ -227,4 +323,4 @@ cd Minecraft-Voxel-Renderer && uv sync
 1. **Incremental scene updates** — only modified blocks are re-meshed per frame. Adjacency re-resolution is scoped to affected neighbours only.
 2. **Strategy/timing separation** — ordering logic is pure (generators yielding batches), timing is applied by the consumer (placer or preview renderer). This makes strategies testable and reusable.
 3. **Frozen config** — `AnimationConfig` is a frozen dataclass. Use `dataclasses.replace()` to derive variants.
-4. **Diff-based erosion** — erosion stages do not re-animate the entire structure. Only the delta (removed/mutated blocks) is animated, with removals converted to air placements.
+4. **Diff-based modification** — erosion, overlay, and upgrade flows all reduce to a block diff. Only the delta is animated or placed; the whole structure is not rebuilt unless explicitly requested.

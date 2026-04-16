@@ -1,0 +1,6376 @@
+{
+  "blocks": [
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 0,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 1,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 2,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 3,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 4,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 5,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 6,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 7,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 8,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 9,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 10,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 11,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": -1,
+      "dz": 12,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 0,
+      "dy": 10,
+      "dz": 6,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "east",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": -1,
+      "dz": 0,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": -1,
+      "dz": 1,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": -1,
+      "dz": 2,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": -1,
+      "dz": 3,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": -1,
+      "dz": 4,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": -1,
+      "dz": 5,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": -1,
+      "dz": 6,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": -1,
+      "dz": 7,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": -1,
+      "dz": 8,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": -1,
+      "dz": 9,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": -1,
+      "dz": 10,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": -1,
+      "dz": 11,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": -1,
+      "dz": 12,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 5,
+      "dz": 0,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 5,
+      "dz": 1,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 5,
+      "dz": 11,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 5,
+      "dz": 12,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 6,
+      "dz": 1,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 6,
+      "dz": 2,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 6,
+      "dz": 10,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 6,
+      "dz": 11,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 7,
+      "dz": 2,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 7,
+      "dz": 3,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 7,
+      "dz": 9,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 7,
+      "dz": 10,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 8,
+      "dz": 3,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 8,
+      "dz": 8,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 8,
+      "dz": 9,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 9,
+      "dz": 4,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 9,
+      "dz": 5,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 9,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 9,
+      "dz": 7,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 9,
+      "dz": 8,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 1,
+      "dy": 10,
+      "dz": 6,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": -1,
+      "dz": 0,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": -1,
+      "dz": 1,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": -1,
+      "dz": 2,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": -1,
+      "dz": 3,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": -1,
+      "dz": 4,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": -1,
+      "dz": 5,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": -1,
+      "dz": 6,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": -1,
+      "dz": 7,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": -1,
+      "dz": 8,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": -1,
+      "dz": 9,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": -1,
+      "dz": 10,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": -1,
+      "dz": 11,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": -1,
+      "dz": 12,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 0,
+      "dz": 4,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 0,
+      "dz": 8,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 1,
+      "dz": 4,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 1,
+      "dz": 8,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 2,
+      "dz": 4,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 2,
+      "dz": 8,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 3,
+      "dz": 4,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 3,
+      "dz": 8,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 4,
+      "dz": 3,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 4,
+      "dz": 4,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 4,
+      "dz": 5,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 4,
+      "dz": 7,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 4,
+      "dz": 8,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 4,
+      "dz": 9,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 5,
+      "dz": 0,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 5,
+      "dz": 1,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 5,
+      "dz": 2,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 5,
+      "dz": 3,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 5,
+      "dz": 4,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 5,
+      "dz": 5,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 5,
+      "dz": 6,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 5,
+      "dz": 7,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 5,
+      "dz": 8,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 5,
+      "dz": 9,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 5,
+      "dz": 10,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 5,
+      "dz": 11,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 5,
+      "dz": 12,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 6,
+      "dz": 1,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 6,
+      "dz": 2,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 6,
+      "dz": 3,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 6,
+      "dz": 4,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 6,
+      "dz": 5,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 6,
+      "dz": 6,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 6,
+      "dz": 7,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 6,
+      "dz": 8,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 6,
+      "dz": 9,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 6,
+      "dz": 10,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 6,
+      "dz": 11,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 7,
+      "dz": 2,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 7,
+      "dz": 3,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 7,
+      "dz": 4,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 7,
+      "dz": 5,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 7,
+      "dz": 6,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 7,
+      "dz": 7,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 7,
+      "dz": 8,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 7,
+      "dz": 9,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 7,
+      "dz": 10,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 8,
+      "dz": 3,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 8,
+      "dz": 4,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 8,
+      "dz": 5,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 8,
+      "dz": 6,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 8,
+      "dz": 7,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 8,
+      "dz": 8,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 8,
+      "dz": 9,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 9,
+      "dz": 4,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 9,
+      "dz": 5,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 9,
+      "dz": 6,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 9,
+      "dz": 7,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 2,
+      "dy": 9,
+      "dz": 8,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 2,
+      "dy": 10,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "bottom"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 0,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 1,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 2,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 3,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 4,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 5,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 6,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 7,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 8,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 9,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 10,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 11,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": -1,
+      "dz": 12,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 0,
+      "dz": 3,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "east",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 0,
+      "dz": 4,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 0,
+      "dz": 5,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "east",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 0,
+      "dz": 6,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "east",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 0,
+      "dz": 7,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "east",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 0,
+      "dz": 8,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 0,
+      "dz": 9,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "east",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 1,
+      "dz": 3,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 1,
+      "dz": 4,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 1,
+      "dz": 5,
+      "id": "minecraft:glass_pane",
+      "props": {
+        "east": "false",
+        "north": "true",
+        "south": "true",
+        "west": "false"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 1,
+      "dz": 6,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 1,
+      "dz": 7,
+      "id": "minecraft:glass_pane",
+      "props": {
+        "east": "false",
+        "north": "true",
+        "south": "true",
+        "west": "false"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 1,
+      "dz": 8,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 1,
+      "dz": 9,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 2,
+      "dz": 3,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 2,
+      "dz": 4,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 2,
+      "dz": 5,
+      "id": "minecraft:glass_pane",
+      "props": {
+        "east": "false",
+        "north": "true",
+        "south": "true",
+        "west": "false"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 2,
+      "dz": 6,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 2,
+      "dz": 7,
+      "id": "minecraft:glass_pane",
+      "props": {
+        "east": "false",
+        "north": "true",
+        "south": "true",
+        "west": "false"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 2,
+      "dz": 8,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 2,
+      "dz": 9,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 3,
+      "dz": 3,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 3,
+      "dz": 4,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 3,
+      "dz": 5,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 3,
+      "dz": 6,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 3,
+      "dz": 7,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 3,
+      "dz": 8,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 3,
+      "dz": 9,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 4,
+      "dz": 2,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "east",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 4,
+      "dz": 3,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 4,
+      "dz": 4,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 4,
+      "dz": 5,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 4,
+      "dz": 6,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 4,
+      "dz": 7,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 4,
+      "dz": 8,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 4,
+      "dz": 9,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 4,
+      "dz": 10,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "east",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 5,
+      "dz": 0,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 5,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 5,
+      "dz": 2,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 5,
+      "dz": 3,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 5,
+      "dz": 4,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 5,
+      "dz": 5,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 5,
+      "dz": 6,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "x"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 5,
+      "dz": 7,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 5,
+      "dz": 8,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 5,
+      "dz": 9,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 5,
+      "dz": 10,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 5,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 3,
+      "dy": 5,
+      "dz": 12,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 6,
+      "dz": 1,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 6,
+      "dz": 6,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 6,
+      "dz": 11,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 7,
+      "dz": 2,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 7,
+      "dz": 10,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 8,
+      "dz": 3,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 8,
+      "dz": 9,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 9,
+      "dz": 4,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 9,
+      "dz": 5,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 9,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 9,
+      "dz": 7,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 9,
+      "dz": 8,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 3,
+      "dy": 10,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "bottom"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": -1,
+      "dz": 0,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": -1,
+      "dz": 1,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": -1,
+      "dz": 2,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": -1,
+      "dz": 3,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": -1,
+      "dz": 4,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": -1,
+      "dz": 5,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": -1,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": -1,
+      "dz": 7,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": -1,
+      "dz": 8,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": -1,
+      "dz": 9,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": -1,
+      "dz": 10,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": -1,
+      "dz": 11,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": -1,
+      "dz": 12,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 0,
+      "dz": 2,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": 0,
+      "dz": 10,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": 1,
+      "dz": 2,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 1,
+      "dz": 10,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 2,
+      "dz": 2,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 2,
+      "dz": 10,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 3,
+      "dz": 2,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 3,
+      "dz": 10,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 4,
+      "dz": 1,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 4,
+      "dz": 2,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 4,
+      "dz": 10,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 4,
+      "dz": 11,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 5,
+      "dz": 0,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 5,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": 5,
+      "dz": 2,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": 5,
+      "dz": 6,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "x"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 5,
+      "dz": 10,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": 5,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 4,
+      "dy": 5,
+      "dz": 12,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 6,
+      "dz": 1,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 6,
+      "dz": 2,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 6,
+      "dz": 10,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 6,
+      "dz": 11,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 7,
+      "dz": 2,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 7,
+      "dz": 10,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 8,
+      "dz": 3,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 8,
+      "dz": 9,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 9,
+      "dz": 4,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 9,
+      "dz": 5,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 9,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 9,
+      "dz": 7,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 9,
+      "dz": 8,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 4,
+      "dy": 10,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "bottom"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": -1,
+      "dz": 0,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": -1,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 5,
+      "dy": -1,
+      "dz": 2,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": -1,
+      "dz": 3,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": -1,
+      "dz": 4,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": -1,
+      "dz": 5,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": -1,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": -1,
+      "dz": 7,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": -1,
+      "dz": 8,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": -1,
+      "dz": 9,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": -1,
+      "dz": 10,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": -1,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 5,
+      "dy": -1,
+      "dz": 12,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 0,
+      "dz": 1,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 0,
+      "dz": 11,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 1,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 5,
+      "dy": 1,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 5,
+      "dy": 2,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 5,
+      "dy": 2,
+      "dz": 10,
+      "id": "minecraft:oak_fence",
+      "props": {
+        "east": "false",
+        "north": "false",
+        "south": "true",
+        "west": "true"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 2,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 5,
+      "dy": 3,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 5,
+      "dy": 3,
+      "dz": 10,
+      "id": "minecraft:torch",
+      "props": {}
+    },
+    {
+      "dx": 5,
+      "dy": 3,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 5,
+      "dy": 4,
+      "dz": 0,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 4,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 5,
+      "dy": 4,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 5,
+      "dy": 4,
+      "dz": 12,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 5,
+      "dz": 0,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 5,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 5,
+      "dy": 5,
+      "dz": 6,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "x"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 5,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 5,
+      "dy": 5,
+      "dz": 12,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 6,
+      "dz": 1,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 6,
+      "dz": 11,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 7,
+      "dz": 2,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 7,
+      "dz": 10,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 8,
+      "dz": 3,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 8,
+      "dz": 9,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 9,
+      "dz": 4,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 9,
+      "dz": 5,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 9,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 9,
+      "dz": 7,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 9,
+      "dz": 8,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 5,
+      "dy": 10,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "bottom"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": -1,
+      "dz": 0,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": -1,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 6,
+      "dy": -1,
+      "dz": 2,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": -1,
+      "dz": 3,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": -1,
+      "dz": 4,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": -1,
+      "dz": 5,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": -1,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": -1,
+      "dz": 7,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": -1,
+      "dz": 8,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": -1,
+      "dz": 9,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": -1,
+      "dz": 10,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": -1,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 6,
+      "dy": -1,
+      "dz": 12,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 0,
+      "dz": 1,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 0,
+      "dz": 11,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 1,
+      "dz": 1,
+      "id": "minecraft:glass_pane",
+      "props": {
+        "east": "true",
+        "north": "false",
+        "south": "false",
+        "west": "true"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 1,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 6,
+      "dy": 2,
+      "dz": 1,
+      "id": "minecraft:glass_pane",
+      "props": {
+        "east": "true",
+        "north": "false",
+        "south": "false",
+        "west": "true"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 2,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 6,
+      "dy": 3,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 6,
+      "dy": 3,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 6,
+      "dy": 4,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 6,
+      "dy": 4,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 6,
+      "dy": 5,
+      "dz": 0,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 5,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 6,
+      "dy": 5,
+      "dz": 6,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "x"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 5,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 6,
+      "dy": 5,
+      "dz": 12,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 6,
+      "dz": 1,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 6,
+      "dz": 11,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 7,
+      "dz": 2,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 7,
+      "dz": 10,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 8,
+      "dz": 3,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 8,
+      "dz": 9,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 9,
+      "dz": 4,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 9,
+      "dz": 5,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 9,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 9,
+      "dz": 7,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 9,
+      "dz": 8,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 6,
+      "dy": 10,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "bottom"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": -1,
+      "dz": 0,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": -1,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 7,
+      "dy": -1,
+      "dz": 2,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": -1,
+      "dz": 3,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": -1,
+      "dz": 4,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": -1,
+      "dz": 5,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": -1,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": -1,
+      "dz": 7,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": -1,
+      "dz": 8,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": -1,
+      "dz": 9,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": -1,
+      "dz": 10,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": -1,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 7,
+      "dy": -1,
+      "dz": 12,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 0,
+      "dz": 1,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 0,
+      "dz": 11,
+      "id": "minecraft:oak_door",
+      "props": {
+        "facing": "south",
+        "half": "lower",
+        "hinge": "left",
+        "open": "false",
+        "powered": "false"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 1,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 7,
+      "dy": 1,
+      "dz": 11,
+      "id": "minecraft:oak_door",
+      "props": {
+        "facing": "south",
+        "half": "upper",
+        "hinge": "left",
+        "open": "false",
+        "powered": "false"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 2,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 7,
+      "dy": 2,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 7,
+      "dy": 3,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 7,
+      "dy": 3,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 7,
+      "dy": 4,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 7,
+      "dy": 4,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 7,
+      "dy": 5,
+      "dz": 0,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 5,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 7,
+      "dy": 5,
+      "dz": 2,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "z"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 5,
+      "dz": 3,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "z"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 5,
+      "dz": 4,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "z"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 5,
+      "dz": 5,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "z"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 5,
+      "dz": 6,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "z"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 5,
+      "dz": 7,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "z"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 5,
+      "dz": 8,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "z"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 5,
+      "dz": 9,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "z"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 5,
+      "dz": 10,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "z"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 5,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 7,
+      "dy": 5,
+      "dz": 12,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 6,
+      "dz": 1,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 6,
+      "dz": 2,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 6,
+      "dz": 6,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 6,
+      "dz": 10,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 6,
+      "dz": 11,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 7,
+      "dz": 2,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 7,
+      "dz": 6,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 7,
+      "dz": 10,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 8,
+      "dz": 3,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 8,
+      "dz": 6,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 8,
+      "dz": 9,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 9,
+      "dz": 4,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 9,
+      "dz": 5,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 9,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "double"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 9,
+      "dz": 7,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 9,
+      "dz": 8,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 7,
+      "dy": 10,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "bottom"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": -1,
+      "dz": 0,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": -1,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 8,
+      "dy": -1,
+      "dz": 2,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": -1,
+      "dz": 3,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": -1,
+      "dz": 4,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": -1,
+      "dz": 5,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": -1,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": -1,
+      "dz": 7,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": -1,
+      "dz": 8,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": -1,
+      "dz": 9,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": -1,
+      "dz": 10,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": -1,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 8,
+      "dy": -1,
+      "dz": 12,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 0,
+      "dz": 1,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 0,
+      "dz": 11,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 1,
+      "dz": 1,
+      "id": "minecraft:glass_pane",
+      "props": {
+        "east": "true",
+        "north": "false",
+        "south": "false",
+        "west": "true"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 1,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 8,
+      "dy": 2,
+      "dz": 1,
+      "id": "minecraft:glass_pane",
+      "props": {
+        "east": "true",
+        "north": "false",
+        "south": "false",
+        "west": "true"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 2,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 8,
+      "dy": 3,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 8,
+      "dy": 3,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 8,
+      "dy": 4,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 8,
+      "dy": 4,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 8,
+      "dy": 5,
+      "dz": 0,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 5,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 8,
+      "dy": 5,
+      "dz": 6,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "x"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 5,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 8,
+      "dy": 5,
+      "dz": 12,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 6,
+      "dz": 1,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 6,
+      "dz": 11,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 7,
+      "dz": 2,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 7,
+      "dz": 10,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 8,
+      "dz": 3,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 8,
+      "dz": 9,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 9,
+      "dz": 4,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 9,
+      "dz": 5,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 9,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 9,
+      "dz": 7,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 9,
+      "dz": 8,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 8,
+      "dy": 10,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "bottom"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": -1,
+      "dz": 0,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": -1,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 9,
+      "dy": -1,
+      "dz": 2,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": -1,
+      "dz": 3,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": -1,
+      "dz": 4,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": -1,
+      "dz": 5,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": -1,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": -1,
+      "dz": 7,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": -1,
+      "dz": 8,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": -1,
+      "dz": 9,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": -1,
+      "dz": 10,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": -1,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 9,
+      "dy": -1,
+      "dz": 12,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 0,
+      "dz": 1,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 0,
+      "dz": 11,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 1,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 9,
+      "dy": 1,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 9,
+      "dy": 2,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 9,
+      "dy": 2,
+      "dz": 10,
+      "id": "minecraft:oak_fence",
+      "props": {
+        "east": "true",
+        "north": "false",
+        "south": "true",
+        "west": "false"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 2,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 9,
+      "dy": 3,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 9,
+      "dy": 3,
+      "dz": 10,
+      "id": "minecraft:torch",
+      "props": {}
+    },
+    {
+      "dx": 9,
+      "dy": 3,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 9,
+      "dy": 4,
+      "dz": 0,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 4,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 9,
+      "dy": 4,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 9,
+      "dy": 4,
+      "dz": 12,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 5,
+      "dz": 0,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 5,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 9,
+      "dy": 5,
+      "dz": 6,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "x"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 5,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 9,
+      "dy": 5,
+      "dz": 12,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 6,
+      "dz": 1,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 6,
+      "dz": 11,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 7,
+      "dz": 2,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 7,
+      "dz": 10,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 8,
+      "dz": 3,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 8,
+      "dz": 9,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 9,
+      "dz": 4,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 9,
+      "dz": 5,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 9,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 9,
+      "dz": 7,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 9,
+      "dz": 8,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 9,
+      "dy": 10,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "bottom"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": -1,
+      "dz": 0,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": -1,
+      "dz": 1,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": -1,
+      "dz": 2,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 10,
+      "dy": -1,
+      "dz": 3,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": -1,
+      "dz": 4,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": -1,
+      "dz": 5,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": -1,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": -1,
+      "dz": 7,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": -1,
+      "dz": 8,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": -1,
+      "dz": 9,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": -1,
+      "dz": 10,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 10,
+      "dy": -1,
+      "dz": 11,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": -1,
+      "dz": 12,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 0,
+      "dz": 2,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 10,
+      "dy": 0,
+      "dz": 10,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 10,
+      "dy": 1,
+      "dz": 2,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 1,
+      "dz": 10,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 2,
+      "dz": 2,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 2,
+      "dz": 10,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 3,
+      "dz": 2,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 3,
+      "dz": 10,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 4,
+      "dz": 1,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 4,
+      "dz": 2,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 4,
+      "dz": 10,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 4,
+      "dz": 11,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 5,
+      "dz": 0,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 5,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 10,
+      "dy": 5,
+      "dz": 2,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 10,
+      "dy": 5,
+      "dz": 6,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "x"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 5,
+      "dz": 10,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 10,
+      "dy": 5,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 10,
+      "dy": 5,
+      "dz": 12,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 6,
+      "dz": 1,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 6,
+      "dz": 2,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 6,
+      "dz": 10,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 6,
+      "dz": 11,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 7,
+      "dz": 2,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 7,
+      "dz": 10,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 8,
+      "dz": 3,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 8,
+      "dz": 9,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 9,
+      "dz": 4,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 9,
+      "dz": 5,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 9,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 9,
+      "dz": 7,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 9,
+      "dz": 8,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 10,
+      "dy": 10,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "bottom"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": -1,
+      "dz": 0,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": -1,
+      "dz": 1,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": -1,
+      "dz": 2,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": -1,
+      "dz": 3,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": -1,
+      "dz": 4,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": -1,
+      "dz": 5,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": -1,
+      "dz": 6,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": -1,
+      "dz": 7,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": -1,
+      "dz": 8,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": -1,
+      "dz": 9,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": -1,
+      "dz": 10,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": -1,
+      "dz": 11,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": -1,
+      "dz": 12,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 0,
+      "dz": 3,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "west",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 0,
+      "dz": 4,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 0,
+      "dz": 5,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "west",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 0,
+      "dz": 6,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "west",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 0,
+      "dz": 7,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "west",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 0,
+      "dz": 8,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 0,
+      "dz": 9,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "west",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 1,
+      "dz": 3,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 1,
+      "dz": 4,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 1,
+      "dz": 5,
+      "id": "minecraft:glass_pane",
+      "props": {
+        "east": "false",
+        "north": "true",
+        "south": "true",
+        "west": "false"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 1,
+      "dz": 6,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 1,
+      "dz": 7,
+      "id": "minecraft:glass_pane",
+      "props": {
+        "east": "false",
+        "north": "true",
+        "south": "true",
+        "west": "false"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 1,
+      "dz": 8,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 1,
+      "dz": 9,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 2,
+      "dz": 3,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 2,
+      "dz": 4,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 2,
+      "dz": 5,
+      "id": "minecraft:glass_pane",
+      "props": {
+        "east": "false",
+        "north": "true",
+        "south": "true",
+        "west": "false"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 2,
+      "dz": 6,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 2,
+      "dz": 7,
+      "id": "minecraft:glass_pane",
+      "props": {
+        "east": "false",
+        "north": "true",
+        "south": "true",
+        "west": "false"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 2,
+      "dz": 8,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 2,
+      "dz": 9,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 3,
+      "dz": 3,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 3,
+      "dz": 4,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 3,
+      "dz": 5,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 3,
+      "dz": 6,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 3,
+      "dz": 7,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 3,
+      "dz": 8,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 3,
+      "dz": 9,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 4,
+      "dz": 2,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "west",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 4,
+      "dz": 3,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 4,
+      "dz": 4,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 4,
+      "dz": 5,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 4,
+      "dz": 6,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 4,
+      "dz": 7,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 4,
+      "dz": 8,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 4,
+      "dz": 9,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 4,
+      "dz": 10,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "west",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 5,
+      "dz": 0,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 5,
+      "dz": 1,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 5,
+      "dz": 2,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 5,
+      "dz": 3,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 5,
+      "dz": 4,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 5,
+      "dz": 5,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 5,
+      "dz": 6,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "x"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 5,
+      "dz": 7,
+      "id": "minecraft:stone_brick_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 5,
+      "dz": 8,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 5,
+      "dz": 9,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 5,
+      "dz": 10,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 5,
+      "dz": 11,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 11,
+      "dy": 5,
+      "dz": 12,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 6,
+      "dz": 1,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 6,
+      "dz": 6,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 6,
+      "dz": 11,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 7,
+      "dz": 2,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 7,
+      "dz": 10,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 8,
+      "dz": 3,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 8,
+      "dz": 9,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 9,
+      "dz": 4,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 9,
+      "dz": 5,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 9,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 9,
+      "dz": 7,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 9,
+      "dz": 8,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 11,
+      "dy": 10,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "bottom"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": -1,
+      "dz": 0,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": -1,
+      "dz": 1,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": -1,
+      "dz": 2,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": -1,
+      "dz": 3,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": -1,
+      "dz": 4,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": -1,
+      "dz": 5,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": -1,
+      "dz": 6,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": -1,
+      "dz": 7,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": -1,
+      "dz": 8,
+      "id": "minecraft:dirt",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": -1,
+      "dz": 9,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": -1,
+      "dz": 10,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": -1,
+      "dz": 11,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": -1,
+      "dz": 12,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 0,
+      "dz": 4,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 0,
+      "dz": 8,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 1,
+      "dz": 4,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 1,
+      "dz": 8,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 2,
+      "dz": 4,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 2,
+      "dz": 8,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 3,
+      "dz": 4,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 3,
+      "dz": 8,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 4,
+      "dz": 3,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 4,
+      "dz": 4,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 4,
+      "dz": 5,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 4,
+      "dz": 7,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 4,
+      "dz": 8,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 4,
+      "dz": 9,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 5,
+      "dz": 0,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 5,
+      "dz": 1,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 5,
+      "dz": 2,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 5,
+      "dz": 3,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 5,
+      "dz": 4,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 5,
+      "dz": 5,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 5,
+      "dz": 6,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 5,
+      "dz": 7,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 5,
+      "dz": 8,
+      "id": "minecraft:chiseled_stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 5,
+      "dz": 9,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 5,
+      "dz": 10,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 5,
+      "dz": 11,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 5,
+      "dz": 12,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 6,
+      "dz": 1,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 6,
+      "dz": 2,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 6,
+      "dz": 3,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 6,
+      "dz": 4,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 6,
+      "dz": 5,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 6,
+      "dz": 6,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 6,
+      "dz": 7,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 6,
+      "dz": 8,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 6,
+      "dz": 9,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 6,
+      "dz": 10,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 6,
+      "dz": 11,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 7,
+      "dz": 2,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 7,
+      "dz": 3,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 7,
+      "dz": 4,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 7,
+      "dz": 5,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 7,
+      "dz": 6,
+      "id": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 7,
+      "dz": 7,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 7,
+      "dz": 8,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 7,
+      "dz": 9,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 7,
+      "dz": 10,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 8,
+      "dz": 3,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 8,
+      "dz": 4,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 8,
+      "dz": 5,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 8,
+      "dz": 6,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 8,
+      "dz": 7,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 8,
+      "dz": 8,
+      "id": "minecraft:spruce_log",
+      "props": {
+        "axis": "y"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 8,
+      "dz": 9,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 9,
+      "dz": 4,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 9,
+      "dz": 5,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 9,
+      "dz": 6,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 9,
+      "dz": 7,
+      "id": "minecraft:dark_oak_planks",
+      "props": {}
+    },
+    {
+      "dx": 12,
+      "dy": 9,
+      "dz": 8,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 12,
+      "dy": 10,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "bottom"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": -1,
+      "dz": 0,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": -1,
+      "dz": 1,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": -1,
+      "dz": 2,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": -1,
+      "dz": 3,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": -1,
+      "dz": 4,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": -1,
+      "dz": 5,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": -1,
+      "dz": 6,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": -1,
+      "dz": 7,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": -1,
+      "dz": 8,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": -1,
+      "dz": 9,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": -1,
+      "dz": 10,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": -1,
+      "dz": 11,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": -1,
+      "dz": 12,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 5,
+      "dz": 0,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 5,
+      "dz": 1,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 5,
+      "dz": 11,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 5,
+      "dz": 12,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 6,
+      "dz": 1,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 6,
+      "dz": 2,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 6,
+      "dz": 10,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 6,
+      "dz": 11,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 7,
+      "dz": 2,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 7,
+      "dz": 3,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 7,
+      "dz": 9,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 7,
+      "dz": 10,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 8,
+      "dz": 3,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 8,
+      "dz": 4,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 8,
+      "dz": 8,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 8,
+      "dz": 9,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 9,
+      "dz": 4,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 9,
+      "dz": 5,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 9,
+      "dz": 6,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 9,
+      "dz": 7,
+      "id": "minecraft:dark_oak_slab",
+      "props": {
+        "type": "top"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 9,
+      "dz": 8,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 13,
+      "dy": 10,
+      "dz": 6,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight"
+      }
+    },
+    {
+      "dx": 14,
+      "dy": -1,
+      "dz": 0,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 14,
+      "dy": -1,
+      "dz": 1,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 14,
+      "dy": -1,
+      "dz": 2,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 14,
+      "dy": -1,
+      "dz": 3,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 14,
+      "dy": -1,
+      "dz": 4,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 14,
+      "dy": -1,
+      "dz": 5,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 14,
+      "dy": -1,
+      "dz": 6,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 14,
+      "dy": -1,
+      "dz": 7,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 14,
+      "dy": -1,
+      "dz": 8,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 14,
+      "dy": -1,
+      "dz": 9,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 14,
+      "dy": -1,
+      "dz": 10,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 14,
+      "dy": -1,
+      "dz": 11,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 14,
+      "dy": -1,
+      "dz": 12,
+      "id": "minecraft:grass_block",
+      "props": {
+        "snowy": "false"
+      }
+    },
+    {
+      "dx": 14,
+      "dy": 10,
+      "dz": 6,
+      "id": "minecraft:dark_oak_stairs",
+      "props": {
+        "facing": "west",
+        "half": "top",
+        "shape": "straight"
+      }
+    }
+  ]
+}

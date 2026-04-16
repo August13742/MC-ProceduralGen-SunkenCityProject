@@ -8,16 +8,27 @@
 [source]
 source_file = "blueprints_cleaned/bp_000.json"
 source_format = "blueprint_json"
+# Optional target for mode 3 (modify/upgrade). When set, mode 3 diffs the
+# currently-built session state against this blueprint and applies only the
+# changed blocks.
+modify_source_file = "blueprints_cleaned/bp_001.json"
 
 [placement]
 origin_x = 0
 origin_y = 64
 origin_z = 0
-gdmc_host = "localhost:9000"
+gdmc_host = "http://localhost:9000"
 clear_area_first = true
 # When true, origin is auto-detected from the nearest player's position.
-# Overrides origin_x/y/z. Requires a player online on the GDMC server.
-use_player_tracking = false
+# The first animate run resolves a player-relative origin, then later animate
+# runs reuse that stored origin until `animation clear` resets it.
+use_player_tracking = true
+use_ground_raycast = true
+player_clearance_blocks = 3
+player_spawn_margin_blocks = 2
+enable_in_game_controls = true
+control_objective = "animctl"
+clear_item_drops_first = true
 
 [strategy]
 # Options: y_up, y_down, radial_out, random, structural_phases
@@ -26,10 +37,10 @@ strategy = "y_up"
 [timing]
 # Delay between individual blocks within a batch (ms).
 # Set to 0 for batch-only timing.
-per_block_delay_ms = 0
+per_block_delay_ms = 5
 
 # Delay between batches/layers (ms).
-per_layer_delay_ms = 200
+per_layer_delay_ms = 500
 
 # How many blocks to buffer before flushing to the GDMC server.
 flush_every_n_blocks = 64

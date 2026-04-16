@@ -132,17 +132,30 @@ def resolve_stage_blocks(
 def iterate_stages(
     stages: list[Stage],
     config: AnimationConfig,
+    initial_state: list[dict[str, Any]] | None = None,
 ) -> Generator[tuple[Stage, list[dict[str, Any]]], None, None]:
     """
     Yield ``(stage, blocks_to_animate)`` for each stage in sequence.
 
     Maintains the running block state across stages.
     """
-    current_state: list[dict[str, Any]] | None = None
+    current_state: list[dict[str, Any]] | None = initial_state
 
     for stage in stages:
         blocks, current_state = resolve_stage_blocks(stage, config, current_state)
         yield stage, blocks
+
+
+def resolve_final_stage_state(
+    stages: list[Stage],
+    config: AnimationConfig,
+    initial_state: list[dict[str, Any]] | None = None,
+) -> list[dict[str, Any]]:
+    """Resolve the final logical block state after a stage sequence."""
+    current_state: list[dict[str, Any]] | None = initial_state
+    for stage in stages:
+        _, current_state = resolve_stage_blocks(stage, config, current_state)
+    return current_state or []
 
 
 # ---------------------------------------------------------------------------

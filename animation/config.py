@@ -49,12 +49,13 @@ class AnimationConfig:
     # --- Source ---
     source_file: str
     source_format: SourceFormat = SourceFormat.BLUEPRINT_JSON
+    modify_source_file: str = ""
 
     # --- Placement target ---
     origin_x: int = 0
     origin_y: int = 64
     origin_z: int = 0
-    gdmc_host: str = "localhost:9000"
+    gdmc_host: str = "http://localhost:9000"
 
     # --- Strategy ---
     strategy: Strategy = Strategy.Y_UP
@@ -66,6 +67,11 @@ class AnimationConfig:
 
     # --- Pre-animation ---
     clear_area_first: bool = True
+
+    # --- Live controls ---
+    enable_in_game_controls: bool = True
+    control_objective: str = "animctl"
+    clear_item_drops_first: bool = True
 
     # --- Preview renderer ---
     preview_enabled: bool = False
@@ -79,7 +85,10 @@ class AnimationConfig:
     preview_hold_last_frames: int = 15  # Extra copies of last frame to pause at end
 
     # --- Player tracking ---
-    use_player_tracking: bool = False  # Auto-detect origin from player position
+    use_player_tracking: bool = True
+    use_ground_raycast: bool = True
+    player_clearance_blocks: int = 3
+    player_spawn_margin_blocks: int = 2
 
     # --- Structural phases config (only used when strategy == STRUCTURAL_PHASES) ---
     foundation_ids: tuple[str, ...] = (
@@ -182,6 +191,12 @@ def load_config(path: str | Path) -> AnimationConfig:
         c = flat["preview_bg_colour"]
         if isinstance(c, (list, tuple)) and len(c) == 3:
             flat["preview_bg_colour"] = (int(c[0]), int(c[1]), int(c[2]))
+
+    # Normalise gdmc_host: gdpc requires a full http:// URL
+    if "gdmc_host" in flat and not flat["gdmc_host"].startswith(
+        ("http://", "https://")
+    ):
+        flat["gdmc_host"] = "http://" + flat["gdmc_host"]
 
     # Filter to only known fields
     known = {f.name for f in AnimationConfig.__dataclass_fields__.values()}

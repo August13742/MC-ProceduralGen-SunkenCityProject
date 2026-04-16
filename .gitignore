@@ -186,3 +186,6 @@ output/
 frames/
 *.gif
 *.mp4
+
+# Animation session state
+.animation_session.json
